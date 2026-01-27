@@ -1,98 +1,97 @@
 ---
-title: "superun Cloud"
-description: "Build complex applications seamlessly"
+title: superun Cloud
+description: "无需构建复杂的应用程序"
 image: "https://b.ux-cdn.com/uxarts/files/t20251201143554/mm27xz4u.png"
 ---
 
-superun Cloud is a full-stack cloud platform that takes care of every part of your application — from the frontend your users see, to the backend that powers it behind the scenes. All you do is describe what you want directly in superun, and superun automatically generates both the frontend and backend, ready to run in the Cloud. Instead of managing hardware or complex infrastructure, you get on-demand access to hosting and compute that scale automatically as your app grows. superun Cloud utilizes Supabase's open-source foundation, which means you get a production-ready environment from day one, without needing to set up Supabase separately. You have the power of a production-ready database, real-time updates, and user auth — with none of the manual setup steps.
+superun Cloud 是一个全栈云平台,负责处理应用程序的每个部分 - 从用户看到的前端到在幕后为其提供支持的后端.您所要做的就是直接在 superun 中描述您想要的内容,superun 会自动生成前端和后端,准备在云中运行.您无需管理硬件或复杂的基础设施,而是可以按需访问托管和计算,并随着应用程序的增长而自动扩展. superun Cloud 利用 Supabase 的开源基础,这意味着您从第一天起就获得了一个生产就绪的环境,而无需单独设置 Supabase.您可以使用生产就绪的数据库,实时更新和用户身份验证,无需任何手动设置步骤.
 
-## Why choose superun Cloud
+## 为什么选择superun Cloud
 
-* **Scales as you grow**: From your first prototype to millions of users, superun scales seamlessly with your needs.
-* **Secure by default**: Enterprise-grade authentication, fine-grained access controls, and compliance best practices protect your app and data.
+* **随着您的成长而扩展**:从您的第一个原型到数百万用户,superun 可根据您的需求无缝扩展.
+* **默认安全**:企业级身份验证,细粒度访问控制和合规性最佳实践可保护您的应用程序和数据.
 
-## Enabling superun Cloud
+## 启用 superun Cloud
 
-By default, superun Cloud is enabled for your workspace. You can manage superun Cloud behavior for your projects in your user preferences: **build → services → superun cloud.**
+默认情况下,您的工作区启用 superun Cloud.您可以在用户首选项中管理项目的 superun Cloud 行为:**构建 → 服务 → superun Cloud. **
 
-### User preferences
+### 用户偏好
 
-The default setting for Cloud integration is **Ask each time**, meaning you decide whether to enable or disable Cloud for each project. You can change your preference anytime from **build → services → superun cloud.** superun prompts you when a feature requires backend functionality (for example, authentication). You have three options:
-* **Allow**: enable the integration for the current project.
-* **Deny**: decline the integration for this request (you may be asked again later).
-* **Adjust preferences**: change the default behavior for future projects (does not affect the current project).
+云集成的默认设置是**每次询问**,这意味着您决定是否为每个项目启用或禁用云.您可以随时从 **构建 → 服务 → superun Cloud 更改您的首选项. ** 当某个功能需要后端功能（例如身份验证）时,superun 会提示您.您有三个选择:
+* **允许**:启用当前项目的集成.
+* **拒绝**:拒绝此请求的集成（稍后可能会再次询问您）.
+* **调整首选项**:更改未来项目的默认行为（不影响当前项目）.
 
-### Configuring superun Cloud tools
+## 配置 superun Cloud 工具
 
-Each Cloud tool in your user preferences has three options:
-* **Always allow**: superun automatically performs the action, without asking for review or approval.
-* **Ask each time**: superun asks for your approval whenever the action is needed.
-* **Never allow**: superun blocks the action, informs you that Cloud access is required, and instructs you to enable Cloud.
+用户首选项中的每个云工具都有三个选项:
+* **始终允许**:superun 自动执行操作,无需请求审核或批准.
+* **每次都询问**:每当需要执行操作时,superun 都会请求您的批准.
+* **绝不允许**:superun 阻止该操作,通知您需要云访问,并指示您启用云.
 
-You can change your Cloud tools preferences anytime from **build → services → superun cloud.**
+您可以随时从 **构建 → 服务 → superun Cloud 更改您的云工具首选项. **
 
-#### Tool settings and defaults
+#### 工具设置和默认值
 
-| Setting             | Description                                                                                                        | Default behavior |
+|设置|描述 |默认行为 |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------ | ---------------- |
-| Cloud               | Create and connect a Cloud project to add backend features (database, auth). Required to use Cloud tools. | Ask each time    |
-| Read database       | Allow superun to read your database.                                                                               | Always allow     |
-| Read analytics      | Query logs to investigate issues and behavior.                                                                     | Always allow     |
-| Run security checks | Run automated security checks on your database. Not a full audit.                                                  | Always allow     |
-| Modify database     | Make schema and policy changes via SQL migrations. Updates generated types.                                        | Always allow     |
-| Add data            | Add data to your database tables.                                                                                  | Always allow     |
-| Read project info   | Read project configuration and environment details.                                                                | Always allow     |
-| Configure auth      | Allow superun to configure authentication settings (for exmple, signup policies).                                  | Always allow     |
-| Read backend logs   | Read logs from backend services.                                                                                   | Always allow     |
+|云|创建并连接云项目以添加后端功能（数据库,身份验证）.需要使用云工具. |每次询问 |
+|读取数据库 |允许 superun 读取您的数据库.                                                                               |始终允许 |
+|阅读分析 |查询日志以调查问题和行为.                                                                     |始终允许 |
+|运行安全检查 |对您的数据库运行自动安全检查.不是全面审核.                                                  |始终允许 |
+|修改数据库|通过 SQL 迁移进行架构和策略更改.更新生成的类型.                                        |始终允许 |
+|添加数据 |将数据添加到数据库表中.                                                                                  |始终允许 |
+|阅读项目Info |阅读项目配置和环境详细Info.                                                                |始终允许 |
+|配置身份验证 |允许 superun 配置身份验证设置（例如注册策略）.                                  |始终允许 |
+|读取后端日志 |从后端服务读取日志.                                                                                   |始终允许 |
 
-## superun Cloud features
+## superun Cloud 功能
 
-You'll find the **Cloud tab** inside any superun project by clicking the `+` button next to **Preview** **mode**. superun Cloud icon The following features and settings live inside the Cloud tab:
+通过单击 **预览** **模式** 旁边的"+"按钮,您可以在任何 superun 项目中找到 **云选项卡**. superun Cloud 图标 以下功能和设置位于"云"选项卡内:
 
-### Database
+### 资料库
 
-* **Generate schemas automatically**: describe the data you need in plain language, and superun creates the tables and schema for you.
-* **Manage without SQL**: view, edit, and organize records directly in the UI. Update values, inspect tables, and keep your app's data in sync without writing queries.
+* **自动生成架构**:用简单的语言描述您需要的数据,superun 会为您创建表和架构.
+* **无需 SQL 进行管理**:直接在 UI 中查看,编辑和组织记录.更新值,检查表并保持应用程序的数据同步,而无需编写查询.
 
-### Users & Auth
+### 用户和身份验证
 
-* **User management**: view user accounts, track activity, and manage access control.
-* **Built-in authentication**: superun can generate signup/login pages for your app. Supports email, phone, and Google sign-in.
-* **Secure by default**: authentication is backed by superun Cloud, keeping user credentials safe.
+* **用户管理**:查看用户帐户,跟踪活动并管理访问控制.
+* **内置身份验证**:superun 可以为您的应用程序生成注册/登录页面.支持电子邮件,电话和 Google 登录.
+* **默认安全**:身份验证由 superun Cloud 支持,确保用户凭据安全.
 
-#### Enable Authentication
+#### 开启身份验证
 
-1. Go to **Build → Services → superun Cloud** details page
-2. Click "**Authentication Settings**"
-3. In "**Sign-in Methods**", you can select:
-   - **Email**: Enable email and password login
-   - **Phone**: Enable phone verification code login
-   - **Google**: Enable Google sign-in
+1. 进入 **研发 → 服务 → superun Cloud** 详情页面
+2. 点击「**身份验证设定**」
+3. 在「**登录方式**」中可以选择：
+   - **电子邮件**: 启用邮箱密码登录
+   - **电话**: 启用手机验证码登录
+   - **Google**: 启用 Google 登录
 
-After enabling, superun will automatically generate the corresponding signup/login pages for your app.
+启用后,superun 会自动为您的应用程序生成对应的注册/登录页面.
 
-### AI
+### 人工智能
 
-* **Built in AI functionality**: superun Cloud comes with built in AI so you can quickly create features that make your app smarter and more engaging. For more information, see superun AI.
-* Some examples of AI powered features include:
-   * **AI summaries** – automatically condense long text into clear takeaways
-   * **AI chatbot or agent** – build conversational helpers into your app
-   * **Sentiment detection** – understand user feedback at scale
-* You can monitor superun AI usage and performance for your project from the AI overview.
+* **内置 AI 功能**:superun Cloud 具有内置 AI,因此您可以快速创建功能,使您的应用程序更智能,更具吸引力.有关详细信息,请参阅superun AI.
+* AI 支持的功能的一些示例包括:
+* **人工智能摘要** – 自动将长文本压缩为清晰的要点
+* **人工智能聊天机器人或代理** – 在您的应用程序中构建对话助手
+* **情绪检测** – 大规模了解用户反馈
+* 您可以从 AI 概览中监控项目的 superun AI 使用情况和性能.
 
-### Logs
+### 纪录
 
-* **Real-time monitoring**: watch app activity as it happens.
-* **Debug and trace issues**: identify errors, track events, and ensure your backend is healthy.
+* **实时监控**:实时观察应用程序活动.
+* **调试和跟踪问题**:识别错误,跟踪事件并确保您的后端正常运行.
 
+## 示例流程 - 提示 superun 构建 CRM 工具
 
-## Example flow - Prompting superun to build a CRM tool
+以下是如何使用 superun Cloud 构建 CRM 工具的分步示例:
 
-Here's a step-by-step example of how you might use superun Cloud to build a CRM tool:
+### 第 1 步:组织数据（数据库）
 
-### Step 1: Organize the data (Database)
-
-Start by describing the data you need:
+首先描述您需要的数据:
 
 ```
 I want to build a CRM tool. I need to store:
@@ -102,25 +101,25 @@ I want to build a CRM tool. I need to store:
 - Notes (content, related to deals or contacts)
 ```
 
-superun automatically creates the database schema and tables for you.
+superun 自动为您创建数据库架构和表.
 
-### Step 2: Make it secure (Users & Auth)
+### 第 2 步:确保安全（用户和身份验证）
 
-Ask superun to add authentication:
+要求 superun 添加身份验证:
 
 ```
 Add user authentication. Only authenticated users should be able to access the CRM.
 ```
 
-superun configures authentication and generates signup/login pages for your app.
+superun 配置身份验证并为您的应用程序生成注册/登录页面.
 
-### Step 3: Add AI superpowers (AI)
+### 第三步:添加人工智能超能力（AI）
 
-Enhance your app with AI:
+使用 AI 增强您的应用程序:
 
 ```
 Add AI-powered summaries for deal notes. When a user writes a note, automatically generate a summary.
 ```
 
-superun integrates AI functionality to automatically generate summaries using the built-in AI.
+superun 集成了 AI 功能,可使用内置 AI 自动生成摘要.
 

@@ -1,281 +1,283 @@
 ---
-title: "Build web app"
-description: "Step-by-step guide to creating an AI-powered travel planner web app using superun"
+title: "建立旅游规划网页应用程序"
+description: "逐步示范如何使用 superun 建立一个由 AI 驱动的旅游规划 Web App."
 ---
 
-## 1. Setting Up the Foundation
+## 1. 建立项目基础
 
-The foundation of any superun project is a clear prompt. For this tutorial, we’ll build an AI-powered travel planner.
+每个 superun 项目的基础都是一段清楚的提示.以下我们会建立一个由 AI 驱动的旅游规划工具.
 
-**Example prompt**
+**范例提示**
 
-> Create an AI travel planner web app with the following features:  
-> • Landing page, trip dashboard, and an itinerary details page.  
-> • Inputs for destination, dates, budget, and traveler preferences.  
-> • AI-generated itineraries with hotel, activity, and restaurant suggestions.  
-> • User accounts and saved trips powered by Supabase.  
-> • Clean, mobile-responsive UI suitable for both desktop and mobile.
+> 建立一个 AI 旅游规划 Web App,具备以下功能:
+> • 包含首页,行程仪表板,以及行程细节页.
+> • 可输入目的地,日期,预算与旅游偏好.
+> • AI 产生的行程建议,包含饭店,活动与餐厅推荐.
+> • 用户帐号与已储存行程,后端由 Supabase 支持.
+> • 干净,支持桌机与手机的响应式界面.
 
-Once superun generates the initial project:
+当 superun 产生出初版项目后:
 
-- Review the navigation (landing page → dashboard → trip details).
-- Make sure each page roughly matches the intent of your prompt.
-- Adjust your prompt if sections are missing or the tone feels off.
+- 检查导览流程（首页 → 仪表板 → 行程细节）.
+- 确认每个页面大致符合你在提示中的意图.
+- 如果有区块缺少,语气不对,可以回头微调提示.
 
-> ℹ️ **Tip**  
-> Be explicit about starting from the UI. superun works best when you outline navigation, page types, and your target users early in the prompt.
-
----
-
-## 2. Refinement Questions: Tuning Your Idea
-
-After you submit your initial prompt, superun will ask a short series of follow-up questions.  
-This step helps superun translate your idea into a more precise product blueprint.
-
-You might see questions such as:
-
-- **Which platforms inspire the experience you want to create?**  
-  For example:  
-  - Linear (clean, fast dashboards)  
-  - Notion (intuitive, organized workspaces)  
-  - Airbnb (visual, user-friendly booking flow)
-
-- **What makes your platform unique in the market?**  
-  Options could include:  
-  - AI-powered planning or recommendations  
-  - Real-time monitoring or alerts  
-  - A comprehensive analytics experience  
-  - Tight integrations with tools your users already use
-
-- **What features should this initial version include?**  
-  For an AI travel planner, you might choose:  
-  - Dashboard + Trip list + Analytics  
-  - Dashboard + Multi-trip overview + Filters  
-  - Dashboard + Collaboration tools + Alerts
-
-Your answers shape:
-
-- the tone and style of the UI  
-- which core pages and modules superun generates  
-- what data models and backend structures are created  
-- where AI and automation will show up in the product
-
-> ℹ️ **Why this matters**  
-> Treat this step like a quick product interview. The more honestly you answer, the closer superun’s output will match the product you have in mind.
+> ℹ️ **小技巧**  
+> 在提示中明确说明要先从 UI 开始.越早把导览结构,页面类型与目标用户讲清楚,superun 产生的结果就越接近你想要的产品.
 
 ---
 
-## 3. Choosing a Direction with Branch Selection
+## 2. 精炼问题:把想法变成产品蓝图
 
-Before you commit to a single layout, superun helps you explore multiple visual directions.
+送出初始提示后,superun 会问你一小串追问问题,  
+用来把你的想法转成更精确的产品蓝图.
 
-After you complete your prompt and refinement questions:
+你可能会看到像这样的问题:
 
-1. superun generates **four design branches** for your app.
-2. Each branch includes **preview images** showing the overall layout and style.
-3. Open each preview to compare typography, spacing, and hierarchy.
-4. **Select one branch** to continue with — this becomes your main design direction.
-5. If needed, regenerate branches later from an updated prompt.
+- **有哪些产品的体验是你想参考的?**  
+  例如:  
+  - Linear（乾淨,快速的仪表板）  
+  - Notion（直觉,结构清楚的工作空间）  
+  - Airbnb（视觉友善的订房流程）
 
-Use branches to try different moods for the same app:
+- **你的产品在市場上的独特之处是什么?**  
+  可能的选项:  
+  - AI 驱动的规划或推荐  
+  - 即时监控或提醒  
+  - 完整的分析与报表体验  
+  - 与用户既有工具的深度整合
 
-- Minimal, productivity-focused layout  
-- Friendly, consumer-style layout  
-- Bold, marketing-driven layout  
-- Compact dashboard-first layout
+- **这个初版（MVP）应该包含哪些功能?**  
+  对 AI 旅游规划工具来说,你可以选择:  
+  - 仪表板 + 行程列表 + 分析  
+  - 仪表板 + 多行程總览 + 筛选器  
+  - 仪表板 + 协作工具 + 通知
 
-> ℹ️ **Tip**  
-> Keep your prompt mostly the same while exploring branches. That way you’re comparing visual style and layout, not completely different feature sets.
+你的回答会影响:
 
----
+- UI 的语氣与风格  
+- superun 要帮你生成的核心页面与模组  
+- 会建立哪些资料模型与后端结构  
+- 产品中哪些地方会使用 AI 与自动化
 
-## 4. Designing and Editing the UI (Editable Design & Boxify)
-
-superun emphasizes a step-by-step approach to designing your app, similar to constructing a building.
-
-**Start with scaffolding**
-
-- superun lays out the main structure:  
-  - Landing page hero, value propositions, CTA  
-  - Trip search & filters  
-  - Dashboard with saved trips  
-  - Itinerary details view  
-  - Account or settings pages
-
-**Add the first layer**
-
-- superun fills each page with basic elements:  
-  - Cards, buttons, forms, and navigation  
-  - Placeholder content for itineraries, destinations, and preferences  
-  - Consistent spacing and layout rules
-
-**Refine the details**
-
-- Adjust fonts, colors, spacing, and imagery.
-- Edit copy so it matches your tone (e.g., “travel coach” vs. “business trip planner”).
-
-When you’re ready to fine-tune specific areas, switch to **Editable Design**:
-
-- The page turns into an interactive canvas inside superun.
-- You can click into headings, paragraphs, sections, and cards to edit content or structure.
-
-Use **Boxify** for precise AI-powered edits:
-
-1. Draw a box around any region you want to change (for example, the hero area or a grid of trip cards).  
-2. Enter a prompt such as:  
-   - “Make this hero more premium and travel-agency style.”  
-   - “Turn these cards into 3-day sample itineraries for different budgets.”  
-3. superun updates only the boxed region, keeping the rest of the page intact.
-
-> ℹ️ **Best practice**  
-> Use Editable Design + Boxify for “surgical” changes. Update one section at a time instead of rewriting your entire prompt whenever you want to tweak layout or copy.
+> ℹ️ **为什么这很重要**  
+> 把这一步当成一次快速的产品访谈.回答得越具体,诚实,superun 的输出就越贴近你心中的产品.
 
 ---
 
-## 5. Feature List
+## 3. 使用设计选项（Design Options）选择方向
 
-Behind the scenes, superun reads your prompt and your answers to the refinement questions and turns them into a **feature list** tailored to your app under **build**.
+在你决定最终版面之前,superun 会先帮你探索多种视觉方向.
 
-For an AI travel planner, a generated feature list might look like:
+完成提示与精炼问题后:
 
-- ✅ Real-time trip search and filtering  
-- ✅ AI-generated itineraries with hotels, activities, and restaurants  
-- ✅ Saved trips and favorites  
-- ✅ User authentication and profiles  
-- ✅ Trip analytics (budget breakdown, time allocation, etc.)  
-- ✅ Email or notification hooks for reminders  
-- ✅ Integration hooks for future booking or calendar services
+1. superun 会为你的 App 产生 **四个设计选项**.  
+2. 每个选项都会有 **预览图片**,呈现整体版面与风格.
+3. 打开每张预览,比较字体,留白,层级与资讯布局.
+4. **选择一个分支** 作为后续的主要设计方向.
+5. 若之后更新了提示,也可以重新产生新的设计选项.
 
-superun uses this feature list to:
+你可以利用不和分支测试和一个产品的不和气氛:
 
-- Create the right **UI modules** (trip cards, itinerary timelines, analytics sections).  
-- Define the initial **database schema** (tables for users, trips, destinations, and suggestions).  
-- Configure basic **backend endpoints** and service bindings.  
-- Decide where **AI calls** should happen and how results should be displayed.
+- 极简,以生产力为主的界面
+- 亲切,偏消费者风格的界面
+- 大胆,强调行销的界面
+- 精简,以仪表板为主的界面
 
-> ℹ️ **Tip**  
-> If the feature list feels too heavy or too light, say so directly in your next prompt:  
-> “Make a lightweight MVP with only trip search + AI itinerary + saved trips,” or  
-> “Include billing, team workspaces, and collaboration for a Pro version.”
+> ℹ️ **小技巧**  
+> 在探索不和分支时,尽量保持提示内容大致相和,这样你比较的是「视觉与版面」,而不是完全不和的一组功能.
 
 ---
 
-## 6. Integrating Supabase for Backend & Authentication
+## 4. 设计与编辑界面（Editable Design 与 Boxify）
 
-Once your UI and feature list feel right, you’re ready to connect the backend.
+superun 採用循序漸进的设计流程,有点像盖房子.
 
-1. Create a **Supabase** account and start a new project.  
-2. In superun, use the **Supabase integration** to connect your project.  
-3. superun generates SQL tables based on your feature list, for example:  
-   - A `profiles` table for storing user information and preferences.  
-   - A `trips` table tied to each user.  
-   - Optional tables like `destinations`, `ai_suggestions`, or `favorites`.
+**先搭好骨架**
 
-superun can also wire up authentication flows:
+- superun 会先铺好主结构:  
+  - 首页 Hero 区块,价值主张,行动呼吁（CTA）  
+  - 行程搜索与筛选  
+  - 已存储行程的仪表板  
+  - 行程细节检视页  
+  - 帐号或设定页
 
-- Sign-up, login, and logout  
-- Password reset  
-- Protected routes for the dashboard and itinerary pages
+**再加上第一層细节**
 
-> ℹ️ **Security tip**  
-> Enable Row-Level Security (RLS) in Supabase so users only see their own trips. superun can help generate sensible default policies, which you can refine later.
+- superun 会填入基本元件:  
+  - 卡片,按钮,表单,导览列  
+  - 行程,目的地,偏好的假资料  
+  - 一致的留白与版面规則
 
----
+**最后微调细节**
 
-## 7. Adding AI Features with superun AI
+- 调整字体,颜色,间距与图片.  
+- 修改文案,让语氣符合你的品牌（例如「旅游教練」vs「商务行程管理」）.
 
-The core value of this app is its AI-generated travel planning.
+当你准备好微调特定区块时,可以切换到 **Editable Design**:
 
-To add AI features:
+- 页面会在 superun 内变成可互动的画布.  
+- 你可以点选标题,段落,区块与卡片,直接编辑内容或结构.
 
-1. Obtain an **superun API key** from your account dashboard.  
-2. Add this key to your superun project as an environment variable or via the AI settings panel.  
-3. superun connects this key to the AI flows defined in your feature list.
+接着使用 **Boxify** 进行精准的 AI 编修:
 
-Common AI flows for this app:
+1. 在想要修改的区域画出一个框（例如 Hero 区,行程卡片网格）.  
+2. 输入提示,例如:  
+   - 「把这个 Hero 改成更高级,旅游社风格.」  
+   - 「把这些卡片改成不和预算的 3 天行程范例.」  
+3. superun 只会更新框选范圍,其余区块保持不变.
 
-- **Trip creation**  
-  - Input: destination, dates, interests, budget.  
-  - Output: structured itinerary with days, times, activities, and notes.
-
-- **Itinerary refinement**  
-  - Examples:  
-    - “Make this trip more kid-friendly.”  
-    - “Optimize for food experiences.”  
-    - “Shorten to a 3-day weekend trip.”
-
-- **Summaries and sharing**  
-  - Generate short summaries suitable for email, messaging apps, or internal trip notes.
-
-For more reliable results, use structured responses:
-
-- Ask superun to call OpenAI with a schema so itinerary data comes back as JSON with fields like `day`, `time`, `location`, and `description`.
-- superun can then insert this data directly into your Supabase tables.
-
-> ℹ️ **Testing**  
-> Start by testing a few simple prompts, such as a 2-day trip to a nearby city. Once the structure looks good, expand to longer trips and more complex requirements.
+> ℹ️ **最佳实务**  
+> 把 Editable Design + Boxify 当成「精修工具」,一次只调一个区块,而不是每次都重写整段提示.
 
 ---
 
-## 8. Implementing Payments with Stripe
+## 5. 功能清单（Feature List）
 
-If you want to monetize your travel planner, you can add subscriptions or paid tiers.
+在背景中,superun 会读取你的提示与精炼问题的回答,在 **建构（Build）** 里产生一份针对这个 App 的 **功能清单**.
 
-1. Create a **Stripe** account.  
-2. Set up a product, for example: `"superun Travel Planner Pro – $12/month"`.  
-3. In superun, add your Stripe API keys and product price ID.  
-4. Connect the upgrade or pricing section of your app to Stripe Checkout.  
-5. Limit access to certain features (e.g., unlimited AI trips or team workspaces) to paying users.
+以 AI 旅游规划工具为例,功能清单可能包含:
 
-You can also enable Stripe’s built-in user tools:
+- ✅ 即时行程搜寻与筛选
+- ✅ AI 产生的行程建议（饭店,活动,餐厅）
+- ✅ 已储存行程与最爱清单
+- ✅ 用户登录与个人文件
+- ✅ 行程分析（预算分配,时间配置等）
+- ✅ 提醒通知或 Email Hooks
+- ✅ 未来串接订房或行事历服务的整合挂钩
 
-- Customer Portal for managing subscriptions  
-- Email receipts and invoices  
-- Test mode for safe trial transactions
+superun 会根据这份清单:
 
-> ℹ️ **Tip**  
-> Always test payments in Stripe’s test mode using the provided sample card numbers before enabling live charges.
+- 建立对应的 **UI 模组**（行程卡片,时间轴,分析区块）.
+- 定义初始 **资料库结构**（用户,行程,目的地,AI 建议…等资料表）.
+- 配置基本 **后端 API** 与服务绑定.
+- 决定 **AI 呼叫** 的位置与结果如何呈现.
 
----
-
-## 9. Testing and Debugging
-
-Errors are a natural part of shipping software. superun is designed to help you debug quickly.
-
-- Use the **“Auto Fix”** button when a build fails. superun will inspect the error and attempt a guided fix.  
-- For backend errors, check **Supabase logs** and verify that your tables, policies, and environment variables match your configuration in superun.  
-- For deployment issues, review the logs from your hosting provider (for example, Netlify or Vercel) and feed key error messages back into superun for targeted suggestions.
-
-You can also:
-
-- Test core flows end-to-end: sign-up, create trip, generate itinerary, save and edit it.  
-- Ask teammates or friends to run through the app and report any confusing steps.
-
-> ℹ️ **Recovery tip**  
-> If a change breaks your app badly, roll back to a previous version. superun’s versioning and revert tools help you return to a stable state and iterate safely.
+> ℹ️ **小技巧**  
+> 如果觉得功能清单太重或太轻,可以直接跟 superun 说:
+> 「做一个只包含行程搜寻 + AI 行程 + 储存行程的 MVP 就好」,
+> 或「帮我加上付费方案,团队工作空间与协作功能,做成 Pro 版」.
 
 ---
 
-## 10. Deploying Your App
+## 6. 使用 Supabase 建立后端与登录
 
-Once you’re happy with the experience, it’s time to put your app in front of real users.
+当 UI 与功能清单都差不多时,就可以连接后端了.
 
-You have two main paths:
+1. 建立 **Supabase** 帐号并开一个新项目.  
+2. 在 superun 中使用 **Supabase 整合** 连结你的项目.  
+3. superun 会根据功能清单帮你产生 SQL 资料表,例如:  
+   - `profiles`:存储用户资讯与偏好设定  
+   - `trips`:与每位用户绑定的行程资料  
+   - 选用的 `destinations`,`ai_suggestions`,`favorites` 等表
 
-1. **Deploy directly from superun**  
-   - Use superun’s deploy option to host the app on a default domain.  
-   - This is ideal for quick testing, demos, and internal reviews.
+superun 也可以帮你设定基本的认证流程:
 
-2. **Deploy via a hosting provider (e.g., Netlify or Vercel)**  
-   - Connect your GitHub repository to your chosen host.  
-   - Set build commands and environment variables (Supabase keys, OpenAI key, Stripe keys).  
-   - Configure a custom domain and update DNS records.
+- 注册,登录,登出  
+- 重设密码  
+- 只允许登录用户存取仪表板与行程页面
 
-Before launching publicly:
+> ℹ️ **安全提示**  
+> 在 Supabase 中启用资料列層级安全（Row-Level Security, RLS）,确保用户只能看到自己的行程.superun 可以产生合理的预设策略,之后你也可以再细调.
 
-- Set a favicon and app name.  
-- Configure meta tags and Open Graph (OG) images so shared links look good.  
-- Double-check privacy, terms, and contact information if you plan to charge users or handle personal data.
+---
 
-> ℹ️ **Launch checklist**  
-> Make sure at least one full trip flow works perfectly: from landing on the homepage, creating an account, generating an itinerary, tweaking it with AI, and saving it. If that feels smooth, you’re ready to share your superun-powered travel planner with the world.
+## 7. 使用 superun AI 加入智能规划
+
+这个 App 的核心价值在于 AI 产生的旅游行程.
+
+加入 AI 功能的步骤:
+
+1. 在帐号后台取得 **superun API 金钥**.
+2. 将金钥设定为项目环境变数,或通过 AI 设定面板绑定.
+3. superun 会把这个金钥挂到功能清单中定义好的 AI 流程上.
+
+常见的 AI 流程:
+
+- **建立行程**
+  - 输入:目的地,日期,兴趣,预算.
+  - 输出:含天数,时间,活动与备注的结构化行程.
+
+- **优化既有行程**
+  - 例如:
+    - 「把这趟旅程改成更适合亲子.」
+    - 「强调美食体验.」
+    - 「缩短成 3 天周末行程.」
+
+- **摘要与分享**
+  - 产生适合 Email,讯息或内部备忘录使用的短版摘要.
+
+为了让结果更稳定,可以要求使用结构化回传:
+
+- 让 superun 以 JSON Schema 呼叫模型,回传包含 `day`,`time`,`location`,`description` 等栏位的资料.
+- superun 接着可以把这些资料直接写入 Supabase 资料表.
+
+> ℹ️ **测试建议**
+> 先从简单的情境开始,例如邻近城市的 2 天行程.确认结构与栏位 OK 之后,再扩展到更长天数与复杂需求.
+
+---
+
+## 8. 使用 Stripe 建立付费方案
+
+如果你想让旅游规划工具变现,可以加上订阅或付费级别.
+
+1. 建立 **Stripe** 帐号.  
+2. 建立一个产品,例如:「superun Travel Planner Pro – US$12/月」.  
+3. 在 superun 中设定 Stripe 凭证与价格 ID.  
+4. 把 App 中的升级区块或定价页面接到 Stripe Checkout.  
+5. 将特定功能（例如不限次数的 AI 行程,团队空间）只开放给付费用户.
+
+你也可以启用 Stripe 内建的用户工具:
+
+- 订阅管理用的 Customer Portal  
+- 收据与发票 Email  
+- 测试模式,用来安全测试交易流程
+
+> ℹ️ **小技巧**  
+> 先在 Stripe 的测试模式下,使用官方提供的测试卡号反覆验证流程,再切换到正式环境.
+
+---
+
+## 9. 测试与除错
+
+开发过程中出错是正常的,superun 的目标是让你更快排除问题.
+
+- 当建置失败时,可以使用 **「Auto Fix」**,让 superun 读取错误并提供导引修复.
+- 后端若有错误,检查 **Supabase 日志**,确认资料表,策略与环境变数与 superun 设定一致.
+- 若是部署问题,查看主机服务（例如 Netlify,Vercel）的日志,把关键错误讯息贴回 superun 要求协助.
+
+你也可以:
+
+- 端到端测试核心流程:注册 → 建立行程 → 产生行程 → 储存与编辑.
+- 请和事或朋友实际操作,回报任何不顺手或不清楚的步骤.
+
+> ℹ️ **回复建议**
+> 如果某次修改导致 App 大坏掉,可以回到较稳定的旧版本.利用 superun 的版本历史与还原功能,在安全的前提下持续迭代.
+
+---
+
+## 10. 部署你的应用程序
+
+当你对体验感到满意,就可以把 App 推向真实用户.
+
+你有兩條主要路徑:
+
+1. **直接由 superun 部署**  
+   - 使用 superun 的部署选项,掛在预设网域上.  
+   - 适合快速测试,展示或内部评估.
+
+2. **通过主机服务部署（例如 Netlify 或 Vercel）**  
+   - 将 GitHub 存储库连接到主机服务.  
+   - 设定建置指让与环境变数（Supabase 金钥,AI 金钥,Stripe 金钥）.  
+   - 设定自订网域并更新 DNS.
+
+正式公开前,请再检查:
+
+- Favicon 与 App 名稱.  
+- Meta 标签与 Open Graph（OG）图片,确保分享连结看起来专业.  
+- 若要收费或处理个人资料,确认隐私权,條款与聯絡方式.
+
+> ℹ️ **上线检查清单**  
+> 至少要确定有一个完整流程是顺畅的:从进入首页,建立帐号,产生行程,用 AI 微调,再把行程存储下来.当这个流程感觉自然流畅,你就可以放心把这个由 superun 驱动的旅游规划 App 分享给世界.
+
+

@@ -1,45 +1,42 @@
 ---
-title: "Custom Domain"
-description: "Bind a custom domain to your superun project for branding and SEO; setup steps and FAQs."
+title: "自定义域"
+description: "将自定义域名绑定到您的 superun 项目以进行品牌推广和 SEO;设置Step和常见问题解答."
 image: "https://b.ux-cdn.com/uxarts/files/t20251201143554/mm27xz4u.png"
 ---
 
+您可以在自定义域上发布 superun 项目,以改善品牌推广和 SEO.
 
-You can publish your superun project on a custom domain to improve branding and SEO.
+## 为什么使用自定义域
 
-## Why use a custom domain
+- 一致的品牌看起来更专业
+- 更好的搜索索引
+- 更容易记住和分享
 
-- Consistent branding looks more professional
-- Better for search indexing
-- Easier to remember and share
+## 要求
 
-## Requirements
+- 拥有一个域名
+- 使用 Vercel/Netlify 等平台进行托管和自动证书
 
-- Own a domain
-- Use platforms like Vercel/Netlify for hosting and automatic certificates
+## Connect your domain（示例:Vercel）
 
-## Connect your domain（Ex：Vercel）
+1. 将您的项目连接到 Vercel
+2. 在 Vercel 域下添加域
+3. 按照 DNS 说明进行操作（例如,CNAME 为 `cname.Vercel-dns.com`）
+4.等待SSL颁发（几分钟到几小时）
 
-1. Connect your project to Vercel
-2. Add the domain under Vercel Domains
-3. Follow the DNS instructions (e.g., CNAME to `cname.vercel-dns.com`)
-4. Wait for SSL issuance (minutes to a few hours)
+## 其他提供商
 
-## Other providers
+- Netlify:导入存储库 → 域管理 → 遵循 DNS 指南
+- Namecheap + GitHub 页面:在 GitHub 上托管并按照指南配置 A/CNAME
 
-- Netlify: import repo → domain management → follow DNS guide
-- Namecheap + GitHub Pages: host on GitHub and configure A/CNAME per guide
+## 常问问题
 
-## FAQ
-
-- Domain connected but not accessible: check DNS propagation (dnschecker), ensure DNS‑only mode, verify SSL issued
-- Subdomains supported: yes—enter a subdomain in the connection flow
-- SSL: hosting providers typically handle issuance and renewals automatically
+- 域已连接但无法访问:检查 DNS 传播 (dnschecker),确保仅 DNS 模式,验证颁发的 SSL
+- 支持的子域:是 - 在连接流中输入子域
+- SSL:托管提供商通常自动处理发行和续订
 
 ---
 
-<Card title="superun Website" icon="globe" href="https://superun.ai/web" horizontal>
-  Visit the website to learn more features and examples.
+<Card title="superun 网站" icon="globe" href="https://superun.ai/web" horizontal>
+  访问该网站以了解更多功能和示例.
 </Card>
-
-

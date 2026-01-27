@@ -1,167 +1,167 @@
 ---
-title: "Troubleshooting Common Issues"
-description: "Common issues encountered when using superun and their solutions, including data rollback, AI feature errors, Credits issues, and more."
+title: "常见问题排查"
+description: "superun 使用过程中遇到的常见问题及解决方案,包含数据回滚,AI 功能异常,代币问题等."
 image: "https://b.ux-cdn.com/uxarts/files/t20251201143554/mm27xz4u.png"
 ---
 
-This document compiles common issues reported by users when using superun and their corresponding solutions to help you quickly identify and resolve problems.
+本文档整理了 superun 使用过程中用户反馈的常见问题及对应的解决方案,帮助你快速定位和解决问题.
 
 ---
 
-## Data Rollback and Modification Issues
+## 数据回滾和修改异常问题
 
-### Problem Description
+### 问题描述
 
-Users report that modified content automatically reverts to the old version the next day, or content disappears and merges into other categories.
+用户反馈修改内容后第二天自动恢复旧版本,或内容消失併入其他分类.
 
-### Solution
+### 解决方案
 
-Model code reinitializes old data when data loading fails. Recommended approaches:
+模型代码在数据加载失败时会重新初始化旧数据.建议採用以下方式:
 
-- **Use a separate backend to manage data**: Separate data management from model logic to avoid reinitialization when data loading fails
-- **Let the model modify data directly**: Ensure data modification operations are handled directly by the model to reduce data inconsistencies caused by intermediate steps
-
----
-
-## AI Try-On Generation Failure
-
-### Problem Description
-
-Users report errors with the AI try-on generation feature, with multiple fixes proving ineffective.
-
-### Solution
-
-This issue is usually caused by `headers` parameters causing `body` serialization problems. Resolution steps:
-
-1. Check the `headers` parameters in API requests
-2. Have AI identify redundant `headers` parameters
-3. Ensure `headers` and `body` serialization formats are consistent
-4. Remove unnecessary `headers` configurations
+- **使用单独后台管理数据**:将数据管理与模型逻辑分离,避免数据加载失败时触发重新初始化
+- **直接让模型修改数据**:确保数据修改操作由模型直接处理,减少中间环节导致的数据不一致
 
 ---
 
-## Errors After Credits Top-up
+## AI 试衣生成失败问题
 
-### Problem Description
+### 问题描述
 
-Users report that sessions terminate abnormally after Credits top-up, preventing continued operations.
+用户反馈 AI 试衣生成功能报错,多次修复无效.
 
-### Solution
+### 解决方案
 
-1. **Check logs**: Review system logs to identify specific error messages after Credits top-up
-2. **Use Fix**: Click the Fix button in superun to handle abnormal states
-3. **Re-test**: After fixing, re-test to confirm the session can continue normally
+此问题通常由 `headers` 参数导致 `body` 序列化问题引起.解决步骤:
 
-> 💡 **Tip**: If the problem persists, contact technical support and provide relevant log information.
-
----
-
-## Backend Address and APP Deployment Issues
-
-### Problem Description
-
-Users inquire about backend addresses and APP download methods.
-
-### Solution
-
-**Current Limitations**:
-
-- superun currently can only generate **web applications**, not native APPs
-- To deploy a backend management system, you need to **generate the backend first**, then proceed with other configurations
-- Backend addresses will be provided after generation, with specific locations depending on your deployment method
-
-**Recommended Process**:
-
-1. First use superun to generate a backend management system
-2. Obtain the backend access address
-3. For mobile experience, consider using responsive design or PWA (Progressive Web App)
+1. 检查 API 请求中的 `headers` 参数
+2. 让 AI 排查多余的 `headers` 参数
+3. 确保 `headers` 与 `body` 的序列化格式一致
+4. 移除不必要的 `headers` 配置
 
 ---
 
-## Browser Compatibility Issues
+## 代幣不足后报错问题
 
-### Problem Description
+### 问题描述
 
-Safari (especially older versions, such as Safari 16.1 / macOS 13) cannot open the website, showing a blank page, or unable to access in certain network environments.
+用户反馈代幣充值后会话异常终止,无法继续操作.
 
-### Solution
+### 解决方案
 
-1. **Recommended browsers**: Use mainstream browsers such as Chrome, Edge, Safari (newer versions)
-2. **System upgrade**: Upgrade macOS system to get the latest version of Safari
-3. **Network test**: Visit `https://net-test.superun.app/` to test network connection
-4. **Device recommendation**: Try to use desktop for operations, as mobile and iPad adaptations are still being improved
+1. **查看日志**:检查系统日志,确认代幣充值后的具体错误信息
+2. **使用檢修功能**:在 superun 中使用檢修功能处理异常状态
+3. **重新测试**:修复后重新测试,确认会话可正常继续
 
----
-
-## Preview and Operation Issues
-
-### Problem Description
-
-Preview cannot open but published links work normally, have Credits but cannot operate or type, preview stays in a certain state with no page changes, or features fail again after being fixed.
-
-### Solution
-
-1. **Preview cannot open**:
-   - Check network connection, visit `https://net-test.superun.app/` to test
-   - Try opening preview in a new page
-   - If published links can be accessed, it may be a preview environment issue, refresh the browser
-
-2. **Have Credits but cannot operate**:
-   - Need to check "Generate Demo" first, then you can modify through dialogue after completion
-   - Ensure the project has completed initial demo generation
-
-3. **Preview state not updating**:
-   - Click the "Fix" function to repair
-   - Refresh the entire browser page (not the page refresh inside)
-   - If "Execute" button appears after fixing, click it
-   - Close browser and reopen the project
-
-4. **Features repeatedly failing**:
-   - AI may have reverted features in subsequent modifications
-   - Use version history rollback to restore to a previously working version
-   - Avoid repeatedly modifying in the same conversation, stop and change approach when issues are found
+> 💡 **提示**:如果问题持续存在,建议聯繫技术支持并提供相关日志信息.
 
 ---
 
-## Performance Optimization Issues
+## 后台地址和 APP 部署问题
 
-### Problem Description
+### 问题描述
 
-Web pages load slowly, mobile version is slow.
+用户咨询后台地址和 APP 下载方式.
 
-### Solution
+### 解决方案
 
-1. **Check network**: May be a network issue, suggest testing network speed
-2. **Optimize images**: Images or files that are too large may cause slow loading, need to optimize image size
-3. **Consult AI**: Describe the problem clearly, let AI provide optimization solutions
-4. **Consider user experience**: Cannot require all users to have fast internet, need to consider loading performance when designing
+**当前限制说明**:
 
----
+- superun 目前只能生成**网页应用**,无法直接生成原生 APP
+- 如需部署后台管理系统,需要**先生成后台**,然后再进行其他配置
+- 后台地址会在生成后提供,具体位置取决于你的部署方式
 
-## Network Errors and Task Stuck Issues
+**建议流程**:
 
-### Problem Description
-
-Frequently pop up "Network Error" prompts, or tasks stay in "Reading console logs" process.
-
-### Solution
-
-1. **Network errors**: May be due to high request volume, wait a moment; if it persists, contact technical support
-2. **Task stuck**: Contact technical support and provide project link
+1. 先使用 superun 生成后台管理系统
+2. 获取后台访问地址
+3. 如需移动端体验,可考虑使用响应式设计或 PWA（渐进式网页应用）
 
 ---
 
-## How to Submit New Issues
+## 浏览器兼容性问题
 
-If you encounter other issues, you can:
+### 问题描述
 
-1. Check this document to see if there are similar issues with solutions
-2. Contact the technical support team
-3. Post in the community forum for help
+Safari（特别是老版本,如 Safari 16.1 / macOS 13）无法打开网站,显示空白页面,或某些网絡环境下无法访问.
+
+### 解决方案
+
+1. **推荐浏览器**:使用 Chrome、Edge、Safari（新版本）等主流浏览器
+2. **系统升级**:升级 macOS 系统以获得最新版 Safari
+3. **网絡测试**:访问 `https://net-test.superun.app/` 测试网絡连接
+4. **设备建议**:尽量使用电脑端操作,手机和 iPad 的适配还在完善中
 
 ---
 
-<Card title="superun Website" icon="globe" href="https://superun.ai/web" horizontal>
-  Learn more about product features and examples.
+## 预览和操作问题
+
+### 问题描述
+
+预览打不开但发布的链接可以正常访问,有代币但无法操作或打字,预览一直处于某个状态页面没有变化,或功能修复后又失效.
+
+### 解决方案
+
+1. **预览打不开**:
+   - 检查网络连接,访问 `https://net-test.superun.app/` 测试
+   - 尝试在新页面打开预览
+   - 如果发布的链接可以访问,可能是预览环境的问题,刷新浏览器
+
+2. **有代币但无法操作**:
+   - 需要先勾选"产生演示",完成后才能进行对话修改
+   - 确保项目已经完成初始演示生成
+
+3. **预览状态不更新**:
+   - 点击"检修"功能进行修复
+   - 刷新浏览器整个页面（不是页面内的刷新）
+   - 如果检修后出现"执行"按钮,点击执行
+   - 关闭浏览器重新打开项目
+
+4. **功能反复失效**:
+   - 可能是 AI 在后续修改中把功能改回去了
+   - 使用版本历史回滚功能恢复到之前正常工作的版本
+   - 避免在和一个对话中反复修改,发现问题及时停止并换思路
+
+---
+
+## 性能优化问题
+
+### 问题描述
+
+网页加载慢,手机版慢.
+
+### 解决方案
+
+1. **检查网絡**:可能是网絡问题,建议测试网絡速度
+2. **优化图片**:图片或文件太大可能导致加载慢,需要优化图片大小
+3. **咨询 AI**:描述清楚问题,让 AI 提供优化方案
+4. **考慮用户体验**:不能要求所有用户网速都很快,需要在设计时考慮加载性能
+
+---
+
+## 网络异常和任务卡住问题
+
+### 问题描述
+
+经常弹出"网络异常"提示,或任务一直处于"读取控制台日志"进程中.
+
+### 解决方案
+
+1. **网络异常**:可能是请求量过高,等一会就好了;如果持续出现,联系技术支持
+2. **任务卡住**:联系技术支持,提供项目链接
+
+---
+
+## 如何提交新问题
+
+如果你遇到其他问题,可以:
+
+1. 查看本文档是否已有类似问题的解决方案
+2. 聯繫技术支持团队
+3. 在社区論壇发帖寻求帮助
+
+---
+
+<Card title="superun 网站" icon="globe" href="https://superun.ai/web" horizontal>
+  了解更多产品功能和示例.
 </Card>
 

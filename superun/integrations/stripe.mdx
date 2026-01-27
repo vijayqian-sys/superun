@@ -1,169 +1,169 @@
 ---
-title: "Stripe Integration"
-description: "Add payment processing capabilities to your superun app using Stripe"
+title: "Stripe 集成"
+description: "使用 Stripe 将支付处理功能添加到您的 superun 应用程序"
 image: "https://b.ux-cdn.com/uxarts/files/t20251201143554/mm27xz4u.png"
 ---
 
-## Overview
+## 概述
 
-Stripe is a payment processing platform that allows you to accept payments online. With superun's Stripe integration, you can easily add payment functionality to your applications, including one-time payments, subscriptions, and marketplace features.
+Stripe 是一个支付处理平台,可让您在线接受付款.通过 superun 的 Stripe 集成,您可以轻松地将支付功能添加到您的应用程序中,包括一次性支付,订阅和市场功能.
 
-superun now lets you set up Stripe entirely through **chat**.
+superun 现在允许您完全通过 **聊天** 设置 Stripe.
 
-**Chat‑driven auto‑setup (recommended)**  
-After you connect **superun Cloud** (or Supabase) and configure your Stripe credentials via **Build → Services → Stripe**, just describe what you need:
+**聊天驱动的自动设置（推荐）**
+连接 **superun Cloud**（或 Supabase）,并在 **研发 → 服务 → Stripe** 中设定好 Stripe 凭证（如下文的设定步骤）,然后只需在聊天中描述你的需求:
 
-* "Add three subscription tiers: Basic at $9/month, Pro at $29/month, and Enterprise at $99/month"
-* "Create a one‑time checkout for my e‑book at $29"
-* "Set up a payment form for my product page"
+*“添加三个订阅级别:基本版为 9 美元/月,专业版为 29 美元/月,企业版为 99 美元/月”
+*“为我的电子书创建一次性结账,价格为 29 美元”
+*“为我的产品页面设置付款表格”
 
-superun generates the checkout components, database tables, and payment logic—no manual coding or webhooks unless you ask for them.
-
-<Note>
-  - For **one‑off sales**, be sure your cart or product page already works.
-  - For **subscriptions**, confirm superun Cloud (or Supabase) Auth is in place so superun can link Stripe customers to each user's **id**
-</Note>
-
-### Key takeaways
-
-* Use the **chat‑driven flow** for both subscriptions and one‑off payments.
-* **Never paste your Stripe Secret Key in chat.** Configure it via **Build → Services → Stripe**, using the **STRIPE_API_KEY** field.
-* **Webhooks are opt‑in.** If you use webhooks, paste your Stripe webhook signing secret into the **STRIPE_WEBHOOK_SECRET** field so superun can verify incoming events.
-* Debug in **Browser Console → Network/Errors**, **superun Cloud → Logs**, and **Stripe Dashboard → Logs**.
-* Always test in **Stripe Test Mode**, then deploy.
-
-## What is Stripe
-
-Stripe provides a comprehensive suite of payment APIs and tools:
-
-- **Payment Processing:** Accept credit cards, digital wallets, and local payment methods
-- **Subscriptions:** Recurring billing and subscription management
-- **Marketplace:** Multi-party payments and marketplace functionality
-- **Connect:** Platform payments for marketplaces and platforms
-- **Billing:** Invoicing and billing management
-- **Tax:** Automatic tax calculation and compliance
-
-## Key Benefits
-
-- **Global Reach:** Accept payments from customers worldwide
-- **Multiple Payment Methods:** Credit cards, digital wallets, bank transfers, and more
-- **Developer-Friendly:** Well-documented APIs and excellent developer experience
-- **Compliance:** PCI DSS compliant, handles sensitive payment data securely
-- **Real-time:** Instant payment processing and webhook notifications
-
-## Requirements
-
-Before integrating Stripe, ensure the following prerequisites are met:
-
-* The project **must** be connected to **superun Cloud** (or Supabase). [Learn more about superun Cloud](/superun/integrations/cloud) or [Supabase integration](/superun/integrations/supabase)
-* A **Stripe account** with properly configured products (for subscriptions)
-* A working **frontend**:
-  * For individual product sales, ensure a shopping cart and checkout page are functional.
-  * For subscriptions, set up login functionalities and different pricing tiers.
+superun 生成结账组件,数据库表和支付逻辑,除非您要求,否则无需手动编码或 Webhook.
 
 <Note>
-  **Please note**
-  Stripe integration doesn't work in preview. To test the integration, make sure to **deploy** your project. You should also make sure to be in **test mode** in Stripe when trying out the functionality. When testing payment, use test card number: `4242 4242 4242 4242`, any 3 digits as CVC, and any future date.
+- 对于**一次性销售**,请确保您的购物车或产品页面已正常运行.
+  - 对于 **订阅**,请确认 superun Cloud（或 Supabase）身份验证已到位,以便 superun 可以将 Stripe 客户链接到每个用户的 **id**
 </Note>
 
-## Stripe payment setup (No‑code chat flow)
+### 要点
 
-superun now generates all Stripe logic for you. Once your **STRIPE_API_KEY** (and optional **STRIPE_WEBHOOK_SECRET**) are configured via **Build → Services → Stripe** and your project is **connected to superun Cloud** (or Supabase), simply tell superun what you need in chat—no manual coding required.
+* 使用**聊天驱动流程**进行订阅和一次性付款.
+* **切勿在聊天中粘贴您的 Stripe 密钥.** 请在 **研发 → 服务 → Stripe** 中通过 **STRIPE_API_KEY** 栏位进行设定.
+* **Webhook 是可选择加入的.** 如果需要使用 Webhook,请在 **STRIPE_WEBHOOK_SECRET** 栏位填入 Stripe 的 Webhook 签名密钥,让 superun 可以验证事件.
+* 在 **浏览器控制台 → 网络/错误**,**superun Cloud → 日志** 和 **Stripe 仪表板 → 日志** 中进行调试.
+* 始终在 **Stripe 测试模式**下进行测试,然后进行部署.
+
+## 什么是 Stripe
+
+Stripe 提供一整套支付 API 和工具:
+
+- **付款处理:**接受信用Card,数字钱包和本地付款方式
+- **订阅:** 定期计费和订阅管理
+- **市场:** 多方支付和市场功能
+- **连接:** 市场和平台的平台支付
+- **计费:** 发票和计费管理
+- **税收:** 自动税收计算和合规性
+
+## 主要优点
+
+- **全球覆盖范围:** 接受全球客户的付款
+- **多种付款方式:**信用Card,数字钱包,银行转账等
+- **开发人员友好:** 记录完善的 API 和出色的开发人员体验
+- **合规性:** 符合 PCI DSS 标准,安全处理敏感支付数据
+- **实时:** 即时付款处理和网络钩子通知
+
+## 要求
+
+在集成 Stripe 之前,请确保满足以下先决条件:
+
+* 项目**必须**连接到 **superun Cloud**（或 Supabase）. [详细了解 superun Cloud](/superun/integrations/cloud) 或 [Supabase 集成](/superun/integrations/supabase)
+* 具有正确配置产品的 **Stripe 帐户**（用于订阅）
+* 一个工作的**前端**:
+* 对于单个产品销售,请确保购物车和结帐页面正常运行.
+* 对于订阅,设置登录功能和不和的定价等级.
+
+<Note>
+**请Note意**
+  Stripe 集成在预览版中不起作用.要测试集成,请确保**部署**您的项目.尝试该功能时,您还应该确保在 Stripe 中处于**测试模​​​​​​​​式**.测试付款时,使用测试卡号:“4242 4242 4242 4242”,任意 3 位数字作为 CVC,以及任意未来日期.
+</Note>
+
+## Stripe 支付设置（无代码聊天流程）
+
+superun 现在为您生成所有 Stripe 逻辑.当你通过 **研发 → 服务 → Stripe** 设定好 **STRIPE_API_KEY**（以及可选的 **STRIPE_WEBHOOK_SECRET**）并且项目已**连接到 superun Cloud**（或 Supabase）后,只需在聊天中告诉 superun 你需要什么,无需手动编码.
 
 <Steps>
-  <Step title="Step 1: Prep your project">
-    * **superun Cloud** (or Supabase) connected
-    * **Stripe Secret Key** added via **Build** tab → **Service** section → **Stripe** → **Enable**
-    * (Optional) Prices or product IDs handy from Stripe Dashboard
+  <Step title="第 1 步:准备您的项目">
+    * **superun Cloud** （或 Supabase）已连接
+    * **Stripe 密钥** 通过 **研发 → 服务 → Stripe** 进行设定
+    *（可选）价格或产品 ID 可从 Stripe 仪表板获取
   </Step>
 
-  <Step title="Step 2: Describe your payment needs in chat">
-    Examples:
+    <Step title="第2步:在聊天中描述您的付款需求">
+    示例:
 
-    * "Create a one-time checkout for my 'Digital Course' at $29"
-    * "Set up an annual Premium plan for $99, tied to each user's id"
-    * "Add three subscription tiers: Basic at $9/month, Pro at $29/month, and Enterprise at $99/month"
-    * "Create a payment form for my product page"
+*"为我的'数字课程'创建一次性结账,价格为 29 美元"
+    *"设置年度高级计划,价格为 99 美元,与每个用户的 ID 绑定"
+    *"添加三个订阅级别:基本版为 9 美元/月,专业版为 29 美元/月,企业版为 99 美元/月"
+    *"为我的产品页面创建付款表格"
   </Step>
 
-  <Step title="Step 3: Review & apply">
-    superun auto‑scaffolds the payment components, database tables (if using superun Cloud), and UI elements (all tied to the user's id). Check the preview, then click **Apply** to deploy.
+  <Step title="第 3 步:审核併申请">
+    superun 自动搭建支付组件,数据库表（如果使用 superun Cloud）和 UI 元素（全部与用户 ID 相关联）的支架.检查预览,然后单击**应用**进行部署.
   </Step>
-</Steps>
+  </Steps>
 
 <Note>
-  * Subscriptions should always be linked to the authenticated user's `id` in superun Cloud (or Supabase) for secure, role‑based access.
+  * 订阅应始终链接到 superun Cloud（或 Supabase）中经过身份验证的用户的“id”,以实现安全,基于角色的访问.
 </Note>
 
-## Getting Started
+## 入门
 
-### 1. Create a Stripe Account
+### 1. 创建 Stripe 帐户
 
-1. Go to [stripe.com](https://stripe.com) and sign up
-2. Complete the account setup process
-3. Verify your business information
-4. Activate your account (test mode is available immediately)
+1. 前往 [Stripe.com](https://Stripe.com) 并注册
+2. 完成帐户设置过程
+3. 验证您的企业Info
+4. 激活您的帐户（测试模式立即可用）
 
-### 2. Get Your API Keys
+### 2. 获取您的 API 密钥
 
-In your Stripe dashboard:
+在您的 Stripe 仪表板中:
 
-1. Go to **Developers → API Keys**
-2. Copy your **Publishable Key** (starts with `pk_test_` or `pk_live_`)
-3. Copy your **Secret Key** (starts with `sk_test_` or `sk_live_`)
-4. Keep your secret key secure and never expose it in client-side code
+1. 转到 **开发人员 → API 密钥**
+2. 复制您的**可发布密钥**（以“pk_test_”或“pk_live_”开头）
+3. 复制您的**密钥**（以“sk_test_”或“sk_live_”开头）
+4. 确保您的密钥安全,切勿在客户端代码中公开它
 
 <Warning>
-  **Important Security Warning**
+**重要安全Warning**
 
-  Never paste your **Secret Key** directly in superun chat. Treat it like the keys to your house—exposing it could allow unauthorized access to your Stripe account. Instead, store it securely using the **Build** tab → **Service** section → **Stripe** → **Enable** feature.
+切勿将您的 **密钥** 直接粘贴到 superun 聊天中.将其视为您家的钥匙 - 暴露它可能会导致未经授权的访问您的 Stripe 帐户.相反,请使用 **研发 → 服务 → Stripe** 功能安全地存储它.
 </Warning>
 
-### 3. Configure Stripe in superun
+## 3. 在 superun 中配置 Stripe
 
-You can enable Stripe integration in two ways:
+您可以通过两种方式启用 Stripe 集成:
 
-#### Option 1: Enable via Build Service (Recommended)
+#### 选项 1:通过研发服务启用（推荐）
 
-1. In your superun project, go to the **Build** tab.
-2. Open **Services** and select **Stripe**.
-3. In the **STRIPE_API_KEY** field, paste your **Stripe Secret Key** (starts with `sk_test_` or `sk_live_`).
-4. (Optional) In the **STRIPE_WEBHOOK_SECRET** field, paste your **Webhook signing secret** (starts with `whsec_...`) if you plan to use webhooks.
-5. Click **Save Changes** and wait for the Stripe integration to finish enabling.
+1. 在你的 superun 项目中,前往 **研发** 分页
+2. 打开 **服务**,选择 **Stripe**
+3. 在 **STRIPE_API_KEY** 栏位贴上你的 **Stripe Secret Key**（例如 `sk_test_...` 或 `sk_live_...`）
+4. （可选）在 **STRIPE_WEBHOOK_SECRET** 栏位贴上 Stripe 的 **Webhook 签名密钥**（例如 `whsec_...`）,如果你打算使用 Webhook
+5. 点击 **Save Changes**,等待 Stripe 整合显示启用完成
 
-superun will automatically configure your project to use Stripe with these credentials.
+superun 会根据这些凭证自动为你的项目配置 Stripe.
 
-#### Option 2: Enable via Chat
+#### 选项 2:通过聊天启用
 
-You can also enable Stripe by asking superun in the chat:
+您还可以通过在聊天中询问 superun 来启用 Stripe:
 
 ```
 Enable Stripe payment processing for my project
 ```
 
-or
+或者
 
 ```
 Add Stripe integration with test keys
 ```
 
-superun will guide you through the setup process and automatically configure the integration. When prompted, use the **Build** tab → **Service** section to securely add your API keys.
+superun 将指导您完成设置过程并自动配置集成.出现提示时,使用 **研发 → 服务** 安全地添加您的 API 密钥.
 
-## Manual Payment Setup (Advanced)
+## 手动付款设置（高级）
 
 <Note>
-  **Recommended:** Use the **chat-driven flow** described above for the easiest setup. The following sections are for advanced users who want to implement payments manually or customize the generated code.
+**推荐:** 使用上面描述的 **聊天驱动流程** 来实现最简单的设置.以下部分适用于想要手动实施付款或自定义生成的代码的高级用户.
 </Note>
 
-### Install Stripe SDK
+## 安装 Stripe SDK
 
-superun automatically includes the Stripe SDK when you enable Stripe integration, but you can also install it manually:
+当您启用 Stripe 集成时,superun 自动包含 Stripe SDK,但您也可以手动安装:
 
 ```bash
 npm install @stripe/stripe-js
 ```
 
-### Initialize Stripe
+## 初始化 Stripe
 
 ```jsx
 import { loadStripe } from '@stripe/stripe-js';
@@ -172,9 +172,9 @@ import { loadStripe } from '@stripe/stripe-js';
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
 ```
 
-## One-Time Payments
+## 一次性付款
 
-### Creating a Payment Intent
+### 创建付款意图
 
 ```jsx
 // Server-side: Create payment intent
@@ -195,7 +195,7 @@ const createPaymentIntent = async (amount, currency = 'usd') => {
 };
 ```
 
-### Processing Payment
+### 处理付款
 
 ```jsx
 import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
@@ -266,9 +266,9 @@ const App = () => {
 };
 ```
 
-## Subscriptions
+## 订阅
 
-### Creating a Subscription
+### 创建订阅
 
 ```jsx
 // Create a subscription
@@ -289,7 +289,7 @@ const createSubscription = async (priceId, customerId) => {
 };
 ```
 
-### Subscription Management
+### 订阅管理
 
 ```jsx
 // Cancel a subscription
@@ -326,9 +326,9 @@ const updateSubscription = async (subscriptionId, newPriceId) => {
 };
 ```
 
-## Customer Management
+## 客户管理
 
-### Creating Customers
+### 创建客户
 
 ```jsx
 // Create a customer
@@ -349,7 +349,7 @@ const createCustomer = async (email, name) => {
 };
 ```
 
-### Customer Portal
+### 客户门户
 
 ```jsx
 // Create customer portal session
@@ -375,54 +375,54 @@ const handleManageSubscription = async () => {
 };
 ```
 
-## Advanced integration: Webhooks & superun Cloud
+## 高级集成:Webhooks 和 superun Cloud
 
-For complex payment structures such as **subscriptions and role-based access**, superun recommends using **superun Cloud** (or Supabase) to securely handle Stripe integration. This allows for proper webhook handling, subscription management, and role-based access control based on payment tiers.
+对于复杂的支付结构,例如**订阅和基于角色的访问**,superun 建议使用 **superun Cloud**（或 Supabase）来安全地处理 Stripe 集成.这允许正确的 Webhook 处理,订阅管理和基于支付级别的基于角色的访问控制.
 
 <Note>
-  Webhooks are **optional** for basic payment flows. superun can handle payments without webhooks, but setting them up enables real-time updates and better subscription management.
+  对于基本支付流程,Webhook 是**可选**. superun 可以在没有 Webhooks 的情况下处理付款,但设置它们可以实现实时更新和更好的订阅管理.
 </Note>
 
-### Setting Up Webhooks
+### 设置 Webhooks
 
 <Steps>
-  <Step title="Step 1: Connect superun Cloud">
-    Getting started is simple. superun makes connecting superun Cloud effortless:
+  <Step title="第 1 步:连接 superun Cloud">
+    入门很简单. superun 使连接 superun Cloud 变得毫不费力:
 
-    1. Go to **Build** tab → **Service** section
-    2. Find **superun Cloud** and click **Enable**
-    3. Follow the instructions to set up your cloud project
-    4. Once connected, superun Cloud enables secure payment processing, subscription management, webhook handling, customer data storage, and error handling.
+1. 转到 **研发 → 服务**
+    2. 找到 **superun Cloud** 并点击 **启用**
+    3. 按照说明设置您的云项目
+    4. 连接后,superun Cloud 可实现安全支付处理,订阅管理,Webhook 处理,客户数据存储和错误处理.
   </Step>
 
-  <Step title="Step 2: Retrieve the Webhook Endpoint URL">
-    After superun generates the webhook handler, retrieve the endpoint URL from:
-    * **superun Cloud** → **Functions** → Your webhook function
-    * Or ask superun in chat: "What's my Stripe webhook endpoint URL?"
+  <Step title="第 2 步:检索 Webhook 端点 URL">
+    superun 生成 Webhook 处理程序后,从以下位置检索端点 URL:
+    * **superun Cloud** → **函数** → 您的 webhook 函数
+    * 或者在聊天中询问 superun:"我的 Stripe webhook 端点 URL 是什么?"
   </Step>
 
-  <Step title="Step 3: Configure Webhook in Stripe Dashboard">
-    1. Go to **Stripe Dashboard** → **Developers** → **Webhooks** → **Add endpoint**
-    2. Enter your webhook URL from Step 2
-    3. Select the events you want to listen for:
-      * `payment_intent.succeeded`
-      * `payment_intent.payment_failed`
-      * `customer.subscription.created`
-      * `customer.subscription.updated`
-      * `customer.subscription.deleted`
-    4. Copy the **Webhook Signing Secret** (starts with `whsec_`)
+  <Step title="第 3 步:在 Stripe 仪表板中配置 Webhook">
+    1. 转到 **Stripe 仪表板** → **开发人员** → **Webhooks** → **添加端点**
+    2. 输入第 2 步中的 Webhook URL
+    3. 选择您要监听的事件:
+      * `付款意图.成功`
+      * `付款意图.付款失败`
+      * `客户.订阅.创建`
+      * `客户.订阅.更新`
+      * `客户.订阅.已删除`
+    4. 复制 **Webhook 签名密钥**（以 `whsec_` 开头）
   </Step>
 
-  <Step title="Step 4: Store Webhook Secret Securely">
-    Store the webhook signing secret in your superun Cloud environment variables or ask superun in chat to help you configure it securely.
+  <Step title="第 4 步:安全存储 Webhook 密钥">
+    将 Webhook 签名密钥存储在您的 superun Cloud 环境变量中,或者在聊天中询问 superun 以帮助您安全地配置它.
 
     <Info>
-      If unsure about naming the secret, ask superun in **Ask** mode for guidance.
+    如果不确定如何命名秘密,请在 **免费咨询** 中向 superun 寻求指导.
     </Info>
   </Step>
-</Steps>
+  </Steps>
 
-### Processing Webhooks
+### 处理 Webhooks
 
 ```jsx
 // webhook handler
@@ -481,9 +481,9 @@ export default async function handler(req, res) {
 }
 ```
 
-## Advanced Features
+## 高级功能
 
-### Payment Methods
+### 付款方式
 
 ```jsx
 // Save payment method for future use
@@ -511,7 +511,7 @@ const getPaymentMethods = async (customerId) => {
 };
 ```
 
-### Invoicing
+### 发票
 
 ```jsx
 // Create an invoice
@@ -548,7 +548,7 @@ const sendInvoice = async (invoiceId) => {
 };
 ```
 
-### Marketplace Payments
+### 市场支付
 
 ```jsx
 // Create a connected account
@@ -585,30 +585,30 @@ const createAccountLink = async (accountId) => {
 };
 ```
 
-## Testing Your Integration
+## 测试您的集成
 
-### Test Mode Setup
+### 测试模式设置
 
-* **Use Stripe's Test Mode** to safely test payments before going live
-* **Switch to Test Mode** in Stripe Dashboard (toggle in the top right)
-* **Use test API keys** (starts with `pk_test_` and `sk_test_`)
+* **使用 Stripe 的测试模式**在上线前安全地测试付款
+* **在 Stripe 仪表板中切换到测试模式**（在右上角切换）
+* **使用测试 API 密钥**（以 `pk_test_` 和 `sk_test_` 开头）
 
-### Test Cards
+### 测试Card
 
-Use these test card numbers for testing:
+使用这些测试Card号进行测试:
 
-- **Successful payment:** `4242 4242 4242 4242`
-  - Any future expiration date (e.g., 12/25)
-  - Any 3-digit CVC (e.g., 123)
-- **Declined payment:** `4000 0000 0000 0002`
-- **Requires authentication:** `4000 0025 0000 3155`
-- **Insufficient funds:** `4000 0000 0000 9995`
+- **支付成功:** `4242 4242 4242 4242`
+  - 任何未来的到期日期（例如 12/25）
+  - 任何 3 位 CVC（例如 123）
+- **拒绝付款:** `4000 0000 0000 0002`
+- **需要身份验证:** `4000 0025 0000 3155`
+- **资金不足:** `4000 0000 0000 9995`
 
 <Note>
-  **Important:** Stripe integration does not work in preview mode. Make sure to **deploy** your app to test the integration.
+  **重要提示:** Stripe 集成在预览模式下不起作用.确保**部署**您的应用程序来测试集成.
 </Note>
 
-### Test Scenarios
+### 测试场景
 
 ```jsx
 // Test different payment scenarios
@@ -637,9 +637,9 @@ const testWebhook = async () => {
 };
 ```
 
-## Security Best Practices
+## 安全最佳实践
 
-### Environment Variables
+### 环境变量
 
 ```bash
 # .env.local
@@ -648,7 +648,7 @@ STRIPE_SECRET_KEY=sk_test_...
 STRIPE_WEBHOOK_SECRET=whsec_...
 ```
 
-### Server-Side Validation
+### 服务器端验证
 
 ```jsx
 // Always validate on the server
@@ -663,7 +663,7 @@ const validatePayment = async (paymentIntentId) => {
 };
 ```
 
-### Webhook Security
+### Webhook 安全
 
 ```jsx
 // Verify webhook signatures
@@ -677,9 +677,9 @@ const verifyWebhook = (payload, signature, secret) => {
 };
 ```
 
-## Common Patterns
+## 常见模式
 
-### Payment Form Component
+### 付款表格组件
 
 ```jsx
 const PaymentForm = ({ amount, onSuccess, onError }) => {
@@ -722,14 +722,14 @@ const PaymentForm = ({ amount, onSuccess, onError }) => {
     <form onSubmit={handleSubmit}>
       <CardElement />
       <button disabled={!stripe || loading}>
-        {loading ? 'Processing...' : `Pay $${amount}`}
+        {loading ? 'Processing...' : `Pay ${amount}`}
       </button>
     </form>
   );
 };
 ```
 
-### Subscription Status Component
+### 订阅状态​​组件
 
 ```jsx
 const SubscriptionStatus = ({ customerId }) => {
@@ -766,114 +766,114 @@ const SubscriptionStatus = ({ customerId }) => {
 };
 ```
 
-## Debugging & Troubleshooting
+## 调试和故障排除
 
 <AccordionGroup>
-  <Accordion title="Check Console Logs">
+  <Accordion title="检查控制台日志">
     <Steps>
-      <Step title="Step 1">
-        Open **Developer Tools** (Right-click → Inspect → Console in Chrome).
+      <Step title="第 1 步">
+        打开**开发人员工具**（在 Chrome 中右键单击 → 检查 → 控制台）.
       </Step>
 
-      <Step title="Step 2">
-        Look for errors and review payment event logs.
+      <Step title="第 2 步">
+        查找错误并查看付款事件日志.
       </Step>
 
-      <Step title="Step 3">
-        Copy error messages and ask superun in chat for debugging assistance.
+      <Step title="第 3 步">
+        复制错误消息并在聊天中向 superun 寻求调试帮助.
       </Step>
     </Steps>
   </Accordion>
 
-  <Accordion title="Review superun Cloud Logs">
+<Accordion title="查看 superun Cloud 日志">
     <Steps>
-      <Step title="Step 1">
-        Go to **Build** tab → **Service** section → **superun Cloud**
+        <Step title="第 1 步">
+        转到 **研发 → 服务 → superun Cloud**
       </Step>
 
-      <Step title="Step 2">
-        Navigate to **Logs** or **Functions** → **Logs**
+  <Step title="第 2 步">
+        导航到 **日志** 或 **函数** → **日志**
       </Step>
 
-      <Step title="Step 3">
-        Check for webhook errors and payment processing issues.
+  <Step title="第 3 步">
+        检查 Webhook 错误和付款处理问题.
       </Step>
     </Steps>
   </Accordion>
 
-  <Accordion title="Verify Webhook Events in Stripe">
+<Accordion title="验证 Stripe 中的 Webhook 事件">
     <Steps>
-      <Step title="Step 1">
-        Navigate to **Stripe Dashboard** → **Developers** → **Webhooks**
+        <Step title="第 1 步">
+        导航到 **Stripe 仪表板** → **开发人员** → **Webhooks**
       </Step>
 
-      <Step title="Step 2">
-        Click on your webhook endpoint
+  <Step title="第 2 步">
+        单击您的 Webhook 端点
       </Step>
 
-      <Step title="Step 3">
-        Review the **Events** tab to confirm that Stripe is sending data correctly.
+  <Step title="第 3 步">
+        查看 **Events** 选项Card以确认 Stripe 正在正确发送数据.
       </Step>
     </Steps>
   </Accordion>
 
-  <Accordion title="Use superun Ask mode">
+<Accordion title="使用superun免费咨询">
     <Steps>
-      <Step title="Step 1">
-        Switch to **Ask** mode and ask superun follow-up questions.
+        <Step title="第 1 步">
+        切换到 **免费咨询** 并询问 superun 后续问题.
       </Step>
 
-      <Step title="Step 2">
-        Describe your issue step by step:
-        * "My payment form isn't showing up"
-        * "The subscription isn't being created"
-        * "Webhooks aren't working"
+  <Step title="第 2 步">
+        逐步描述您的问题:
+        *“我的付款表格没有display”
+        *“尚未创建订阅”
+        *“Webhook 不起作用”
       </Step>
 
-      <Step title="Step 3">
-        Use the **Rubber Duck Method** & explain your issue step by step to clarify the problem.
+  <Step title="第 3 步">
+        使用**橡皮鸭方法**并逐步解释您的问题以澄清问题.
       </Step>
     </Steps>
   </Accordion>
 </AccordionGroup>
 
-### Common Issues
+### 常见问题
 
-**Q: Payment is failing with "Your card was declined"**
+**问:付款失败并display“您的Card被拒绝”**
 
-A: This could be due to:
-- Using a test card in live mode (or vice versa)
-- Insufficient funds (for test cards, use `4242 4242 4242 4242`)
-- Card not supported for online payments
-- Incorrect card details
-- Bank blocking the transaction
+答:这可能是由于:
+- 在实时模式下使用测试Card（反之亦然）
+- 资金不足（测试Card请使用`4242 4242 4242 4242`）
+- 不支持银行Card在线支付
+- Card详细Info不正确
+- 银行阻止交易
 
-**Q: Webhooks are not being received**
+**问:未收到 Webhook**
 
-A: Check:
-- Webhook URL is accessible from the internet
-- Webhook endpoint is returning 200 status
-- Webhook signing secret is correct
-- Events are properly selected in Stripe dashboard
-- You're testing in deployed mode (not preview)
+答:检查:
+- Webhook URL 可从互联网访问
+- Webhook 端点返回 200 状态
+- Webhook 签名密钥正确
+- 在 Stripe 仪表板中正确选择事件
+- 您正在部署模式（而非预览）下进行测试
 
-**Q: Test payments are not working**
+**问:测试付款不起作用**
 
-A: Ensure:
-- You're using test API keys (`pk_test_` and `sk_test_`)
-- Test card numbers are correct (`4242 4242 4242 4242`)
-- Amount is in cents (e.g., $10.00 = 1000 cents)
-- Your app is **deployed** (Stripe doesn't work in preview mode)
-- You're in **Test Mode** in Stripe Dashboard
+答:确保:
+- 您正在使用测试 API 密钥（`pk_test_` 和 `sk_test_`）
+- 测试Card号码正确（`4242 4242 4242 4242`）
+- 金额以美分为单位（例如,10.00 美元 = 1000 美分）
+- 您的应用程序已**部署**（Stripe 在预览模式下不起作用）
+- 您在 Stripe 仪表板中处于 **测试模​​​​​​​​式**
 
-**Q: Subscription webhooks are not firing**
+**问:订阅 webhook 未触发**
 
-A: Verify:
-- Subscription is created successfully
-- Webhook events are selected for subscription events
-- Webhook endpoint is handling the events properly
-- Webhook secret is correctly stored in superun Cloud
+答:验证:
+- 订阅创建成功
+- 为订阅事件选择Webhook事件
+- Webhook 端点正在正确处理事件
+- Webhook 机密正确存储在 superun Cloud 中
 
-<Card title="Need Help?" icon="help-circle" href="/superun/introduction/faq">
-  Check our FAQ for common Stripe integration questions and troubleshooting tips.
+<Card title="需要帮助吗?" icon="help-circle" href="/superun/introduction/faq">
+  查看我们的常见问题解答,了解常见的 Stripe 集成问题和故障排除提示.
 </Card>

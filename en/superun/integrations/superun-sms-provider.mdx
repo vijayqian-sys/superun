@@ -1,0 +1,71 @@
+---
+title: "superun SMS Provider"
+description: "Integrate SMS phone authentication with superun Cloud - automatically configured and ready to use"
+image: "https://b.ux-cdn.com/uxarts/files/t20251201143554/mm27xz4u.png"
+---
+
+# superun SMS Provider
+
+This guide explains how to integrate SMS phone authentication using superun Cloud. When superun Cloud is running, phone login is automatically enabled and all necessary auth hook configurations are handled for you.
+
+## Overview
+
+superun Cloud automatically handles SMS authentication setup:
+
+- **Automatic phone login activation**: Phone authentication is enabled when superun Cloud starts
+- **Pre-configured auth hooks**: The `send_sms` hook is automatically configured and connected to superun Gateway
+- **No manual configuration needed**: You don't need to create Edge Functions or configure auth hooks manually
+- **Ready to use**: Simply integrate the client-side authentication flow in your application
+
+## Client Integration
+
+Integrate the SMS authentication flow in your client application. This is the frontend integration logic that users interact with:
+
+```typescript
+import { supabase } from "@/integrations/supabase/client";
+
+// Send OTP via SMS - Call this when user clicks "Send Verification Code"
+async function sendOTP(phone: string) {
+  const { data, error } = await supabase.auth.signInWithOtp({
+    phone: phone,
+  });
+
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  return data;
+}
+
+// Verify OTP - Call this when user clicks "Login" or "Verify"
+async function verifyOTP(phone: string, token: string) {
+  const { data, error } = await supabase.auth.verifyOtp({
+    phone: phone,
+    token: token,
+    type: "sms",
+  });
+
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  return data;
+}
+```
+
+**Usage Flow:**
+
+1. **User clicks "Send Verification Code"**: Call `sendOTP(phone)` to trigger the SMS sending. superun Cloud automatically handles the SMS delivery via the pre-configured auth hook.
+2. **User enters verification code and clicks "Login"**: Call `verifyOTP(phone, token)` to verify the code and complete authentication.
+
+## How It Works
+
+1. **User initiates SMS authentication**: When a user requests phone authentication via `signInWithOtp()`, Supabase generates an OTP
+2. **Auth hook is automatically triggered**: superun Cloud's pre-configured `send_sms` hook intercepts the authentication event
+3. **SMS is sent automatically**: The hook sends the SMS verification code using superun Gateway
+4. **User verifies code**: The user enters the code, and `verifyOtp()` completes the authentication process
+
+<Note>
+All backend infrastructure (Edge Functions, auth hook configuration, webhook verification, and SMS gateway integration) is automatically handled by superun Cloud. You only need to implement the client-side authentication flow shown above.
+</Note>
+

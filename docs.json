@@ -73,7 +73,7 @@
               {
                 "group": "​",
                 "pages": [
-                  "zh-Hans/index"
+                  "index"
                 ]
               }
             ]
@@ -84,9 +84,9 @@
               {
                 "group": "指南",
                 "pages": [
-                  "zh-Hans/superun/introduction/welcome",
-                  "zh-Hans/superun/introduction/getting-started",
-                  "zh-Hans/superun/introduction/faq"
+                  "superun/introduction/welcome",
+                  "superun/introduction/getting-started",
+                  "superun/introduction/faq"
                 ]
               },
               {
@@ -95,15 +95,15 @@
                   {
                     "group": "构想",
                     "pages": [
-                      "zh-Hans/superun/features/prompt-question"
+                      "superun/features/prompt-question"
                     ]
                   },
                   {
                     "group": "演示",
                     "pages": [
-                      "zh-Hans/superun/features/design-options",
-                      "zh-Hans/superun/features/editable-design",
-                      "zh-Hans/superun/features/auto-fix"
+                      "superun/features/design-options",
+                      "superun/features/editable-design",
+                      "superun/features/auto-fix"
                     ]
                   },
                   {
@@ -112,26 +112,26 @@
                       {
                         "group": "集成",
                         "pages": [
-                          "zh-Hans/superun/integrations/introduction",
-                          "zh-Hans/superun/integrations/ai",
-                          "zh-Hans/superun/integrations/cloud",
-                          "zh-Hans/superun/integrations/storage",
-                          "zh-Hans/superun/integrations/stripe",
-                          "zh-Hans/superun/integrations/nano-banana",
-                          "zh-Hans/superun/integrations/resend",
-                          "zh-Hans/superun/integrations/superun-sms-provider"
+                          "superun/integrations/introduction",
+                          "superun/integrations/ai",
+                          "superun/integrations/cloud",
+                          "superun/integrations/storage",
+                          "superun/integrations/stripe",
+                          "superun/integrations/nano-banana",
+                          "superun/integrations/resend",
+                          "superun/integrations/superun-sms-provider"
                         ]
                       },
-                      "zh-Hans/superun/features/feature-list"
+                      "superun/features/feature-list"
                     ]
                   },
                   {
                     "group": "营运",
                     "pages": [
-                      "zh-Hans/superun/features/private-projects",
-                      "zh-Hans/superun/features/publish",
-                      "zh-Hans/superun/features/custom-domain",
-                      "zh-Hans/superun/features/seo"
+                      "superun/features/private-projects",
+                      "superun/features/publish",
+                      "superun/features/custom-domain",
+                      "superun/features/seo"
                     ]
                   }
                 ]
@@ -139,61 +139,61 @@
               {
                 "group": "即用密钥",
                 "pages": [
-                  "zh-Hans/superun/ready-to-use-keys/all",
-                  "zh-Hans/superun/ready-to-use-keys/amap",
-                  "zh-Hans/superun/ready-to-use-keys/unsplash",
-                  "zh-Hans/superun/ready-to-use-keys/pexels",
-                  "zh-Hans/superun/ready-to-use-keys/windy"
+                  "superun/ready-to-use-keys/all",
+                  "superun/ready-to-use-keys/amap",
+                  "superun/ready-to-use-keys/unsplash",
+                  "superun/ready-to-use-keys/pexels",
+                  "superun/ready-to-use-keys/windy"
                 ]
               },
               {
                 "group": "功能",
                 "pages": [
-                  "zh-Hans/superun/features/version-history",
-                  "zh-Hans/superun/features/image-upload",
-                  "zh-Hans/superun/features/code-mode",
-                  "zh-Hans/superun/features/knowledge",
-                  "zh-Hans/superun/features/chat-mode",
-                  "zh-Hans/superun/features/temporary-chat",
-                  "zh-Hans/superun/features/security",
-                  "zh-Hans/superun/features/manul-edit"
+                  "superun/features/version-history",
+                  "superun/features/image-upload",
+                  "superun/features/code-mode",
+                  "superun/features/knowledge",
+                  "superun/features/chat-mode",
+                  "superun/features/temporary-chat",
+                  "superun/features/security",
+                  "superun/features/manul-edit"
                 ]
               },
               {
                 "group": "技巧与提示",
                 "pages": [
-                  "zh-Hans/superun/tips-tricks/detailed-tips",
-                  "zh-Hans/superun/tips-tricks/best-practice",
-                  "zh-Hans/superun/tips-tricks/using-images",
-                  "zh-Hans/superun/tips-tricks/from-idea-to-app",
-                  "zh-Hans/superun/tips-tricks/avoiding-security-pitfalls",
-                  "zh-Hans/superun/tips-tricks/configure-163-smtp",
-                  "zh-Hans/superun/tips-tricks/configure-wechat-pay",
-                  "zh-Hans/superun/tips-tricks/configure-alipay-pay",
-                  "zh-Hans/superun/tips-tricks/troubleshooting",
-                  "zh-Hans/superun/tips-tricks/speech-engines"
+                  "superun/tips-tricks/detailed-tips",
+                  "superun/tips-tricks/best-practice",
+                  "superun/tips-tricks/using-images",
+                  "superun/tips-tricks/from-idea-to-app",
+                  "superun/tips-tricks/avoiding-security-pitfalls",
+                  "superun/tips-tricks/configure-163-smtp",
+                  "superun/tips-tricks/configure-wechat-pay",
+                  "superun/tips-tricks/configure-alipay-pay",
+                  "superun/tips-tricks/troubleshooting",
+                  "superun/tips-tricks/speech-engines"
                 ]
               },
               {
                 "group": "使用案例",
                 "pages": [
-                  "zh-Hans/superun/use-case/inspiration-showcase",
-                  "zh-Hans/superun/use-case/build-web-app",
-                  "zh-Hans/superun/use-case/landing-page",
-                  "zh-Hans/superun/use-case/prototype",
-                  "zh-Hans/superun/use-case/saas"
+                  "superun/use-case/inspiration-showcase",
+                  "superun/use-case/build-web-app",
+                  "superun/use-case/landing-page",
+                  "superun/use-case/prototype",
+                  "superun/use-case/saas"
                 ]
               },
               {
                 "group": "定价",
                 "pages": [
-                  "zh-Hans/superun/pricing"
+                  "superun/pricing"
                 ]
               },
               {
                 "group": "更新日志",
                 "pages": [
-                  "zh-Hans/superun/changelog"
+                  "superun/changelog"
                 ]
               }
             ]
@@ -204,22 +204,22 @@
               {
                 "group": "指南",
                 "pages": [
-                  "zh-Hans/prompt-to-design/guide/welcome",
-                  "zh-Hans/prompt-to-design/guide/get-started",
-                  "zh-Hans/prompt-to-design/guide/faq"
+                  "prompt-to-design/guide/welcome",
+                  "prompt-to-design/guide/get-started",
+                  "prompt-to-design/guide/faq"
                 ]
               },
               {
                 "group": "功能",
                 "pages": [
-                  "zh-Hans/prompt-to-design/features/kick-start",
-                  "zh-Hans/prompt-to-design/features/style-transfer",
-                  "zh-Hans/prompt-to-design/features/partial-redesign",
-                  "zh-Hans/prompt-to-design/features/smart-fill",
-                  "zh-Hans/prompt-to-design/features/template-remix",
-                  "zh-Hans/prompt-to-design/features/frame-redesign",
-                  "zh-Hans/prompt-to-design/features/real-prototype",
-                  "zh-Hans/prompt-to-design/features/modify-elements"
+                  "prompt-to-design/features/kick-start",
+                  "prompt-to-design/features/style-transfer",
+                  "prompt-to-design/features/partial-redesign",
+                  "prompt-to-design/features/smart-fill",
+                  "prompt-to-design/features/template-remix",
+                  "prompt-to-design/features/frame-redesign",
+                  "prompt-to-design/features/real-prototype",
+                  "prompt-to-design/features/modify-elements"
                 ]
               },
               {
@@ -228,37 +228,37 @@
                   {
                     "group": "模板",
                     "pages": [
-                      "zh-Hans/prompt-to-design/templates/index",
-                      "zh-Hans/prompt-to-design/templates/homepage",
-                      "zh-Hans/prompt-to-design/templates/dashboard",
-                      "zh-Hans/prompt-to-design/templates/signup",
-                      "zh-Hans/prompt-to-design/templates/pricing",
-                      "zh-Hans/prompt-to-design/templates/workspace",
-                      "zh-Hans/prompt-to-design/templates/chatbot",
-                      "zh-Hans/prompt-to-design/templates/support",
-                      "zh-Hans/prompt-to-design/templates/tutorial",
-                      "zh-Hans/prompt-to-design/templates/editor",
-                      "zh-Hans/prompt-to-design/templates/account",
-                      "zh-Hans/prompt-to-design/templates/order",
-                      "zh-Hans/prompt-to-design/templates/chart",
-                      "zh-Hans/prompt-to-design/templates/setting",
-                      "zh-Hans/prompt-to-design/templates/code",
-                      "zh-Hans/prompt-to-design/templates/follow"
+                      "prompt-to-design/templates/index",
+                      "prompt-to-design/templates/homepage",
+                      "prompt-to-design/templates/dashboard",
+                      "prompt-to-design/templates/signup",
+                      "prompt-to-design/templates/pricing",
+                      "prompt-to-design/templates/workspace",
+                      "prompt-to-design/templates/chatbot",
+                      "prompt-to-design/templates/support",
+                      "prompt-to-design/templates/tutorial",
+                      "prompt-to-design/templates/editor",
+                      "prompt-to-design/templates/account",
+                      "prompt-to-design/templates/order",
+                      "prompt-to-design/templates/chart",
+                      "prompt-to-design/templates/setting",
+                      "prompt-to-design/templates/code",
+                      "prompt-to-design/templates/follow"
                     ]
                   },
                   {
                     "group": "教学范例",
                     "pages": [
-                      "zh-Hans/prompt-to-design/use-cases/maintain-style-consistency",
-                      "zh-Hans/prompt-to-design/use-cases/recreate-design",
-                      "zh-Hans/prompt-to-design/use-cases/convert-mobile",
-                      "zh-Hans/prompt-to-design/use-cases/expand-multi",
-                      "zh-Hans/prompt-to-design/use-cases/meeting-note",
-                      "zh-Hans/prompt-to-design/use-cases/messy-redesign",
-                      "zh-Hans/prompt-to-design/use-cases/region-update",
-                      "zh-Hans/prompt-to-design/use-cases/speed-up",
-                      "zh-Hans/prompt-to-design/use-cases/update-frame",
-                      "zh-Hans/prompt-to-design/use-cases/wireframe"
+                      "prompt-to-design/use-cases/maintain-style-consistency",
+                      "prompt-to-design/use-cases/recreate-design",
+                      "prompt-to-design/use-cases/convert-mobile",
+                      "prompt-to-design/use-cases/expand-multi",
+                      "prompt-to-design/use-cases/meeting-note",
+                      "prompt-to-design/use-cases/messy-redesign",
+                      "prompt-to-design/use-cases/region-update",
+                      "prompt-to-design/use-cases/speed-up",
+                      "prompt-to-design/use-cases/update-frame",
+                      "prompt-to-design/use-cases/wireframe"
                     ]
                   }
                 ]
@@ -266,13 +266,13 @@
               {
                 "group": "价格",
                 "pages": [
-                  "zh-Hans/prompt-to-design/pricing/index"
+                  "prompt-to-design/pricing/index"
                 ]
               },
               {
                 "group": "更新",
                 "pages": [
-                  "zh-Hans/prompt-to-design/changelog"
+                  "prompt-to-design/changelog"
                 ]
               }
             ]
@@ -503,7 +503,7 @@
               {
                 "group": "​",
                 "pages": [
-                  "index"
+                  "en/index"
                 ]
               }
             ]
@@ -514,9 +514,9 @@
               {
                 "group": "Guide",
                 "pages": [
-                  "superun/introduction/welcome",
-                  "superun/introduction/getting-started",
-                  "superun/introduction/faq"
+                  "en/superun/introduction/welcome",
+                  "en/superun/introduction/getting-started",
+                  "en/superun/introduction/faq"
                 ]
               },
               {
@@ -525,15 +525,15 @@
                   {
                     "group": "Idea",
                     "pages": [
-                      "superun/features/prompt-question"
+                      "en/superun/features/prompt-question"
                     ]
                   },
                   {
                     "group": "Preview",
                     "pages": [
-                      "superun/features/design-options",
-                      "superun/features/editable-design",
-                      "superun/features/auto-fix"
+                      "en/superun/features/design-options",
+                      "en/superun/features/editable-design",
+                      "en/superun/features/auto-fix"
                     ]
                   },
                   {
@@ -542,26 +542,26 @@
                       {
                         "group": "Integrations",
                         "pages": [
-                          "superun/integrations/introduction",
-                          "superun/integrations/ai",
-                          "superun/integrations/cloud",
-                          "superun/integrations/storage",
-                          "superun/integrations/stripe",
-                          "superun/integrations/nano-banana",
-                          "superun/integrations/resend",
-                          "superun/integrations/superun-sms-provider"
+                          "en/superun/integrations/introduction",
+                          "en/superun/integrations/ai",
+                          "en/superun/integrations/cloud",
+                          "en/superun/integrations/storage",
+                          "en/superun/integrations/stripe",
+                          "en/superun/integrations/nano-banana",
+                          "en/superun/integrations/resend",
+                          "en/superun/integrations/superun-sms-provider"
                         ]
                       },
-                      "superun/features/feature-list"
+                      "en/superun/features/feature-list"
                     ]
                   },
                   {
                     "group": "Launch",
                     "pages": [
-                      "superun/features/private-projects",
-                      "superun/features/publish",
-                      "superun/features/custom-domain",
-                      "superun/features/seo"
+                      "en/superun/features/private-projects",
+                      "en/superun/features/publish",
+                      "en/superun/features/custom-domain",
+                      "en/superun/features/seo"
                     ]
                   }
                 ]
@@ -569,59 +569,59 @@
               {
                 "group": "Ready-to-use Keys",
                 "pages": [
-                  "superun/ready-to-use-keys/all",
-                  "superun/ready-to-use-keys/amap",
-                  "superun/ready-to-use-keys/unsplash",
-                  "superun/ready-to-use-keys/pexels",
-                  "superun/ready-to-use-keys/windy"
+                  "en/superun/ready-to-use-keys/all",
+                  "en/superun/ready-to-use-keys/amap",
+                  "en/superun/ready-to-use-keys/unsplash",
+                  "en/superun/ready-to-use-keys/pexels",
+                  "en/superun/ready-to-use-keys/windy"
                 ]
               },
               {
               "group": "Features",
               "pages": [
-              "superun/features/version-history",
-              "superun/features/image-upload",
-              "superun/features/code-mode",
-              "superun/features/knowledge",
-              "superun/features/chat-mode",
-              "superun/features/temporary-chat",
-              "superun/features/security",
-              "superun/features/manul-edit"
+              "en/superun/features/version-history",
+              "en/superun/features/image-upload",
+              "en/superun/features/code-mode",
+              "en/superun/features/knowledge",
+              "en/superun/features/chat-mode",
+              "en/superun/features/temporary-chat",
+              "en/superun/features/security",
+              "en/superun/features/manul-edit"
               ]
               },
               {
                 "group": "Tips & tricks",
                 "pages": [
-                  "superun/tips-tricks/detailed-tips",
-                  "superun/tips-tricks/best-practice",
-                  "superun/tips-tricks/using-images",
-                  "superun/tips-tricks/from-idea-to-app",
-                  "superun/tips-tricks/avoiding-security-pitfalls",
-                  "superun/tips-tricks/configure-wechat-pay",
-                  "superun/tips-tricks/configure-alipay-pay",
-                  "superun/tips-tricks/troubleshooting"
+                  "en/superun/tips-tricks/detailed-tips",
+                  "en/superun/tips-tricks/best-practice",
+                  "en/superun/tips-tricks/using-images",
+                  "en/superun/tips-tricks/from-idea-to-app",
+                  "en/superun/tips-tricks/avoiding-security-pitfalls",
+                  "en/superun/tips-tricks/configure-wechat-pay",
+                  "en/superun/tips-tricks/configure-alipay-pay",
+                  "en/superun/tips-tricks/troubleshooting"
                 ]
               },
               {
                 "group": "Use Cases",
                 "pages": [
-                  "superun/use-case/inspiration-showcase",
-                  "superun/use-case/build-web-app",
-                  "superun/use-case/landing-page",
-                  "superun/use-case/prototype",
-                  "superun/use-case/saas"
+                  "en/superun/use-case/inspiration-showcase",
+                  "en/superun/use-case/build-web-app",
+                  "en/superun/use-case/landing-page",
+                  "en/superun/use-case/prototype",
+                  "en/superun/use-case/saas"
                 ]
               },
               {
                 "group": "Pricing",
                 "pages": [
-                  "superun/pricing"
+                  "en/superun/pricing"
                 ]
               },
               {
                 "group": "Changelog",
                 "pages": [
-                  "superun/changelog"
+                  "en/superun/changelog"
                 ]
               }
             ]
@@ -632,22 +632,22 @@
               {
                 "group": "Guide",
                 "pages": [
-                  "prompt-to-design/guide/welcome",
-                  "prompt-to-design/guide/get-started",
-                  "prompt-to-design/guide/faq"
+                  "en/prompt-to-design/guide/welcome",
+                  "en/prompt-to-design/guide/get-started",
+                  "en/prompt-to-design/guide/faq"
                 ]
               },
               {
                 "group": "Features",
                 "pages": [
-                  "prompt-to-design/features/kick-start",
-                  "prompt-to-design/features/style-transfer",
-                  "prompt-to-design/features/partial-redesign",
-                  "prompt-to-design/features/smart-fill",
-                  "prompt-to-design/features/template-remix",
-                  "prompt-to-design/features/frame-redesign",
-                  "prompt-to-design/features/real-prototype",
-                  "prompt-to-design/features/modify-elements"
+                  "en/prompt-to-design/features/kick-start",
+                  "en/prompt-to-design/features/style-transfer",
+                  "en/prompt-to-design/features/partial-redesign",
+                  "en/prompt-to-design/features/smart-fill",
+                  "en/prompt-to-design/features/template-remix",
+                  "en/prompt-to-design/features/frame-redesign",
+                  "en/prompt-to-design/features/real-prototype",
+                  "en/prompt-to-design/features/modify-elements"
                 ]
               },
               {
@@ -656,37 +656,37 @@
                   {
                     "group": "Templates",
                     "pages": [
-                      "prompt-to-design/templates/index",
-                      "prompt-to-design/templates/homepage",
-                      "prompt-to-design/templates/dashboard",
-                      "prompt-to-design/templates/signup",
-                      "prompt-to-design/templates/pricing",
-                      "prompt-to-design/templates/workspace",
-                      "prompt-to-design/templates/chatbot",
-                      "prompt-to-design/templates/support",
-                      "prompt-to-design/templates/tutorial",
-                      "prompt-to-design/templates/editor",
-                      "prompt-to-design/templates/account",
-                      "prompt-to-design/templates/order",
-                      "prompt-to-design/templates/chart",
-                      "prompt-to-design/templates/setting",
-                      "prompt-to-design/templates/code",
-                      "prompt-to-design/templates/follow"
+                      "en/prompt-to-design/templates/index",
+                      "en/prompt-to-design/templates/homepage",
+                      "en/prompt-to-design/templates/dashboard",
+                      "en/prompt-to-design/templates/signup",
+                      "en/prompt-to-design/templates/pricing",
+                      "en/prompt-to-design/templates/workspace",
+                      "en/prompt-to-design/templates/chatbot",
+                      "en/prompt-to-design/templates/support",
+                      "en/prompt-to-design/templates/tutorial",
+                      "en/prompt-to-design/templates/editor",
+                      "en/prompt-to-design/templates/account",
+                      "en/prompt-to-design/templates/order",
+                      "en/prompt-to-design/templates/chart",
+                      "en/prompt-to-design/templates/setting",
+                      "en/prompt-to-design/templates/code",
+                      "en/prompt-to-design/templates/follow"
                     ]
                   },
                   {
                     "group": "Tutorials",
                     "pages": [
-                      "prompt-to-design/use-cases/maintain-style-consistency",
-                      "prompt-to-design/use-cases/recreate-design",
-                      "prompt-to-design/use-cases/convert-mobile",
-                      "prompt-to-design/use-cases/expand-multi",
-                      "prompt-to-design/use-cases/meeting-note",
-                      "prompt-to-design/use-cases/messy-redesign",
-                      "prompt-to-design/use-cases/region-update",
-                      "prompt-to-design/use-cases/speed-up",
-                      "prompt-to-design/use-cases/update-frame",
-                      "prompt-to-design/use-cases/wireframe"
+                      "en/prompt-to-design/use-cases/maintain-style-consistency",
+                      "en/prompt-to-design/use-cases/recreate-design",
+                      "en/prompt-to-design/use-cases/convert-mobile",
+                      "en/prompt-to-design/use-cases/expand-multi",
+                      "en/prompt-to-design/use-cases/meeting-note",
+                      "en/prompt-to-design/use-cases/messy-redesign",
+                      "en/prompt-to-design/use-cases/region-update",
+                      "en/prompt-to-design/use-cases/speed-up",
+                      "en/prompt-to-design/use-cases/update-frame",
+                      "en/prompt-to-design/use-cases/wireframe"
                     ]
                   }
                 ]
@@ -694,13 +694,13 @@
               {
                 "group": "Pricing",
                 "pages": [
-                  "prompt-to-design/pricing/index"
+                  "en/prompt-to-design/pricing/index"
                 ]
               },
               {
                 "group": "Updates",
                 "pages": [
-                  "prompt-to-design/changelog"
+                  "en/prompt-to-design/changelog"
                 ]
               }
             ]

@@ -1,190 +1,190 @@
 ---
-title: "Alipay H5 Payment Setup Guide"
-description: "Step-by-step guide to integrate Alipay H5 payment in superun, including application registration, payment credentials, and environment variable configuration."
+title: "支付宝 H5 支付接入指南"
+description: "教你如何在 superun 中一步步接入支付宝 H5 支付,包括注册应用,获取支付凭证,配置环境变数等完整流程."
 image: "https://b.ux-cdn.com/uxarts/files/t20251201143554/mm27xz4u.png"
 ---
 
-## Overview
+## 概述
 
-Alipay is a leading mobile payment platform in China. This guide will walk you through the complete process of integrating Alipay H5 payment, including application registration, payment credentials, and configuration in superun.
+支付宝是中国领先的移动支付平台.本指南将带你一步步完成支付宝 H5 支付的接入,包括注册应用、获取支付凭证、配置到 superun 系统的完整流程.
 
 <Note>
-**Please note**
-Alipay payment integration requires users to complete application registration and credential acquisition themselves. superun provides guidance for configuring environment variables. Use Alipay's sandbox environment when testing.
+**请注意**
+支付宝支付接入需要用户自行完成应用注册和凭证获取,superun 提供配置环境变数的指引.测试时请使用支付宝的沙箱环境.
 </Note>
 
 ---
 
-## Step 1: Alipay Open Platform Configuration
+## 一、支付寶开放平台配置
 
-### 1.1 Registration and Login
+### 1.1 注册与登录
 
-1. Visit [Alipay Open Platform](https://open.alipay.com/)
-2. Log in with **Enterprise Alipay Account** (personal accounts cannot apply for payment products)
-3. Complete developer certification (requires business license)
-
----
-
-### 1.2 Create Application
-
-#### Enter Console
-
-After logging in, click "**Console**" in the top right → "**My Applications**" → "**Create Application**"
-
-#### Select Application Type
-
-| Type | Description | Use Case |
-|------|-------------|----------|
-| **Web Application** | For PC/H5 web pages | **Choose this** |
-| Mobile Application | For iOS/Android native apps | - |
-| Mini Program | For Alipay Mini Programs | - |
-
-#### Fill in Application Information
-
-- **Application Name**: e.g., "Travel Puzzle Workshop"
-- **Application Icon**: Upload application logo (200x200px)
-- **Application Description**: Brief description of application functionality
-- **Application Type**: Web Application
-
-Click "**Confirm Create**" to get **APPID** (e.g., `2021006128604471`)
+1. 访问 [支付寶开放平台](https://open.alipay.com/)
+2. 使用**企业支付寶賬号**登录（个人賬号无法申请支付产品）
+3. 完成开发者认证（需要企业營业执照）
 
 ---
 
-### 1.3 Configure Keys (Important)
+### 1.2 创建应用
 
-#### Download Key Tool
+#### 进入控制台
 
-1. Go to application details page → "**Development Settings**" → "**Interface Signature Method**"
-2. Click "**Set**" → Download **Alipay Key Generation Tool**
+登录后点击右上角「**控制台**」→「**我的应用**」→「**创建应用**」
 
-#### Generate Key Pair
+#### 选择应用类型
 
-Open the key tool:
+| 类型 | 说明 | 适用场景 |
+|------|------|---------|
+| **网页应用** | 用于 PC/H5 网页 | **选这个** |
+| 移动应用 | 用于 iOS/Android 原生 App | - |
+| 小程序 | 用于支付宝小程序 | - |
 
-1. **Key Format**: Select **PKCS8** (Java compatible)
-2. **Key Length**: Select **RSA2** (2048)
-3. Click "**Generate Key**"
+#### 填写应用信息
 
-The tool will generate two files:
+- **应用名称**: 如「旅行拼图工坊」
+- **应用图标**: 上传应用 Logo（200x200px）
+- **应用简介**: 简要描述应用功能
+- **应用类型**: 网页应用
 
-- **Application Public Key.txt** - Upload to Alipay
-- **Application Private Key.txt** - Save securely, configure on your server
+点击「**确认创建**」后获得 **APPID**（如：`2021006128604471`）
 
-#### Upload Public Key to Get Alipay Public Key
+---
 
-1. Return to Alipay Open Platform → "**Interface Signature Method**" → "**Set**"
-2. **Signature Mode**: Select "**Public Key**"
-3. **Fill Application Public Key**: Copy and paste content from `Application Public Key.txt`
-4. Click "**Save Settings**"
+### 1.3 配置密钥（重要）
+
+#### 下载密钥工具
+
+1. 进入应用详情页 → 「**开发设置**」→「**接口加签方式**」
+2. 点击「**设置**」→ 下载 **支付寶密钥生成工具**
+
+#### 生成密钥对
+
+打开密钥工具：
+
+1. **密钥格式**: 选择 **PKCS8**（Java适用）
+2. **密钥长度**: 选择 **RSA2**（2048）
+3. 点击「**生成密钥**」
+
+工具会生成兩个文件：
+
+- **应用公钥.txt** - 上传到支付寶
+- **应用私钥.txt** - 保存好，配置到你的服务器
+
+#### 上传公钥获取支付寶公钥
+
+1. 回到支付寶开放平台 →「**接口加签方式**」→「**设置**」
+2. **加签模式**: 选择「**公钥**」
+3. **填写应用公钥**: 复制 `应用公钥.txt` 内容粘贴
+4. 点击「**保存设置**」
 
 <Warning>
-**Important**: After saving, the page will display "**Alipay Public Key**", click "**View**" and copy it. This public key is different from the application public key you generated and is used to verify callback signatures.
+**重要**: 保存后页面会显示「**支付寶公钥**」，点击「**查看**」并复制保存。这个公钥与你生成的应用公钥不和，是用于验证回调签名的。
 </Warning>
 
-#### Three Keys and Their Uses
+#### 三个密钥的用途
 
-| Key | Source | Purpose | Storage Location |
-|-----|--------|---------|-----------------|
-| **Application Private Key** | You generate | Sign requests | `ALIPAY_PRIVATE_KEY` |
-| **Application Public Key** | You generate | Upload to Alipay | Alipay backend |
-| **Alipay Public Key** | Provided by Alipay | Verify callback signatures | `ALIPAY_PUBLIC_KEY` |
-
----
-
-### 1.4 Bind Payment Products
-
-#### Enter Product Binding
-
-Application details page → Left menu "**Callable Products**" → In the product list, select "**Payment**" → "**PC Website Payment**" or "**Mobile Website Payment**" → Clicking will open the product details page in a new tab, where you can perform the binding operation
-
-#### Select Payment Product
-
-| Product Name | API | Use Case | Fee Rate |
-|-------------|-----|----------|----------|
-| **PC Website Payment** | `alipay.trade.page.pay` | PC web payment | 0.6% |
-| **Mobile Website Payment** | `alipay.trade.wap.pay` | Mobile H5 | 0.6% |
-| APP Payment | `alipay.trade.app.pay` | Native App | 0.6% |
-
-Select according to your scenario, click "**Bind**"
-
-#### Sign Product Contract
-
-After binding, merchant contract is required:
-
-1. Click "**Sign**" next to the product
-2. Fill in merchant information (business license, legal representative info, etc.)
-3. Submit for review (1-3 business days)
-4. Product becomes available after approval
+| 密钥 | 来源 | 用途 | 保存位置 |
+|------|------|------|---------|
+| **应用私钥** | 你生成 | 签名请求 | `ALIPAY_PRIVATE_KEY` |
+| **应用公钥** | 你生成 | 上传到支付寶 | 支付寶后台 |
+| **支付寶公钥** | 支付寶提供 | 验证回调签名 | `ALIPAY_PUBLIC_KEY` |
 
 ---
 
-### 1.5 Configure Callback Address
+### 1.4 绑定支付产品
 
-#### Set Authorization Callback
+#### 进入产品绑定
 
-Application details page → "**Development Settings**" → "**Authorization Callback Address**"
+应用详情页 → 左侧菜单「**可调用产品**」→ 在产品列表中选择「**支付**」→「**电脑网站支付**」或「**手机网站支付**」→ 点击后会在新标签页打开产品详情页，在该页面进行绑定操作
 
-Fill in your domain (e.g., `https://your-domain.com`)
+#### 选择支付产品
 
-#### Interface Content Encryption (Optional)
+| 产品名称 | API | 适用场景 | 费率 |
+|---------|-----|---------|------|
+| **电脑网站支付** | `alipay.trade.page.pay` | PC 网页支付 | 0.6% |
+| **手机网站支付** | `alipay.trade.wap.pay` | 移动端 H5 | 0.6% |
+| APP 支付 | `alipay.trade.app.pay` | 原生 App | 0.6% |
 
-For higher security, you can enable AES encryption:
+根据你的场景选择，点击「**绑定**」
 
-1. "**Development Settings**" → "**Interface Content Encryption Method**" → "**Set**"
-2. Select "**AES Key**"
-3. Click "**Generate AES Key**" and save
+#### 签约产品
+
+绑定后需要进行商户签约：
+
+1. 点击产品旁的「**签约**」
+2. 填写商户信息（营业执照、法人信息等）
+3. 提交审核（1-3 个工作日）
+4. 审核通过后产品可用
 
 ---
 
-### 1.6 Application Launch
+### 1.5 配置回调地址
 
-#### Submit for Review
+#### 设置授权回调
 
-Application details page → Click "**Submit for Review**"
+应用详情页 →「**开发设置**」→「**授权回调地址**」
 
-Fill in review information:
-- Application website (must be ICP registered)
-- Test account (if any)
-- Application description
+填写你的域名（如：`https://your-domain.com`）
 
-#### Review Period
+#### 接口内容加密（可选）
 
-Usually **1-3 business days**
+如需更高安全性，可开启 AES 加密：
 
-Status changes to "**Launched**" after approval
+1. 「**开发设置**」→「**接口内容加密方式**」→「**设置**」
+2. 选择「**AES密钥**」
+3. 点击「**生成AES密钥**」并保存
+
+---
+
+### 1.6 应用上线
+
+#### 提交审核
+
+应用详情页 → 点击「**提交审核**」
+
+填写审核信息：
+- 应用官网（需已备案）
+- 测试账号（如有）
+- 应用说明
+
+#### 审核周期
+
+通常 **1-3 个工作日**
+
+审核通过后状态变为「**已上线**」
 
 <Note>
-**Note**: Application launch ≠ Product available, products need separate contracts
+**注意**: 应用上线≠产品可用，产品需要单独签约
 </Note>
 
 ---
 
-### 1.7 Final Configuration Checklist
+### 1.7 最终配置清单
 
-After completing the above steps, you need to save the following information:
+完成上述步骤后，你需要保存以下信息：
 
 ```bash
-# Alipay Configuration
+# 支付寶配置
 ALIPAY_APP_ID=2021006128604471
-ALIPAY_PRIVATE_KEY=MIIEvgIBADANBgkqhkiG9w0BAQEFAASC...（long private key）
-ALIPAY_PUBLIC_KEY=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8A...（Alipay public key）
+ALIPAY_PRIVATE_KEY=MIIEvgIBADANBgkqhkiG9w0BAQEFAASC...（很长的私钥）
+ALIPAY_PUBLIC_KEY=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8A...（支付寶公钥）
 ```
 
 ---
 
-## Step 2: Database Design
+## 二、数据库设计
 
-Create the following tables in superun Cloud:
+在 superun Cloud 中创建以下数据表:
 
 ```sql
--- Users table
+-- 用户表
 CREATE TABLE users (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   device_id TEXT UNIQUE NOT NULL,
   created_at TIMESTAMPTZ DEFAULT now()
 );
 
--- Membership plans table
+-- 会员套餐表
 CREATE TABLE membership_plans (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   name TEXT NOT NULL,
@@ -195,7 +195,7 @@ CREATE TABLE membership_plans (
   sort_order INTEGER DEFAULT 0
 );
 
--- Orders table
+-- 订單表
 CREATE TABLE orders (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   user_id UUID REFERENCES users(id),
@@ -203,12 +203,12 @@ CREATE TABLE orders (
   order_no TEXT UNIQUE NOT NULL,
   amount_cents INTEGER NOT NULL,
   status TEXT DEFAULT 'pending', -- pending/paid/cancelled
-  wechat_transaction_id TEXT,    -- Reuse to store Alipay transaction ID
+  wechat_transaction_id TEXT,    -- 复用存支付寶交易号
   paid_at TIMESTAMPTZ,
   created_at TIMESTAMPTZ DEFAULT now()
 );
 
--- User memberships table
+-- 会员状态表
 CREATE TABLE user_memberships (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   user_id UUID REFERENCES users(id),
@@ -221,11 +221,11 @@ CREATE TABLE user_memberships (
 
 ---
 
-## Step 3: Edge Function Implementation
+## 三、Edge Function 实现
 
-### 3.1 Create Order (alipay-create-order)
+### 3.1 创建订单 (alipay-create-order)
 
-Create function `alipay-create-order` in **Build → Services → Edge Functions**:
+在 **研发 → 服务 → Edge Functions** 中创建函数 `alipay-create-order`:
 
 ```typescript
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
@@ -236,7 +236,7 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
 
-// Generate order number
+// 生成订單号
 function generateOrderNo(): string {
   const now = new Date();
   const dateStr = now.toISOString().replace(/[-:T.Z]/g, '').slice(0, 14);
@@ -244,14 +244,14 @@ function generateOrderNo(): string {
   return `A${dateStr}${random}`;
 }
 
-// Format private key (add PEM headers)
+// 格式化私钥（添加 PEM 头尾）
 function formatPrivateKey(privateKey: string): string {
   let key = privateKey.trim();
   if (key.includes('-----BEGIN')) return key;
   return `-----BEGIN RSA PRIVATE KEY-----\n${key}\n-----END RSA PRIVATE KEY-----`;
 }
 
-// RSA2 signature
+// RSA2 签名
 async function signWithRSA(content: string, privateKeyPem: string): Promise<string> {
   const formattedKey = formatPrivateKey(privateKeyPem);
   
@@ -278,7 +278,7 @@ async function signWithRSA(content: string, privateKeyPem: string): Promise<stri
   return btoa(String.fromCharCode(...new Uint8Array(signature)));
 }
 
-// Build sign string (parameters sorted by ASCII)
+// 生成签名字符串（参数按 ASCII 排序）
 function buildSignString(params: Record<string, string>): string {
   const sortedKeys = Object.keys(params).sort();
   const pairs = sortedKeys
@@ -297,28 +297,28 @@ serve(async (req) => {
 
     if (!plan_id || !device_id) {
       return new Response(
-        JSON.stringify({ error: "Missing required parameters" }),
+        JSON.stringify({ error: "缺少必要参数" }),
         { headers: { ...corsHeaders, "Content-Type": "application/json" }, status: 400 }
       );
     }
 
-    // Initialize Supabase
+    // 初始化 Supabase
     const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
     const supabaseKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
     const supabase = createClient(supabaseUrl, supabaseKey);
 
-    // Get Alipay configuration
+    // 获取支付寶配置
     const appId = Deno.env.get("ALIPAY_APP_ID");
     const privateKey = Deno.env.get("ALIPAY_PRIVATE_KEY");
 
     if (!appId || !privateKey) {
       return new Response(
-        JSON.stringify({ error: "Payment configuration incomplete" }),
+        JSON.stringify({ error: "支付配置不完整" }),
         { headers: { ...corsHeaders, "Content-Type": "application/json" }, status: 500 }
       );
     }
 
-    // Get or create user
+    // 获取或创建用户
     let { data: user } = await supabase
       .from("users")
       .select("id")
@@ -334,7 +334,7 @@ serve(async (req) => {
       user = newUser;
     }
 
-    // Get plan
+    // 获取套餐
     const { data: plan } = await supabase
       .from("membership_plans")
       .select("*")
@@ -344,12 +344,12 @@ serve(async (req) => {
 
     if (!plan) {
       return new Response(
-        JSON.stringify({ error: "Plan not found" }),
+        JSON.stringify({ error: "套餐不存在" }),
         { headers: { ...corsHeaders, "Content-Type": "application/json" }, status: 400 }
       );
     }
 
-    // Create order
+    // 创建订單
     const orderNo = generateOrderNo();
     const { data: order } = await supabase
       .from("orders")
@@ -363,22 +363,22 @@ serve(async (req) => {
       .select()
       .single();
 
-    // Build Alipay request parameters
+    // 构建支付寶请求参数
     const timestamp = new Date().toISOString().replace('T', ' ').slice(0, 19);
     const amount = (plan.price_cents / 100).toFixed(2);
     
     const bizContent = {
       out_trade_no: orderNo,
       total_amount: amount,
-      subject: `Membership Subscription-${plan.name}`,
-      product_code: 'FAST_INSTANT_TRADE_PAY', // PC website payment
-      // product_code: 'QUICK_WAP_WAY',       // Mobile website payment
+      subject: `会员订阅-${plan.name}`,
+      product_code: 'FAST_INSTANT_TRADE_PAY', // 电脑网站支付
+      // product_code: 'QUICK_WAP_WAY',       // 手机网站支付
     };
 
     const params: Record<string, string> = {
       app_id: appId,
-      method: 'alipay.trade.page.pay',  // PC website payment
-      // method: 'alipay.trade.wap.pay', // Mobile website payment
+      method: 'alipay.trade.page.pay',  // 电脑网站支付
+      // method: 'alipay.trade.wap.pay', // 手机网站支付
       format: 'JSON',
       charset: 'utf-8',
       sign_type: 'RSA2',
@@ -392,12 +392,12 @@ serve(async (req) => {
       params.return_url = return_url;
     }
 
-    // Generate signature
+    // 生成签名
     const signString = buildSignString(params);
     const sign = await signWithRSA(signString, privateKey);
     params.sign = sign;
 
-    // Build payment URL
+    // 构建支付 URL
     const gatewayUrl = 'https://openapi.alipay.com/gateway.do';
     const payUrl = `${gatewayUrl}?${new URLSearchParams(params).toString()}`;
 
@@ -416,29 +416,29 @@ serve(async (req) => {
   } catch (error) {
     console.error("[alipay-create-order] Error:", error);
     return new Response(
-      JSON.stringify({ error: error.message || "Server error" }),
+      JSON.stringify({ error: error.message || "服务器错误" }),
       { headers: { ...corsHeaders, "Content-Type": "application/json" }, status: 500 }
     );
   }
 });
 ```
 
-### 3.2 Payment Callback (alipay-notify)
+### 3.2 支付回调 (alipay-notify)
 
-Create function `alipay-notify` to handle payment callbacks:
+创建函数 `alipay-notify` 处理支付回调:
 
 ```typescript
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.49.1";
 
-// Format public key
+// 格式化公钥
 function formatPublicKey(publicKey: string): string {
   let key = publicKey.trim();
   if (key.includes('-----BEGIN')) return key;
   return `-----BEGIN PUBLIC KEY-----\n${key}\n-----END PUBLIC KEY-----`;
 }
 
-// RSA2 signature verification
+// RSA2 验签
 async function verifySignature(content: string, sign: string, publicKeyPem: string): Promise<boolean> {
   try {
     const formattedKey = formatPublicKey(publicKeyPem);
@@ -468,7 +468,7 @@ async function verifySignature(content: string, sign: string, publicKeyPem: stri
   }
 }
 
-// Build verification string (exclude sign and sign_type)
+// 构建验签字符串（排除 sign 和 sign_type）
 function buildVerifyString(params: Record<string, string>): string {
   const sortedKeys = Object.keys(params).sort();
   const pairs = sortedKeys
@@ -477,7 +477,7 @@ function buildVerifyString(params: Record<string, string>): string {
   return pairs.join('&');
 }
 
-// Parse form data
+// 解析表單数据
 function parseFormData(body: string): Record<string, string> {
   const params: Record<string, string> = {};
   const pairs = body.split('&');
@@ -501,7 +501,7 @@ serve(async (req) => {
       return new Response("fail", { status: 500 });
     }
 
-    // Parse request
+    // 解析请求
     const body = await req.text();
     const params = parseFormData(body);
     const sign = params.sign;
@@ -510,7 +510,7 @@ serve(async (req) => {
       return new Response("fail", { status: 400 });
     }
 
-    // Verify signature
+    // 验证签名
     const verifyString = buildVerifyString(params);
     const isValid = await verifySignature(verifyString, sign, alipayPublicKey);
     
@@ -519,7 +519,7 @@ serve(async (req) => {
       return new Response("fail", { status: 400 });
     }
 
-    // Initialize Supabase
+    // 初始化 Supabase
     const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
     const supabaseKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
     const supabase = createClient(supabaseUrl, supabaseKey);
@@ -528,7 +528,7 @@ serve(async (req) => {
     const tradeNo = params.trade_no;
     const tradeStatus = params.trade_status;
 
-    // Find order
+    // 查找订單
     const { data: order } = await supabase
       .from("orders")
       .select("*, plan:membership_plans(*)")
@@ -539,14 +539,14 @@ serve(async (req) => {
       return new Response("fail", { status: 404 });
     }
 
-    // Prevent duplicate processing
+    // 防止重复处理
     if (order.status === "paid") {
       return new Response("success", { status: 200 });
     }
 
-    // Handle payment success
+    // 处理支付成功
     if (tradeStatus === "TRADE_SUCCESS" || tradeStatus === "TRADE_FINISHED") {
-      // Update order
+      // 更新订單
       await supabase
         .from("orders")
         .update({
@@ -556,7 +556,7 @@ serve(async (req) => {
         })
         .eq("id", order.id);
 
-      // Create/renew membership
+      // 创建/续费会员
       const durationDays = order.plan?.duration_days || 30;
 
       const { data: existingMembership } = await supabase
@@ -566,7 +566,7 @@ serve(async (req) => {
         .single();
 
       if (existingMembership) {
-        // Renew
+        // 续费
         let newExpireAt = new Date(existingMembership.expire_at);
         if (newExpireAt < new Date()) newExpireAt = new Date();
         newExpireAt.setDate(newExpireAt.getDate() + durationDays);
@@ -580,7 +580,7 @@ serve(async (req) => {
           })
           .eq("user_id", order.user_id);
       } else {
-        // New membership
+        // 新会员
         const expireAt = new Date();
         expireAt.setDate(expireAt.getDate() + durationDays);
         
@@ -607,9 +607,9 @@ serve(async (req) => {
 });
 ```
 
-### 3.3 Query Order (alipay-query-order)
+### 3.3 订单查询 (alipay-query-order)
 
-Create function `alipay-query-order` for active order status queries:
+创建函数 `alipay-query-order` 用于主动查询订单状态:
 
 ```typescript
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
@@ -620,7 +620,7 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
 
-// formatPrivateKey, signWithRSA, buildSignString same as above
+// formatPrivateKey, signWithRSA, buildSignString 和上
 
 serve(async (req) => {
   if (req.method === "OPTIONS") {
@@ -632,7 +632,7 @@ serve(async (req) => {
 
     if (!order_no) {
       return new Response(
-        JSON.stringify({ error: "Missing order number" }),
+        JSON.stringify({ error: "缺少订單号" }),
         { headers: { ...corsHeaders, "Content-Type": "application/json" }, status: 400 }
       );
     }
@@ -643,7 +643,7 @@ serve(async (req) => {
     const supabaseKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
     const supabase = createClient(supabaseUrl, supabaseKey);
 
-    // Find local order
+    // 查找本地订單
     const { data: order } = await supabase
       .from("orders")
       .select("*, plan:membership_plans(*)")
@@ -652,20 +652,20 @@ serve(async (req) => {
 
     if (!order) {
       return new Response(
-        JSON.stringify({ error: "Order not found" }),
+        JSON.stringify({ error: "订單不存在" }),
         { headers: { ...corsHeaders, "Content-Type": "application/json" }, status: 404 }
       );
     }
 
-    // Already paid, return directly
+    // 已支付直接返回
     if (order.status === "paid") {
       return new Response(
-        JSON.stringify({ success: true, status: "paid", message: "Order already paid" }),
+        JSON.stringify({ success: true, status: "paid", message: "订單已支付" }),
         { headers: { ...corsHeaders, "Content-Type": "application/json" }, status: 200 }
       );
     }
 
-    // Query Alipay
+    // 向支付寶查询
     const timestamp = new Date().toISOString().replace('T', ' ').slice(0, 19);
     const params: Record<string, string> = {
       app_id: appId!,
@@ -690,7 +690,7 @@ serve(async (req) => {
 
     const tradeStatus = queryResponse?.trade_status;
 
-    // Payment success - update order and membership
+    // 支付成功 - 更新订單和会员
     if (tradeStatus === "TRADE_SUCCESS" || tradeStatus === "TRADE_FINISHED") {
       await supabase
         .from("orders")
@@ -701,20 +701,20 @@ serve(async (req) => {
         })
         .eq("id", order.id);
 
-      // Create/renew membership logic same as notify
+      // 创建/续费会员逻辑和 notify
 
       return new Response(
-        JSON.stringify({ success: true, status: "paid", message: "Payment successful" }),
+        JSON.stringify({ success: true, status: "paid", message: "支付成功" }),
         { headers: { ...corsHeaders, "Content-Type": "application/json" }, status: 200 }
       );
     }
 
-    // Other statuses
+    // 其他状态
     return new Response(
       JSON.stringify({ 
         success: true, 
         status: tradeStatus || "unknown",
-        message: queryResponse?.sub_msg || "Unknown status"
+        message: queryResponse?.sub_msg || "未知状态"
       }),
       { headers: { ...corsHeaders, "Content-Type": "application/json" }, status: 200 }
     );
@@ -730,32 +730,32 @@ serve(async (req) => {
 
 ---
 
-## Step 4: Frontend Integration
+## 四、前端集成
 
-### 4.1 Create Order and Redirect to Payment
+### 4.1 创建订单并跳转支付
 
 ```typescript
-// Create order and redirect to payment
+// 创建订單並跳转支付
 const handlePurchase = async (planId: string) => {
   const result = await createOrder(planId, "alipay");
   
   if (result.pay_url) {
-    // Save order number (for query after payment completion)
+    // 保存订單号（支付完成後查询用）
     localStorage.setItem("pending_order", JSON.stringify({
       orderNo: result.order_no,
       timestamp: Date.now()
     }));
     
-    // Redirect to Alipay
+    // 跳转支付寶
     window.location.href = result.pay_url;
   }
 };
 ```
 
-### 4.2 Query Result After Payment Completion
+### 4.2 支付完成后查询结果
 
 ```typescript
-// Query result after payment completion
+// 支付完成後查询结果
 const handleQueryOrder = async () => {
   const stored = localStorage.getItem("pending_order");
   if (!stored) return;
@@ -765,18 +765,18 @@ const handleQueryOrder = async () => {
   
   if (result.status === "paid") {
     localStorage.removeItem("pending_order");
-    alert("Payment successful!");
+    alert("支付成功！");
   }
 };
 ```
 
 ---
 
-## Step 5: Configuration Checklist
+## 五、配置清单
 
-### 5.1 Edge Functions Configuration
+### 5.1 Edge Functions 配置
 
-Configure in `supabase/config.toml`:
+在 `supabase/config.toml` 中配置:
 
 ```toml
 [functions.alipay-create-order]
@@ -789,113 +789,111 @@ verify_jwt = false
 verify_jwt = false
 ```
 
-### 5.2 Environment Variables (Secrets)
+### 5.2 环境变数 (Secrets)
 
-Set the following environment variables in **Build → Services → Alipay Payment**:
+在 **研发 → 服务 → 支付寶支付** 中设定以下环境变数:
 
-| Variable Name | Description |
-|---------------|-------------|
-| `ALIPAY_APP_ID` | Alipay application APPID |
-| `ALIPAY_PRIVATE_KEY` | Application private key (PKCS8 format) |
-| `ALIPAY_PUBLIC_KEY` | Alipay public key |
+| 变数名 | 说明 |
+|--------|------|
+| `ALIPAY_APP_ID` | 支付寶应用 APPID |
+| `ALIPAY_PRIVATE_KEY` | 应用私钥（PKCS8 格式） |
+| `ALIPAY_PUBLIC_KEY` | 支付寶公钥 |
 
 <Warning>
-**Important Notes**
-- **Never paste your Alipay keys and private key in chat.** Configure them via **Build → Services → Alipay Payment** using environment variables.
-- Private key file content must be in PKCS8 format.
-- Public key must match the private key, otherwise signature verification errors will occur.
+**重要提示**
+- **切勿在聊天中粘贴您的支付寶密钥和私钥.** 请在 **研发 → 服务 → 支付寶支付** 中通过环境变数进行设定.
+- 私钥文件内容需要是 PKCS8 格式.
+- 公钥需要与私钥匹配,否則会出现签名验证错误.
 </Warning>
 
 ---
 
-## Step 6: API Reference
+## 六、API 对照表
 
-| Product Type | API Method | Product Code | Use Case |
-|-------------|------------|--------------|----------|
-| PC Website Payment | `alipay.trade.page.pay` | `FAST_INSTANT_TRADE_PAY` | PC Web |
-| Mobile Website Payment | `alipay.trade.wap.pay` | `QUICK_WAP_WAY` | Mobile H5 |
-| Order Query | `alipay.trade.query` | - | Active status query |
-
----
-
-## Step 7: Testing Process
-
-1. Create a **sandbox application** in Alipay Open Platform for testing
-2. Use a **1 cent plan** to test the complete payment flow
-3. Check if database order status is updated
-4. Verify if membership status is correctly activated
+| 产品类型 | API 方法 | 产品码 | 适用场景 |
+|---------|---------|--------|---------|
+| 电脑网站支付 | `alipay.trade.page.pay` | `FAST_INSTANT_TRADE_PAY` | PC 网页 |
+| 手机网站支付 | `alipay.trade.wap.pay` | `QUICK_WAP_WAY` | 移动端 H5 |
+| 订单查询 | `alipay.trade.query` | - | 主动查询状态 |
 
 ---
 
-## Step 8: Process Summary
+## 七、测试流程
+
+1. 在支付寶开放平台创建**沙箱应用**进行测试
+2. 使用 **1 分钱套餐**测试完整支付流程
+3. 检查数据库订单状态是否更新
+4. 验证会员状态是否正确开通
+
+---
+
+## 八、流程总结图
 
 ```
-Register Open Platform → Create Application → Get APPID
+注册开放平台 → 创建应用 → 获取 APPID
                   ↓
-Generate Key Pair → Upload Application Public Key → Get Alipay Public Key
+生成密钥对 → 上传应用公钥 → 获取支付寶公钥
                   ↓
-Bind Payment Product → Complete Contract → Product Available
+绑定支付产品 → 完成签約 → 产品可用
                   ↓
-Submit Application Review → Application Launched → Production Environment Available
+提交应用審核 → 应用上线 → 正式环境可用
                   ↓
-Configure to Server → Test Payment Flow → Launch
+配置到服务器 → 测试支付流程 → 上线
 ```
 
 ---
 
-## Step 9: Common Errors
+## 九、常见错误
 
 <AccordionGroup>
-  <Accordion title="insufficient-isv-permissions (Insufficient Permissions)">
-    **Cause**: Product not bound or contract not signed.
+  <Accordion title="insufficient-isv-permissions（权限不足）">
+    **原因**: 产品未绑定或未签約.
     
-    **Solution**:
+    **解决方案**:
     
-    - Check if application has bound corresponding payment product
-    - Check if product contract is completed
-    - Check if application is launched
+    - 检查应用是否绑定了对应支付产品
+    - 检查产品是否完成签約
+    - 检查应用是否已上线
   </Accordion>
 
-  <Accordion title="invalid-signature (Signature Error)">
-    **Cause**: Key configuration error.
-    
-    **Solution**:
-    
-    - Confirm using PKCS8 format private key
-    - Confirm private key has no line breaks or extra spaces
-    - Confirm Alipay public key is copied from backend (not the application public key you generated)
+  <Accordion title="invalid-signature（签名错误）">
+    **原因**: 密钥配置错误.
+
+    **解决方案**:
+    - 确认使用的是 PKCS8 格式私钥
+    - 确认私钥沒有换行符或多余空格
+    - 确认支付寶公钥是从后台复制的（不是你生成的应用公钥）
   </Accordion>
 
-  <Accordion title="Signature Verification Failed">
-    **Cause**: Private key format is incorrect or public key doesn't match.
-    
-    **Solution**: Ensure the private key is in PKCS8 format, and the public key is the correct one obtained from Alipay Open Platform.
+  <Accordion title="签名验证失败">
+    **原因**: 私钥格式不正确或公钥不匹配.
+
+    **解决方案**: 确保私钥是 PKCS8 格式,公钥是从支付寶开放平台获取的正确公钥.
   </Accordion>
 
-  <Accordion title="Product Not Enabled">
-    **Cause**: Application has not bound the corresponding payment product.
+  <Accordion title="产品未开通">
+    **原因**: 应用未绑定对应的支付产品.
 
-    **Solution**: Bind "PC Website Payment" or "Mobile Website Payment" product in the Alipay Open Platform application details page.
+    **解决方案**: 在支付寶开放平台应用详情页绑定「电脑网站支付」或「手机网站支付」产品.
   </Accordion>
 
-  <Accordion title="Callback Verification Failed">
-    **Cause**: Callback URL is incorrectly configured or public key is incorrect.
+  <Accordion title="回调验签失败">
+    **原因**: 回调 URL 配置错误或公钥不正确.
 
-    **Solution**: Ensure the callback URL is correctly configured as the Edge Function address, and use the correct Alipay public key.
+    **解决方案**: 确保回调 URL 正确配置为 Edge Function 地址,并使用正确的支付寶公钥.
   </Accordion>
 
-  <Accordion title="Mobile Website Payment vs PC Website Payment">
-    | Comparison | Mobile Website Payment | PC Website Payment |
-    |------------|----------------------|-------------------|
+  <Accordion title="手机网站支付 vs 电脑网站支付">
+    | 对比项 | 手机网站支付 | 电脑网站支付 |
+    |--------|------------|------------|
     | API | `alipay.trade.wap.pay` | `alipay.trade.page.pay` |
-    | Product Code | `QUICK_WAP_WAY` | `FAST_INSTANT_TRADE_PAY` |
-    | Payment Interface | Mobile optimized | PC optimized |
-    | H5 Usage | **Recommended** | Usable but experience is average |
+    | 产品码 | `QUICK_WAP_WAY` | `FAST_INSTANT_TRADE_PAY` |
+    | 支付界面 | 移动端优化 | PC 端优化 |
+    | H5 使用 | **推荐** | 可用但体验一般 |
   </Accordion>
 </AccordionGroup>
 
 ---
-
-<Card title="superun Website" icon="globe" href="https://superun.ai/web" horizontal>
-  Learn more about product features and examples.
+<Card title="superun 网站" icon="globe" href="https://superun.ai/web" horizontal>
+  了解更多产品功能和示例.
 </Card>

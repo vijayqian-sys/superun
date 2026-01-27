@@ -1,34 +1,34 @@
 ---
 title: "Pexels"
-description: "Integrate Pexels API for high-quality, royalty-free images and photo search"
+description: "整合 Pexels API 以取得高品质,免版税的图片和照片搜寻功能"
 image: "https://b.ux-cdn.com/uxarts/files/t20251201143554/mm27xz4u.png"
 ---
 
 # Pexels
 
-This guide explains how to integrate Pexels API into your superun application. The integration uses edge functions to securely proxy all API requests, ensuring your API key never reaches the client.
+本指南说明如何将 Pexels API 整合到您的 superun 应用程序中.此整合使用边缘函数来安全地代理所有 API 请求,确保您的 API 金钥永远不会传送到客户端.
 
-## Documentation
+## 文档
 
-For more details about Pexels APIs, refer to the official documentation:
+有关 Pexels API 的更多详细资讯,请参阅官方文件:
 
-- [Pexels API Documentation](https://www.pexels.com/api/documentation/) - Complete API reference
+- [Pexels API 文件](https://www.pexels.com/api/documentation/) - 完整的 API 参考
 
-## Environment Variables
+## 环境变数
 
-Add the following environment variable to your supabase secrets, the plugin_secret_prefix MUST be SUPERUN
-- `PEXELS_ACCESS_KEY` - Pexels API Key
+将以下环境变数新增到您的 supabase secrets 中,plugin_secret_prefix 必须为 SUPERUN
+- `PEXELS_ACCESS_KEY` - Pexels API 金钥
 
-## Step 1: Create Edge Function
+## 步骤 1:建立边缘函数
 
-Create a Supabase Edge Function to securely proxy Pexels API requests. This example demonstrates the `/search` endpoint:
+建立一个 Supabase 边缘函数来安全地代理 Pexels API 请求.此范例展示了 `/search` 端点:
 
 ```typescript
 // supabase/functions/pexels-search-photos/index.ts
 
 serve(async (req) => {
   try {
-    // Get the Pexels API Key from environment
+    // 从环境变量中取得 Pexels API 金钥
     const apiKey = Deno.env.get("SUPERUN_PEXELS_ACCESS_KEY");
     
     if (!apiKey) {
@@ -38,7 +38,7 @@ serve(async (req) => {
       );
     }
 
-    // Parse query parameters from the request
+    // 从请求中解析查询参数
     const url = new URL(req.url);
     const query = url.searchParams.get("query");
     if (!query) {
@@ -52,7 +52,7 @@ serve(async (req) => {
     const color = url.searchParams.get("color");
     const orientation = url.searchParams.get("orientation");
 
-    // Build query parameters
+    // 建立查询参数
     const params = new URLSearchParams({
       query: query,
       page: page,
@@ -66,7 +66,7 @@ serve(async (req) => {
       params.append("orientation", orientation);
     }
 
-    // Make request to Pexels API
+    // 向 Pexels API 发送请求
     const pexelsUrl = `https://api.pexels.com/v1/search?${params.toString()}`;
     
     const response = await fetch(pexelsUrl, {
@@ -81,7 +81,7 @@ serve(async (req) => {
 
     const data = await response.json();
 
-    // Return the Pexels API response
+    // 回传 Pexels API 回应
     return new Response(
       JSON.stringify(data),
       {
@@ -97,14 +97,14 @@ serve(async (req) => {
 });
 ```
 
-## Step 2: Frontend Integration
+## 步骤 2:前端整合
 
-Call the edge function directly from your frontend. The API key stays secure on the server:
+直接从前端呼叫边缘函数.API 金钥会安全地保存在服务器上:
 
-## API Attribution
+## API 归属
 
-When using Pexels API, you must provide proper attribution:
+使用 Pexels API 时,您必须提供适当的归属说明:
 
-- Display photographer name and link to their Pexels profile
-- Follow [Pexels API Guidelines](https://www.pexels.com/api/documentation/)
+- 显示摄影师姓名并连结到他们的 Pexels 个人文件
+- 遵循 [Pexels API 指南](https://www.pexels.com/api/documentation/)
 

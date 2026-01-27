@@ -1,235 +1,234 @@
 ---
-title: "Manul Edit"
-description: "Visually tweak layouts, styles, and copy on a single page with Manul Edit after using Select element and edit, then apply or discard your changes."
+title: "手动编辑"
+description: "在不改动程序码的前提下,通过「手动编辑（Manul Edit）」以所见即所得的方式微调单一页面的布局,样式与文案,并选择应用或放弃这次修改."
 image: "https://b.ux-cdn.com/uxarts/files/t20251201143554/mm27xz4u.png"
 ---
 
-## Overview
+## 功能总览
 
-**Manul Edit** lets you **manually fine‑tune a single page** after AI has generated it.
+**手动编辑（Manul Edit）** 让你在 AI 已经生成页面之后,对**单一页面**做更细致的手动调整.
 
-You can:
+你可以:
 
-- Adjust layout and styles (colors, font sizes, alignment, borders, image edits, etc.)
-- Edit copy directly in a WYSIWYG view
-- Apply your changes back to the project, or discard them for this session only
+- 在可视化界面中调整布局与样式（颜色,字级,对齐,边框,图片编辑等）
+- 直接修改文案内容,所见即所得
+- 决定这次修改是要真正应用到项目,还是只在本次会话中试试看
 
-> Manul Edit is **completely free to use** and **does not consume any Credits**.  
-> It operates on the **current page only** and does not automatically change other pages in the project.
+> **手动编辑是免费功能,不会消耗任何代币.**
+> 目前只针对**当前页面**生效,不会自动同步到其他页面.
 
 ---
 
-## How to use Manul Edit
+## 如何进入手动编辑（Manul Edit）
 
-### 1. Start from Preview
+### 1. 从预览页进入
 
-On the project page, go to the **Preview** tab and wait for the page to fully load.
+在项目页面切换到 **「预览（Preview）」** 分页,等待页面加载完成.
 
-At the **top‑right corner**, you’ll see the button:
+右上角工具列中可以看到一个入口按钮:
 
-- **Select element and edit** (icon button in the toolbar)
+- **「选择元素并编辑」** 按钮（图示在工具列右上）
 
 <img
   src="https://b.ux-cdn.com/uxarts/files/t20260107154428/i49rjpat.png"
-  alt="Design editor entry from Preview"
+  alt="从预览进入设计编辑器的入口按钮"
   width={1100}
 />
 
-### 2. Select an element
+### 2. 选择要编辑的元素
 
-Click **Select element and edit**, then move your cursor over the page.
+点击 **「选择元素并编辑」** 后,游标移到画面中:
 
-- Elements will be highlighted with green outlines
-- When you click an element, a small dialog appears next to it
+- 可编辑的元素会出现綠色虛线框
+- 点击其中一个元素时,旁边会彈出一个小对话框
 
-In that dialog, click **Manul Edit** to open the Manul Edit editor for the selected element and page.
+在对话框中点击 **「手动编辑」** 按钮,即可针对目前这个页面与元素进入手动编辑界面.
 
 <img
   src="https://b.ux-cdn.com/uxarts/files/t20260108102434/rmsqr12l.png"
-  alt="Manul Edit button in element dialog"
+  alt="元素对话框中的「手动编辑」按钮"
   width={420}
 />
 
-> Only users with edit permission (owner / editor) and a fully loaded preview can see and use this entry point.
+> 只有在你具备编辑权限（拥有者 / 编辑者）,且预览已加载完成时,这个入口才会启用.
 
 ---
 
-## When Manul Edit Is Allowed
+## 什么情况下可以使用手动编辑?
 
-The **Manul Edit** entry is only enabled when all of the following are true:
+**手动编辑（Manul Edit）入口** 会在以下条件都满足时才会被点亮:
 
-- **Permissions**
-  - Your role in the project is **owner** or **editor**
-  - View‑only roles (viewer) cannot enter edit mode
+- **权限条件**
+  - 目前登录帐号在项目中的角色为 **拥有者（Owner）** 或 **编辑者（Editor）**
+  - 如果你只是 **检视者（Viewer）**,可以看页面但无法开启手动编辑
 
-- **Page state**
-  - Preview has finished loading
-  - The current session has already generated a page and there is a valid `codePath`
-  - The project is **past the style/theme selection step** 
+- **页面状态条件**
+  - 页面预览已载入完成,可以正常滚动与操作
+  - 这个项目在本次会话中已经成功生成过画面（不是还在「空白项目,尚未生成」状态）
+  - 不在「风格待选择」引导画面,而是已经进入正常使用的页面
 
-- **Editing flow**
-  - You are not currently editing 
-  - The previous “enter editor” flow has finished 
-  - No “Update Prototype” action is still running 
+- **编辑流程条件**
+  - 目前没有处于另一个编辑流程中（画面右上角没有显示「退出编辑」）
+  - 系统不是「正在进入编辑」的载入中状态
+  - 刚才没有一个仍在进行中的「应用修改 / 更新产品」动作
 
-On first use, a short **editing tip dialog** may pop up asking you to scroll through the page once before editing. Confirm to continue.
+第一次使用时,系统会先跳出一个 **「编辑提示」对话框**,提醒你先完整浏览当前页面（否则只能保证目前视窗范围内可编辑）,点击确认后才真正进入编辑模式.
 
 ---
 
-## When Manul Edit Is Not Available
+## 什么情况下不能使用手动编辑?
 
-The **Select element and edit** / **Manul Edit** buttons are disabled or will not open the editor in these cases. In all of these states, the **Select element and edit** entry in the top‑right toolbar is shown as disabled, and only becomes clickable again after the relevant conversation or system flow has finished and the page is fully ready:
+以下情境中,「选择元素并编辑」与「Manul Edit」会被禁用,或点击后不会打开编辑器.此时画面右上角的「选择元素并编辑」入口会显示为禁用状态,待对话或系统流程结束,页面准备完成后才会恢复可点:
 
-- **No edit permission**
-  - You are not an owner/editor (e.g. invited as read‑only)
+- **沒有编辑权限**
+  - 目前用户不是拥有者（Owner）或编辑者（Editor）,例如以只读成员身分被分享进项目
 
-- **Page not ready**
-  - Preview is still loading or the preview service is starting right after publish
-  - The session has not yet generated a page (`codePath` is missing)
-  - The project is still on the “choose style / theme” step
+- **页面尚未准备好**
+  - 页面仍在加载中,或剛发布完,预览服务还在启动
+  - 这个项目还沒有生成任何画面,例如剛建立项目但尚未完成第一次生成
+  - 仍停留在「选择风格 / 主题」画面,系统要求先完成风格选择
 
-- **Conversation flow still running**
-  - There is an ongoing AI conversation / generation flow that has not finished yet
+- **对话流仍在进行中**
+  - 当前有一个尚未结束的 AI 对话 / 生成流程正在执行
 
-- **Editing flow conflicts**
-  - The editor is still entering (previous click is initializing)
-  - A previous **Update Prototype** is still in progress
-  - You are already in edit mode; clicking again works as **exit**, not as a new editing session
+- **编辑流程冲突**
+  - 上一次点击「手动编辑」仍在开启中（尚未完全进入编辑界面）
+  - 系统正在应用上一轮修改,更新产品
+  - 你已经在编辑界面里,再次点按钮只会被视为「退出编辑」,而不是开启新的编辑
 
 <img
   src="https://b.ux-cdn.com/uxarts/files/t20260107164316/kld5b4ni.png"
-  alt="Select element and edit button in disabled state"
+  alt="选择元素并编辑入口被禁用"
   width={420}
 />
-
 ---
 
-## Editing in Manul Edit
+## 手动编辑界面说明
 
-Once inside Manul Edit, the screen is split into:
+进入手动编辑界面后,画面大致分为三个区块:
 
-- **Left panel** – style controls for the selected element:
-  - Text color, background color
-  - Font size, weight, alignment
-  - Border width, style, color
-  - Other layout and visual options
-- **Right side** – live preview of the current page
-- **Top‑right** – **Apply changes** button
+- **左侧面板**:当前选中元素的样式控制项,例如:
+  - 文字颜色,背景颜色
+  - 字级,字重,对齐方式
+  - 边框宽度,边框样式,边框颜色
+  - 其他布局与外观设定
+- **右侧**:当前页面的即时预览
+- **右上角**:**「应用修改」** 按钮
 
 <img
   src="https://b.ux-cdn.com/uxarts/files/t20260107154429/w0p1xd33.png"
-  alt="Manul Edit layout and style panel"
+  alt="手动编辑左侧样式面板与右侧预览"
   width={1100}
 />
 
-You can freely tweak values in the left panel and immediately see the result in the live preview. After there are pending edits, two buttons — **Restore** and **Save as draft** — will appear in the bottom bar so you can keep a draft before deciding whether to apply it.
+调整左侧的设定值时,右侧预览会即时反映变化.当有样式或内容变更时,画面下方会出现 **「恢复原样」** 与 **「暂存修改」** 两个按钮,方便你先暂存本次编辑再决定是否应用.
 
-> **Note**: Available style controls in the left panel are dynamically displayed based on the selected element type.  
-> - **This content is dynamically controlled by product logic. Please exit and modify via chat.**
+> **注意**:左侧面板中可用的样式控制项会根据选中的元素类型动态显示.
+> - **此处内容由产品功能动态控制,请退出后通过对话修改会有这种情况是正常的**
 
-### Example: Emphasize a button
+### 范例:强调某个按钮
 
-For example, select the **“Mobile”** button in a pricing/estimation page and change:
+例如在估价页面中,选中「手机 / 数码」这个按钮,并将:
 
-- Background color to a red tone
-- Border color to a matching accent
+- 背景颜色改为醒目的红色
+- 边框颜色改为和色系加强提示
 
 <img
   src="https://b.ux-cdn.com/uxarts/files/t20260107154429/yjwxj2ni.png"
-  alt="Example of edited button state"
+  alt="将按钮改为醒目红色的示意图"
   width={1100}
 />
 
 ---
 
-## Editor Actions: Restore, Save as draft, Apply changes, Exit
+## 编辑器中的操作:恢复原样,暂存修改,应用修改,退出
 
-At the bottom (and top‑right), you’ll see a set of actions that control **how** your Manul Edit changes are applied.
+在画面下方与右上角,会看到幾个关鍵操作按钮,它们决定这次修改**何时**,**以什么方式**真正写入项目.
 
-### 1. Restore
+### 1）恢复原样
 
-- **What it does**: Undo all changes made in the **current editing session** that have not been applied yet.
-- **Effect**: The page returns to the state when you first opened Manul Edit.
-- **Scope**: Only affects this session’s unsaved edits; it does **not** roll back earlier versions that were already applied to the project.
+- **作用**:撤销本次编辑会话中尚未「应用」的所有改动
+- **效果**:页面回到剛进入手动编辑界面时的状态
+- **范圍**:只影响本次手动编辑产生的变更,**不会**回滾之前已经应用到项目里的历史修改
 
-### 2. Save as draft
+### 2）暂存修改
 
-- **What it does**: Temporarily save your style / layout edits into the **current editing session**, and reflect them in the right‑hand preview.
-- **Important**: These changes are **not yet written back to the project**.
-- You can press **Save as draft** multiple times; each successful draft increments the counter on **Apply changes**.
+- **作用**:将左側面板中对样式,颜色,文案等的更改,暂时保存到本次编辑会话中
+- **效果**:右側预览立即反映这些修改,但**尚未写回项目**
+- 可以多次点击,分多次调整;每成功暂存一次,右上角 **「应用修改」** 按钮上的计数会加一
 
-### 3. Apply changes / Apply N changes
+### 3）应用修改 / 应用 N 处修改
 
-- Initial state: **Apply changes** is disabled when there is no draft.
-- After at least one **Save as draft**:
-  - The button becomes **“Apply 1 changes”**, **“Apply 2 changes”**, etc.
-  - The button is highlighted and clickable.
-- When you click it:
-  - All N changes are written back to the project (updating the page prototype/code)
-  - A success toast such as **“Changes saved”** appears
-  - The counter resets to zero and the button returns to the disabled “Apply changes” state.
+- 初始状态:当沒有任何暂存修改时,按钮为灰色「应用修改」,不可点
+- 至少有一次 **「暂存修改」** 后:
+  - 会变成「应用 1 处修改」「应用 2 处修改」等,并高亮可点
+- 点击后:
+  - 系统会将这 N 处修改真正写入项目,更新对应页面的原型 / 代码
+  - 右上角会出现类似 **「变更已存储」** 的提示
+  - 计数歸零,按钮回到灰色的「应用修改」
 
 <img
   src="https://b.ux-cdn.com/uxarts/files/t20260107154429/cggzv1rt.png"
-  alt="Changes saved toast and Apply changes button"
+  alt="变更已存储的提示与应用修改按钮"
   width={1100}
 />
 
-### 4. Exit
+### 4）退出
 
-- **What it does**: Exit the Design Editor and return to Preview.
-- **If there are no un‑applied changes**:
-  - The editor closes directly.
-- **If there are un‑applied drafts**:
-  - A confirmation dialog appears:
-    - **Exit anyway** – discard all un‑applied edits for this session
-    - **Apply changes and exit** – apply all pending changes first, then close
+- **作用**:退出设计编辑器,回到一般预览画面
+- **若沒有未应用修改**:
+  - 直接退出,不再額外提示
+- **若存在尚未「应用」的暂存修改**:
+  - 会跳出确认对话框,可选择:
+    - **「直接退出」**:放棄本次编辑会话中所有未应用的修改
+    - **「应用修改并退出」**:先执行一次「应用 N 处修改」,再自动退出编辑器
 
 <img
   src="https://b.ux-cdn.com/uxarts/files/t20260107154429/ovvaafsq.png"
-  alt="Apply changes and exit confirmation dialog"
+  alt="应用修改并退出的确认对话框"
   width={520}
 />
 
 ---
 
-## What Happens After You Apply or Discard
+## 应用 / 放弃修改后会发生什么?
 
-### If you **Apply changes**
+### 选择「应用修改」
 
-- Manul Edit sends the updated UI structure back to superun.
-- The current project’s prototype is updated for this page:
-  - Future Preview sessions use this new version
-  - Build code view is based on this version
-  - AI continue‑editing uses this as the new baseline
+- 手动编辑会把你调整后的 UI 结构传回 superun
+- 当前项目此页面的原型 / 产品会被更新:
+  - 之后的预览都以这个版本为准
+  - Build 代码视图也会基于这个版本生成
+  - 日后再让 AI 继续修改时,也会以这次手动编辑后的结果为起点
 
-In other words: from this moment on, the **“source of truth”** for this page is the manually tuned version you just saved.
+换句话说:从这一刻起,这个页面的「真相」就是你在手动编辑界面里调好的那一版,而不是最初纯 AI 生成的版本.
 
-### If you **Discard changes**
+### 选择「放弃更改」
 
-- The current editing session is discarded.
-- No changes from this session are written back to the project.
-- The page returns to its pre‑editor state; AI and code continue to work on the previously saved version.
+- 本次编辑会话的所有修改都不会写回项目
+- 页面恢复为进入编辑器之前的状态
+- 不影响后续的 AI 生成或既有代码
 
-### If there is an error or interruption
+### 中途异常或强制关闭
 
-- If the browser tab is closed or network fails during **entering Manul Edit** or **updating prototype**:
-  - The current editing round might not be saved.
-  - The system resets intermediate “entering edit” states, so you can click the Design Editor button again later to retry.
+- 若在「启动编辑器」或「更新产品」过程中关闭视窗或网路中断:
+  - 这一轮编辑可能不会被保存
+  - 系统会重置「正在进入编辑」等中间状态
+  - 之后再次点击「选择元素并编辑 / 手动编辑」即可重新开始
 
-- If you have **saved drafts (Save as draft) but have not yet applied them**, and then refresh the page or leave midway, you may see a temporary mismatch when you come back:
-  - The **Preview page** may still show the version **before** your drafts were saved.
-  - After re‑entering Manul Edit, the editor may show the version **with** your saved drafts.
-  - In other words, the same page can briefly look different between Preview and the Manul Edit editor.
+- 若你已经 **暂存修改但尚未「应用修改」**,此时直接重新整理页面或中途离开,再次回到该页面时,可能会出现以下状况:
+  - **预览画面** 显示的是「暂存之前」的版本
+  - 重新启动手动编辑后,编辑器内看到的是「暂存之后」的版本
+  - 也就是说,和一页面在「预览」与「手动编辑界面」中,会短暂出现内容不一致的情况
 
-  If this happens, you can resolve it by:
-  - **Use the version history rollback feature**: Use **version history rollback** to restore to a confirmed good version. This is the recommended approach, as it safely reverts to a previous stable state.
-  - Sending a chat instruction such as **"deploy directly, skip checks"** to ask superun to deploy the current version immediately while **skipping the longer debug/check phase**.
+  若遇到这种情况,你可以用以下方式处理:
+  - **使用版本历史回滚功能**:通过 **版本历史回滚** 到你确认无误的版本.这是推荐的解决方式,可以安全地还原到之前稳定的状态.
+  - 在对话输入框中提交指让:**「直接部署,略过检测」**,让系统跳过除错检测流程（这个流程通常会花一点时间）,以目前版本直接部署
 
 ---
 
-<Card title="superun Website" icon="globe" href="https://superun.ai/web" horizontal>
-  Visit the website to learn more features and examples.
+<Card title="superun 官方网站" icon="globe" href="https://superun.ai/web" horizontal>
+  前往 superun 官方网站,了解更多功能与实际范例.
 </Card>
 
 

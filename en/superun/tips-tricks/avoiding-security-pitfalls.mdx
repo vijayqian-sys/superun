@@ -1,0 +1,29 @@
+---
+title: "Avoiding Security Pitfalls"
+description: "Avoid common security pitfalls in superun — secrets, least privilege, API protection, and pre‑publish checks."
+image: "https://b.ux-cdn.com/uxarts/files/t20251201143554/mm27xz4u.png"
+---
+
+
+## Don’t paste secrets in chat
+Store sensitive info in backend env vars or a secrets manager and access via functions.
+
+## Least privilege and environment isolation
+Separate production/test/dev; grant roles/tokens on a need‑to‑use basis to avoid wide privileges.
+
+## Dependency and build security
+Upgrade dependencies regularly, enable SCA/CI scanning; avoid bundling large secrets or certificates into the frontend.
+
+## API and data security
+All public endpoints must enforce auth and rate limits; validate inputs and file uploads; protect PII and privacy data.
+
+## Pre‑publish checks
+Run an automated checklist before publishing: secret leakage, debug flags, error logging, CORS policy, etc.
+
+---
+
+<Card title="superun Website" icon="globe" href="https://superun.ai/web" horizontal>
+  Learn more product capabilities and examples.
+</Card>
+
+

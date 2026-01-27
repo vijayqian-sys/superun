@@ -1,0 +1,128 @@
+---
+title: Style Transfer
+description: 
+---
+
+import Image from '@/components/Image';
+
+
+Style Transfer lets you **generate a brand-new page** while **keeping the visual style of an existing Figma frame**.  
+The AI will match the selected frame's colors, typography, spacing, and layout patterns.
+
+Use **Style Transfer** when you want your new pages to instantly match the design system already in your file.
+
+---
+
+## 1. Select the **Style Transfer** tab
+
+Open the **prompt.to.design** plugin, then click the **Style Transfer** tab at the top.  
+This mode allows you to choose an existing frame as the visual reference.
+
+<img
+  src="/images/style-transfer/1.png"
+  alt="Open the plugin and select the Style Transfer tab"
+  width={700}
+/>
+
+---
+
+## 2. Select a frame to use as your style reference
+
+On your Figma canvas, click any existing frame that has the style you want to reuse.  
+This frame will become your **style reference**, and its colors, typography, spacing, and component patterns will guide the generation.
+
+<img
+  src="/images/style-transfer/2_A.png"
+  alt="Click a frame to set as style reference"
+  width={600}
+/>
+
+<img
+  src="/images/style-transfer/2_referenceframe.png"
+  alt="Selected frame used as style reference"
+  width={300}
+/>
+
+---
+
+## 3. Describe the new page you want to generate
+
+Type a **short description** of the new page layout you want.  
+The AI will generate the page structure using the selected frame's style.
+
+Example prompt:
+> "Generate a hotel review details page, including comments with images and ratings."
+
+<img
+  src="/images/style-transfer/3.png"
+  alt="Enter prompt for the new page while keeping the selected style"
+  width={350}
+/>
+
+
+---
+
+## 4. Click **Generate** and review the preview
+
+Click **Generate** to start styling the new page.  
+When the preview appears, you can scroll or zoom to inspect the AI-generated layout.
+
+<img
+  src="/images/style-transfer/5.png"
+  alt="Review the generated page preview"
+  width={700}
+/>
+
+---
+
+## 5. Insert the styled layout into Figma
+
+Click **Insert to Figma** to place the generated page into your canvas.  
+A new frame will appear, styled consistently with your selected reference frame and fully editable.
+
+<img
+  src="/images/style-transfer/6.png"
+  alt="Insert styled layout into Figma as a new editable frame"
+  width={700}
+/>
+
+---
+
+## Summary
+
+With Style Transfer, you can:
+
+- Reuse an existing page's visual style instantly  
+- Keep colors, fonts, spacing, and UI elements consistent  
+- Generate new pages that match your design system  
+- Save time manually adjusting visual details  
+
+Style Transfer is perfect for building multiple pages in the same product or when reusing a strong visual style across different content types.
+
+
+
+<div style={{
+  marginTop: '2rem',
+  display: 'flex',
+  justifyContent: 'center',
+}}>
+  <a
+    href="https://www.figma.com/community/plugin/1528325292196938261/prompt-to-design-by-superun-ai-10x-faster-with-ai-design-like-a-pro-prototype-instantly"
+    style={{
+      backgroundColor: '#0F172A',
+      color: 'white',
+      padding: '12px 28px',
+      borderRadius: '8px',
+      fontSize: '16px',
+      fontWeight: '600',
+      textDecoration: 'none',
+      boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+      transition: 'all 0.2s ease',
+    }}
+    onMouseOver="this.style.backgroundColor='#1E293B'"
+    onMouseOut="this.style.backgroundColor='#0F172A'"
+  >
+    Start Designing with Prompt.to.design
+  </a>
+</div>
+

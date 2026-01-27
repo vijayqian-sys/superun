@@ -1,74 +1,73 @@
 ---
-title: "Best Practices"
-description: "Best practices for building efficiently in superun — prompts, versions, Supabase, security, and troubleshooting."
+title: "最佳实践"
+description: "在superun中构建的最佳实践——提示,版本,Supabase,高效性和故障排除."
 image: "https://b.ux-cdn.com/uxarts/files/t20251201143554/mm27xz4u.png"
 ---
 
-This guide helps you build more efficiently in superun and avoid common pitfalls.
+本指南可帮助您更有效地在 superun 中构建并避免常见陷阱.
 
-## 1. Use Custom Knowledge as your project brain
-- Document product vision, key user journeys, core features, and design rules
-- Define roles and boundaries (Admin/User/Investor, etc.)
-- This knowledge is referenced continuously and improves future edits
+## 1. 使用自定义知识作为您的项目大脑
+- 记录产品愿景,关键用户旅程,核心功能和设计规则
+- 定义角色和边界（管理员/用户/投资者等）
+- 这些知识会被持续引用并改进未来的编辑
 
-> Ask AI example:
+> 问AI例子:
 ```
 Generate knowledge for my project at T=0 based on features implemented.
 ```
 
-## 2. Prompting best practices
-- Be specific: point to the page/module and expected behavior
-- Do one thing at a time; implement in chunks and validate
-- Specify do‑not‑touch areas (Do not touch ...)
-- Include screenshots/screencasts for clarity
+## 2. 提示最佳实践
+- 具体:指向页面/模块和预期行为
+- 一次只做一件事;分块实施并验证
+- 指定请勿触摸区域（请勿触摸...）
+- 为了清晰起见,包括屏幕截图/截屏视频
 
-> Ask AI template:
+> 问AI模板:
 ```
 On page /settings, implement [feature]. Expected: [XYZ].
 Please don’t touch component A / layout B / shared logic unless necessary.
 ```
 
-## 3. Supabase and full‑stack pacing
-- Stabilize the frontend first, then connect Supabase
-- Validate database schema compatibility before rolling back versions
+## 3. Supabase 和全栈节奏
+- 先稳定前端,再连接Supabase
+- 在回滚版本之前验证数据库架构兼容性
 
-> Ask AI:
+> 问人工智能:
 ```
 Validate SQL schema at T=0 and ensure no breaking changes.
 ```
 
-## 4. Make quick UI changes with Editable Design
-- Visual edits for copy/colors/typography/spacing/responsiveness are faster and safer
-- Boxify consumes Credits; other edits do not
+## 4. 使用可编辑设计快速更改 UI
+- 副本/color/排版/间距/响应能力的可视化编辑更快,更安全
+- Boxify 消耗积分;其他编辑则不然
 
-## 5. Leverage versions and diffs
-- Pin each known‑good state
-- Use version diffs to locate problematic changes
+## 5. 利用版本和差异
+- 固定每个已知的良好状态
+- 使用版本差异来定位有问题的更改
 
-> Ask AI:
+> 问人工智能:
 ```
 Compare version at T–1 to T–0. What changed and what might break?
 ```
 
-## 6. Use Remix as a reset option
-- If stuck in error loops or heavy tech debt, use Remix to rebuild from a clean baseline
-- Disconnect Supabase before remixing connected projects
+## 6.使用复刻作为重置选项
+- 如果陷入错误循环或沉重的技术债务,请使用 复刻 从干净的基线进行重建
+- 在复刻连接的项目之前断开 Supabase
 
-## 7. Small steps, always reversible
-- Break work into smallest verifiable increments
-- After each step, do regression checks and user‑flow validation
+## 7. 小Step,始终可逆
+- 将工作分解为最小的可验证增量
+- 在每个Step之后,进行回归检查和用户流验证
 
-## 8. Docs and community
-- Read docs flows and templates; search first when issues arise
-- Organize your issue and context before asking for help
+## 8. 文档和社区
+- 阅读文档流程和模板;出现问题时首先搜索
+- 在寻求帮助之前整理您的问题和背景
 
-## 9. Security and compliance basics
-- Never paste secrets; use backend env vars/secrets
-- Least privilege, environment isolation, pre‑publish security checks
+## 9. 安全性和合规性基础知识
+- 切勿粘贴秘密;使用后端环境变量/秘密
+- 最小权限,环境隔离,预发布安全检查
 
 ---
 
-<Card title="superun Website" icon="globe" href="https://superun.ai/web" horizontal>
-  Learn more product capabilities and examples.
+<Card title="superun 网站" icon="globe" href="https://superun.ai/web" horizontal>
+  了解更多产品功能和示例.
 </Card>
-

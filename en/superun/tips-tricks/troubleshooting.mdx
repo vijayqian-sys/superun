@@ -1,0 +1,167 @@
+---
+title: "Troubleshooting Common Issues"
+description: "Common issues encountered when using superun and their solutions, including data rollback, AI feature errors, Credits issues, and more."
+image: "https://b.ux-cdn.com/uxarts/files/t20251201143554/mm27xz4u.png"
+---
+
+This document compiles common issues reported by users when using superun and their corresponding solutions to help you quickly identify and resolve problems.
+
+---
+
+## Data Rollback and Modification Issues
+
+### Problem Description
+
+Users report that modified content automatically reverts to the old version the next day, or content disappears and merges into other categories.
+
+### Solution
+
+Model code reinitializes old data when data loading fails. Recommended approaches:
+
+- **Use a separate backend to manage data**: Separate data management from model logic to avoid reinitialization when data loading fails
+- **Let the model modify data directly**: Ensure data modification operations are handled directly by the model to reduce data inconsistencies caused by intermediate steps
+
+---
+
+## AI Try-On Generation Failure
+
+### Problem Description
+
+Users report errors with the AI try-on generation feature, with multiple fixes proving ineffective.
+
+### Solution
+
+This issue is usually caused by `headers` parameters causing `body` serialization problems. Resolution steps:
+
+1. Check the `headers` parameters in API requests
+2. Have AI identify redundant `headers` parameters
+3. Ensure `headers` and `body` serialization formats are consistent
+4. Remove unnecessary `headers` configurations
+
+---
+
+## Errors After Credits Top-up
+
+### Problem Description
+
+Users report that sessions terminate abnormally after Credits top-up, preventing continued operations.
+
+### Solution
+
+1. **Check logs**: Review system logs to identify specific error messages after Credits top-up
+2. **Use Fix**: Click the Fix button in superun to handle abnormal states
+3. **Re-test**: After fixing, re-test to confirm the session can continue normally
+
+> 💡 **Tip**: If the problem persists, contact technical support and provide relevant log information.
+
+---
+
+## Backend Address and APP Deployment Issues
+
+### Problem Description
+
+Users inquire about backend addresses and APP download methods.
+
+### Solution
+
+**Current Limitations**:
+
+- superun currently can only generate **web applications**, not native APPs
+- To deploy a backend management system, you need to **generate the backend first**, then proceed with other configurations
+- Backend addresses will be provided after generation, with specific locations depending on your deployment method
+
+**Recommended Process**:
+
+1. First use superun to generate a backend management system
+2. Obtain the backend access address
+3. For mobile experience, consider using responsive design or PWA (Progressive Web App)
+
+---
+
+## Browser Compatibility Issues
+
+### Problem Description
+
+Safari (especially older versions, such as Safari 16.1 / macOS 13) cannot open the website, showing a blank page, or unable to access in certain network environments.
+
+### Solution
+
+1. **Recommended browsers**: Use mainstream browsers such as Chrome, Edge, Safari (newer versions)
+2. **System upgrade**: Upgrade macOS system to get the latest version of Safari
+3. **Network test**: Visit `https://net-test.superun.app/` to test network connection
+4. **Device recommendation**: Try to use desktop for operations, as mobile and iPad adaptations are still being improved
+
+---
+
+## Preview and Operation Issues
+
+### Problem Description
+
+Preview cannot open but published links work normally, have Credits but cannot operate or type, preview stays in a certain state with no page changes, or features fail again after being fixed.
+
+### Solution
+
+1. **Preview cannot open**:
+   - Check network connection, visit `https://net-test.superun.app/` to test
+   - Try opening preview in a new page
+   - If published links can be accessed, it may be a preview environment issue, refresh the browser
+
+2. **Have Credits but cannot operate**:
+   - Need to check "Generate Demo" first, then you can modify through dialogue after completion
+   - Ensure the project has completed initial demo generation
+
+3. **Preview state not updating**:
+   - Click the "Fix" function to repair
+   - Refresh the entire browser page (not the page refresh inside)
+   - If "Execute" button appears after fixing, click it
+   - Close browser and reopen the project
+
+4. **Features repeatedly failing**:
+   - AI may have reverted features in subsequent modifications
+   - Use version history rollback to restore to a previously working version
+   - Avoid repeatedly modifying in the same conversation, stop and change approach when issues are found
+
+---
+
+## Performance Optimization Issues
+
+### Problem Description
+
+Web pages load slowly, mobile version is slow.
+
+### Solution
+
+1. **Check network**: May be a network issue, suggest testing network speed
+2. **Optimize images**: Images or files that are too large may cause slow loading, need to optimize image size
+3. **Consult AI**: Describe the problem clearly, let AI provide optimization solutions
+4. **Consider user experience**: Cannot require all users to have fast internet, need to consider loading performance when designing
+
+---
+
+## Network Errors and Task Stuck Issues
+
+### Problem Description
+
+Frequently pop up "Network Error" prompts, or tasks stay in "Reading console logs" process.
+
+### Solution
+
+1. **Network errors**: May be due to high request volume, wait a moment; if it persists, contact technical support
+2. **Task stuck**: Contact technical support and provide project link
+
+---
+
+## How to Submit New Issues
+
+If you encounter other issues, you can:
+
+1. Check this document to see if there are similar issues with solutions
+2. Contact the technical support team
+3. Post in the community forum for help
+
+---
+
+<Card title="superun Website" icon="globe" href="https://superun.ai/web" horizontal>
+  Learn more about product features and examples.
+</Card>
+

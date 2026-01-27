@@ -1,140 +1,134 @@
 ---
-title: Partial Redesign
+title: 部分重新设计
 ---
 
 import Image from '@/components/Image';
 
-Partial Redesign lets you update **one specific area** of a frame without affecting the rest of your layout.  
-This is useful when you want to refresh a card, redesign a section, or explore variations while keeping your page structure intact.
+部分重新设计可让您更新Frame的**一个特定区域**,而不影响布局的其余部分.
+当您想要刷新Card片,重新设计某个部分或探索变化同时保持页面结构完整时,这非常有用.
 
 ---
 
-## 1. Select the **Partial Redesign** tab
+## 1. 选择 **部分重新设计** 选项Card
 
-Open the **prompt.to.design** plugin and click the **Partial Redesign** tab.  
-This mode allows you to pick an existing area inside a frame and regenerate just that part.
+打开 **prompt.to.design** 插件并点击 **Partial Redesign** 标签.  
+此模式允许您在Frame内选择现有区域并僅重新生成该部分.
 
 <img
   src="/images/region-redesign/1.png"
-  alt="Open the plugin and select the Region Redesign tab"
+  alt="打开插件并选择区域重新设计标签"
   width={700}
 />
 
 ---
 
-## 2. Select a frame that contains the region you want to redesign
+## 2. 选择包含要重新设计的区域的Frame
 
-To begin, you must select an entire **frame** on your Figma canvas.  
-The plugin needs to know which page you want to work inside before you can choose a specific region.
+首先,您必须在 Figma 画布上选择整个 **Frame**.
+在您选择特定区域之前,插件需要知道您想要在哪个页面中工作.
 
-### Why this step matters:
+### 为什么这一步很重要:
 
-- Region Redesign **only works when a frame is selected first**  
-- If no frame is selected, the plugin cannot enter region-selection mode  
-- Once a frame is selected, the plugin will show the message:  
-  **"Select a region in the frame"**
+- 区域重新设计**仅在首先选择Frame时有效**
+- 如果没有选择Frame,插件无法进入区域选择模式
+- 选择Frame后,插件将display消息:
+  **"在Frame中选择一个区域"**
 
 <img
   src="/images/region-redesign/2_A.png"
-  alt="Click on a frame to enable region selection mode"
+  alt="单击Frame以启用区域选择模式"
   width={600}
 />
 
 <img
   src="/images/region-redesign/2_frame.png"
-  alt="Example of a selected frame that will be used for region redesign"
+  alt="将用于区域重新设计的选定Frame的示例"
   width={500}
 />
 
 ---
 
-## 3. Select a region inside the frame
+## 3. 选择Frame内的区域
 
-After selecting a frame, click on the specific area you want to redesign - for example, a card, a section, or a content block.
+选择Frame后,单击要重新设计的特定区域 - 例如Card片,部分或内容块.
 
 <img
   src="/images/region-redesign/3_A.png"
-  alt="Plugin shows the selected region after a frame area is chosen"
+  alt="选择Frame区域后,插件display选定的区域"
   width={600}
 />
 
-### Recommended method (especially for beginners):
-**Use the left-side Figma Layer Panel to select the exact region.**
+### 推荐方法（特别适合初学者）:
+**使用左側的 Figma 图層面板选择确切的区域.**
 
-This ensures you pick the correct component or container even when layers are nested.
-
+即使層嵌套,这也可确保您选择正确的组件或容器.
 
 <img
   src="/images/region-redesign/3_region.png"
-  alt="Use the Layer Panel or canvas to select a specific region inside the frame"
+  alt="使用图層面板或画布选择Frame内的特定区域"
   width={675}
 />
 
-
-
 ---
 
-## 4. Describe what you want to update in the selected region
+## 4. 描述您要在所选区域更新的内容
 
-Type a short prompt describing how you want the selected area to be redesigned.  
-Only the chosen region will be updated - the rest of your page stays unchanged.
+键入一个简短的提示,描述您希望如何重新设计所选区域.
+只有所选区域才会更新 - 页面的其余部分保持不变.
 
-Example prompt:
-> "Redesign this rating card into a premium, luxury hotel style.  
-Use warm tones, soft elevation, and refined typography. Keep all content, but make it feel elegant and high-end."
+提示示例:
+> "将这张评级Card重新设计成高级,豪华酒店style.
+使用暖色调,柔和的立面和精致的版式.保留所有内容,但要让它感觉优雅和高端."
 
 <img
   src="/images/region-redesign/4.png"
-  alt="Enter a description of how to redesign the selected region"
+  alt="输入如何重新设计所选区域的描述"
   width={350}
 />
 
 ---
 
-## 5. Generate and review redesigned previews
+## 5. 生成并审查重新设计的预览
 
-Click **Generate** to create new variations of the selected region.  
-The preview will show new designs that match your frame's existing style system.
+单击"**生成**"以创建所选区域的新变体.  
+预览将display与Frame现有样式系统相匹配的新设计.
 
-You can scroll or zoom to compare different versions.
+您可以滾动或缩放来比较不和的版本.
 
 <img
   src="/images/region-redesign/5.png"
-  alt="Review AI-generated variations for the selected region"
+  alt="审查所选区域的 AI 生成变体"
   width={700}
 />
 
 ---
 
-## 6. Insert the redesigned region into Figma
+## 6. 将重新设计的区域插入 Figma
 
-Click **Insert to Figma** to apply the new version.  
-Only the selected area will be replaced - the rest of the frame will remain exactly the same.
+点击 **Insert to Figma** 以应用新版本.
+只有选定的区域将被替换 - Frame的其余部分将保持完全相和.
 
-The updated region will appear as fully editable Figma layers.
+更新后的区域将display为完全可编辑的 Figma 图层.
 
 <img
   src="/images/region-redesign/6_newframe.png"
-  alt="Insert the redesigned region into the existing frame"
+  alt="将重新设计的区域插入现有Frame中"
   width={900}
 />
 
 ---
 
-## Summary
+## 概括
 
-With Partial Redesign, you can:
+通过部分重新设计,您可以:
 
-- Update only one part of a page without affecting the rest  
-- Explore multiple design variations quickly  
-- Keep your page structure and spacing unchanged  
-- Maintain stylistic consistency across your layout  
-- Edit all generated output as native Figma layers  
+- 只更新页面的一部分,而不影响其余部分  
+- 快速探索多種设计变体  
+- 保持页面结构和间距不变  
+- 在整个布局中保持style一致性  
+- 将所有生成的输出编辑为原生 Figma 图層
 
-Region Redesign is perfect for improving cards, sections, modules, or any part of a page that needs a fresh look.
-
-
-
+区域重新设计非常适合改进Card片,部分,模块或页面中需要煥然一新的外观的任何部分.
 
 <div style={{
   marginTop: '2rem',
@@ -157,6 +151,6 @@ Region Redesign is perfect for improving cards, sections, modules, or any part o
     onMouseOver="this.style.backgroundColor='#1E293B'"
     onMouseOut="this.style.backgroundColor='#0F172A'"
   >
-    Start Designing with Prompt.to.design
+    开始使用 prompt.to.design 设计
   </a>
 </div>

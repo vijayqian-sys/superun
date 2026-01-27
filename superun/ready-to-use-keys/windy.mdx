@@ -1,70 +1,70 @@
 ---
 title: "Windy Weather"
-description: "Integrate Windy API for real-time weather data, forecasts, and meteorological visualizations"
+description: "整合 Windy API 以取得即时天气资料,预报和气象视觉化"
 image: "https://b.ux-cdn.com/uxarts/files/t20251201143554/mm27xz4u.png"
 ---
 
 # Windy Weather
 
-This guide explains how to integrate Windy API into your superun application. The integration uses edge functions to securely proxy all API requests, ensuring your API key never reaches the client.
+本指南说明如何将 Windy API 整合到您的 superun 应用程序中.此整合使用边缘函数来安全地代理所有 API 请求,确保您的 API 金钥永远不会传送到客户端.
 
-## Documentation
+## 文档
 
-For more details about Windy APIs, refer to the official documentation:
+有关 Windy API 的更多详细资讯,请参阅官方文件:
 
-- [Windy API Documentation](https://api.windy.com/) - Complete API reference
+- [Windy API 文件](https://api.windy.com/) - 完整的 API 参考
 
-## Environment Variables
+## 环境变数
 
-Add the following environment variables to your supabase secrets, the plugin_secret_prefix MUST be SUPERUN:
-- `WINDY_POINT_FORECAST_KEY` - Windy Point Forecast API Key
-- `WINDY_MAP_FORECAST_KEY` - Windy Map Forecast API Key
-- `WINDY_WEBCAMS_KEY` - Windy Webcams API Key
+将以下环境变数新增到您的 supabase secrets 中,plugin_secret_prefix 必须为 SUPERUN:
+- `WINDY_POINT_FORECAST_KEY` - Windy 点预报 API 金钥
+- `WINDY_MAP_FORECAST_KEY` - Windy 地图预报 API 金钥
+- `WINDY_WEBCAMS_KEY` - Windy 网路摄影机 API 金钥
 
-## Step 1: Create Edge Function
+## 步骤 1:建立边缘函数
 
-Create a Supabase Edge Function to securely proxy Windy API requests. This example demonstrates how to handle different Windy API endpoints:
+建立一个 Supabase 边缘函数来安全地代理 Windy API 请求.此范例展示了如何处理不和的 Windy API 端点:
 
-### point forecast
-- [windy point forecast] (https://api.windy.com/point-forecast/docs)
+### 点预报
+- [windy point forecast](https://api.windy.com/point-forecast/docs)
 
-### Map forecast
+### 地图预报
 - [windy map forecast](https://api.windy.com/map-forecast/docs)
 
-### Webcams api
+### 网路摄影机 API
 - [windy webcams api](https://api.windy.com/webcams/docs)
 
-## Step 2: Frontend Integration
+## 步骤 2:前端整合
 
-Call the edge function directly from your frontend. The API key stays secure on the server:
+直接从前端呼叫边缘函数.API 金钥会安全地保存在服务器上:
 
-## API Features
+## API 功能
 
-Windy API provides access to three main services:
+Windy API 提供三种主要服务:
 
-### Point Forecast API
-- Real-time weather conditions for specific coordinates
-- Multi-day forecasts (up to 10 days)
-- Multiple weather parameters (temperature, wind speed, precipitation, etc.)
-- High-resolution weather data (up to 1km resolution)
+### 点预报 API
+- 特定座标的即时天气状况
+- 多天预报（最多 10 天）
+- 多种天气参数（温度,风速,降水量等）
+- 高解析度天气资料（最高 1 公里解析度）
 
-### Map Forecast API
-- Weather data visualization for map overlays
-- Multiple data sources (ECMWF, GFS, etc.)
-- Customizable parameters and models
-- Regional and global coverage
+### 地图预报 API
+- 用于地图叠加层的天气资料视觉化
+- 多种资料来源（ECMWF,GFS 等）
+- 可自订的参数和模型
+- 区域和全球覆盖范围
 
-### Webcams API
-- Nearby webcam locations for visual weather verification
-- Real-time camera feeds
-- Location-based search with radius filtering
-- Weather condition validation
+### 网路摄影机 API
+- 附近网路摄影机位置,用于视觉天气验证
+- 即时摄影机画面
+- 基于位置的搜寻,支持半径过滤
+- 天气状况验证
 
-## Usage Guidelines
+## 使用指南
 
-When using Windy API:
+使用 Windy API 时:
 
-- Respect rate limits and usage quotas
-- Cache weather data appropriately to reduce API calls
-- Handle errors gracefully and provide fallback data when available
+- 遵守速率限制和使用配额
+- 适当缓存天气资料以减少 API 呼叫
+- 优雅地处理错误,并在可用时提供备用资料
 

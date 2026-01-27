@@ -1,22 +1,21 @@
 ---
-title: Style Transfer
-description: 
+title: style转换
+description: 了解如何使用 Prompt.to.design 中的style转换功能,将现有 Figma Frame的设计style应用到新布局中.
 ---
 
 import Image from '@/components/Image';
 
+style转换允许您**生成全新的页面**,同时**保持现有 Figma Frame的视觉style**.
+AI 将匹配所选Frame的color,排版,间距和布局模式.
 
-Style Transfer lets you **generate a brand-new page** while **keeping the visual style of an existing Figma frame**.  
-The AI will match the selected frame's colors, typography, spacing, and layout patterns.
-
-Use **Style Transfer** when you want your new pages to instantly match the design system already in your file.
+当您希望新页面立即匹配文件中已有的设计系统时,请使用**样式转移**.
 
 ---
 
-## 1. Select the **Style Transfer** tab
+## 1. 选择 **style转移** 选项Card
 
-Open the **prompt.to.design** plugin, then click the **Style Transfer** tab at the top.  
-This mode allows you to choose an existing frame as the visual reference.
+打开 **Prompt.to.design** 插件,然后点击顶部的 **Style Transfer** 标签.  
+此模式允许您选择现有Frame作为视觉参考.
 
 <img
   src="/images/style-transfer/1.png"
@@ -26,80 +25,77 @@ This mode allows you to choose an existing frame as the visual reference.
 
 ---
 
-## 2. Select a frame to use as your style reference
+## 2. 选择一个Frame作为您的style参考
 
-On your Figma canvas, click any existing frame that has the style you want to reuse.  
-This frame will become your **style reference**, and its colors, typography, spacing, and component patterns will guide the generation.
+在您的 Figma 画布上,点击任何具有您想要重用的style的现有Frame.
+这个Frame将成为您的**style参考**,它的color,排版,间距和组件模式将指导生成.
 
 <img
   src="/images/style-transfer/2_A.png"
-  alt="Click a frame to set as style reference"
+  alt="单击一个Frame以设置为样式参考"
   width={600}
 />
 
 <img
   src="/images/style-transfer/2_referenceframe.png"
-  alt="Selected frame used as style reference"
+  alt="选定的Frame用作样式参考"
   width={300}
 />
 
 ---
 
-## 3. Describe the new page you want to generate
+## 3.描述你想要生成的新页面
 
-Type a **short description** of the new page layout you want.  
-The AI will generate the page structure using the selected frame's style.
+输入您想要的新页面布局的**简短描述**.  
+AI 将使用所选Frame的样式生成页面结构.
 
-Example prompt:
-> "Generate a hotel review details page, including comments with images and ratings."
+提示示例:
+> "生成酒店评论详细Info页面,包括帶有图像和评级的评论."
 
 <img
   src="/images/style-transfer/3.png"
-  alt="Enter prompt for the new page while keeping the selected style"
+  alt="输入新页面的提示,同时保持所选的style"
   width={350}
 />
 
-
 ---
 
-## 4. Click **Generate** and review the preview
+## 4. 单击 **生成** 并查看预览
 
-Click **Generate** to start styling the new page.  
-When the preview appears, you can scroll or zoom to inspect the AI-generated layout.
+单击 **生成** 开始设计新页面的样式.
+当预览出现时,您可以滚动或缩放以检查 AI 生成的布局.
 
 <img
   src="/images/style-transfer/5.png"
-  alt="Review the generated page preview"
+  alt="查看生成的页面预览"
   width={700}
 />
 
 ---
 
-## 5. Insert the styled layout into Figma
+## 5. 将样式化的布局插入 Figma
 
-Click **Insert to Figma** to place the generated page into your canvas.  
-A new frame will appear, styled consistently with your selected reference frame and fully editable.
+点击 **Insert to Figma** 将生成的页面放置到您的画布中.  
+将出现一个新Frame,与您选择的参考Frame样式一致且完全可编辑.
 
 <img
   src="/images/style-transfer/6.png"
-  alt="Insert styled layout into Figma as a new editable frame"
+  alt="将style化的布局插入 Figma 作为新的可编辑Frame"
   width={700}
 />
 
 ---
 
-## Summary
+## 概括
 
-With Style Transfer, you can:
+通过style迁移,您可以:
 
-- Reuse an existing page's visual style instantly  
-- Keep colors, fonts, spacing, and UI elements consistent  
-- Generate new pages that match your design system  
-- Save time manually adjusting visual details  
+- 立即重用现有页面的视觉样式
+- 保持color,字体,间距和 UI 元素一致
+- 生成与您的设计系统相匹配的新页面
+- 节省手动调整视觉细节的时间
 
-Style Transfer is perfect for building multiple pages in the same product or when reusing a strong visual style across different content types.
-
-
+样式传输非常适合在和一产品中构建多个页面或在不和内容类型中重复使用强大的视觉样式.
 
 <div style={{
   marginTop: '2rem',
@@ -107,7 +103,7 @@ Style Transfer is perfect for building multiple pages in the same product or whe
   justifyContent: 'center',
 }}>
   <a
-    href="https://www.figma.com/community/plugin/1528325292196938261/prompt-to-design-by-superun-ai-10x-faster-with-ai-design-like-a-pro-prototype-instantly"
+    href="https://www.Figma.com/community/plugin/1528325292196938261/prompt-to-design-by-superun-ai-10x-faster-with-ai-design-like-a-pro-prototype-instantly"
     style={{
       backgroundColor: '#0F172A',
       color: 'white',
@@ -122,7 +118,6 @@ Style Transfer is perfect for building multiple pages in the same product or whe
     onMouseOver="this.style.backgroundColor='#1E293B'"
     onMouseOut="this.style.backgroundColor='#0F172A'"
   >
-    Start Designing with Prompt.to.design
+    开始使用 Prompt.to.design 设计
   </a>
 </div>
-
