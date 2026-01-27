@@ -1,0 +1,96 @@
+---
+title: "Unsplash"
+description: "整合 Unsplash API 以取得高品質,免版稅的圖片和照片搜尋功能"
+image: "https://b.ux-cdn.com/uxarts/files/t20251201143554/mm27xz4u.png"
+---
+
+# Unsplash
+
+本指南說明如何將 Unsplash API 整合到您的 superun 應用程式中.此整合使用邊緣函數來安全地代理所有 API 請求,確保您的 API 金鑰永遠不會傳送到客戶端.
+
+## 文件
+
+有關 Unsplash API 的更多詳細資訊,請參閱官方文件:
+
+- [Unsplash API 文件](https://unsplash.com/documentation) - 完整的 API 參考
+
+## 環境變數
+
+將以下環境變數新增到您的 supabase secrets 中,plugin_secret_prefix 必須為 SUPERUN
+- `UNSPLASH_ACCESS_KEY` - Unsplash 存取金鑰
+
+## 步驟 1:建立邊緣函數
+
+建立一個 Supabase 邊緣函數來安全地代理 Unsplash API 請求.此範例展示了 `/search/photos` 端點:
+
+```typescript
+// supabase/functions/unsplash-search-photos/index.ts
+
+serve(async (req) => {
+  try {
+    // 從環境變數中取得 Unsplash 存取金鑰
+    const accessKey = Deno.env.get("SUPERUN_UNSPLASH_ACCESS_KEY");
+    
+    if (!accessKey) {
+      return new Response(
+        JSON.stringify({ error: "Unsplash API key not configured" }),
+        { status: 500, headers: { "Content-Type": "application/json" } }
+      );
+    }
+
+    // 從請求中解析查詢參數
+    const url = new URL(req.url);
+    const query = url.searchParams.get("query");
+    if (!query) {
+      return new Response(
+        JSON.stringify({ error: "query is empty" }),
+        { status: 400, headers: { "Content-Type": "application/json" } }
+      );
+    }
+    const page = url.searchParams.get("page") || "1";
+    const perPage = url.searchParams.get("per_page") || "10";
+
+    // 向 Unsplash API 發送請求
+    const unsplashUrl = `https://api.unsplash.com/search/photos?query=${encodeURIComponent(query)}&page=${page}&per_page=${perPage}`;
+    
+    const response = await fetch(unsplashUrl, {
+      headers: {
+        "Authorization": `Client-ID ${accessKey}`,
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(`Unsplash API error: ${response.status}`);
+    }
+
+    const data = await response.json();
+
+    // 回傳 Unsplash API 回應
+    return new Response(
+      JSON.stringify(data),
+      {
+        headers: { "Content-Type": "application/json" },
+      }
+    );
+  } catch (error) {
+    return new Response(
+      JSON.stringify({ error: error.message }),
+      { status: 500, headers: { "Content-Type": "application/json" } }
+    );
+  }
+});
+```
+
+## 步驟 2:前端整合
+
+直接從前端呼叫邊緣函數.API 金鑰會安全地保存在伺服器上:
+
+## API 歸屬
+
+使用 Unsplash API 時,您必須提供適當的歸屬說明:
+
+- 顯示攝影師姓名並連結到他們的 Unsplash 個人檔案
+- 在所有連結中包含 `utm_source` 和 `utm_medium` 參數
+- 遵循 [Unsplash API 指南](https://help.unsplash.com/en/articles/2511245-unsplash-api-guidelines)
+
+

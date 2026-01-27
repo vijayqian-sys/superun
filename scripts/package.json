@@ -1,0 +1,20 @@
+{
+  "name": "translation-scripts",
+  "version": "1.0.0",
+  "description": "自动化翻译管理工具",
+  "main": "translate-manager.js",
+  "scripts": {
+    "sync": "node translate-manager.js",
+    "check": "node check-i18n.js",
+    "translate": "node auto-translate.js",
+    "fix-comments": "node fix-mdx-comments.js",
+    "remove-comments": "node remove-translation-comments.js",
+    "generate-llms": "node generate-llms-txt.js"
+  },
+  "keywords": ["translation", "i18n", "mintlify"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@google-cloud/translate": "^8.0.0"
+  }
+}

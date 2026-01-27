@@ -1,0 +1,37 @@
+---
+title: "在superun中使用圖片"
+description: "在superun中添加/圖像替換的四種方式 - 聊天上傳,可編輯設計,外部URL和公共資產."
+image: "https://b.ux-cdn.com/uxarts/files/t20251201143554/mm27xz4u.png"
+---
+
+有四種常見方法可以將圖像添加到項目中:
+
+## 1.上傳圖片到提示聊天
+直接在聊天中上傳並指定位置和大小. superun 將插入它並設置其樣式.
+
+## 2. 將其替換為可編輯設計
+1. 打開可編輯設計（頂部導航欄中的調色板圖標）
+2. 選擇要替換的圖像佔位符
+3.選擇新圖片完成替換
+
+## 3. 使用外部圖像 URL
+引用外部託管的圖像（Note意許可證）,例如:
+
+```
+Use the image from this URL https://example.com/hero.png for the hero section image.
+```
+
+## 4. 使用 GitHub 公共目錄中的圖像
+將圖像放置在 repo `public/` 目錄下並通過路徑引用,例如:
+
+```
+Use image from my repo: public/brand/hero.jpg
+```
+
+> 對於大圖像,優化大小和尺寸以避免加載和預覽速度減慢.
+
+---
+
+<Card title="superun 網站" icon="globe" href="https://superun.ai/web" horizontal>
+  了解更多產品功能和示例.
+</Card>

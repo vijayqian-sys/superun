@@ -1,0 +1,219 @@
+---
+title: "常見問題解答"
+description: "有關 superun 功能,工作流程,數據,安全性和策略的常見問題的解答."
+---
+## 開始使用
+<AccordionGroup>
+    <Accordion title="superun 是什麼?">
+        superun 是一個人工智能驅動的平台,可以幫助任何技能水平的用戶使用自然語言創建網站或應用程序.
+    </Accordion>
+    <Accordion title="我可以用 superun 構建什麼?">
+        從登陸頁面到復雜的工具,內部平台和交互式原型——superun 可讓您快速構建和迭代.
+    </Accordion>
+    <Accordion title="我需要編碼經驗嗎?">
+        不會.無論您是否編碼,您都可以使用聊天和可視化編輯進行構建.
+    </Accordion>
+    <Accordion title="如何創建項目?">
+        在儀表板消息框中描述您的目標. superun 生成一個起始版本.從小事做起,逐步完善.
+    </Accordion>
+    <Accordion title="我可以從模板開始嗎?">
+       是的.使用模板或復刻公共項目來快速啟動您的構建.
+    </Accordion>
+    <Accordion title="註冊時收不到驗證碼怎麼辦?">
+        如果使用 QQ 郵箱或 Gmail 收不到驗證碼,請嘗試以下方法:
+        - 檢查垃圾郵件文件夾,驗證碼可能被標記為垃圾郵件
+        - Gmail 用戶請檢查 spam 文件夾,發件方是 `UCDarts`
+        - 如果長時間未收到,可以重新觸發註冊流程
+    </Accordion>
+    <Accordion title="演示、原型、研發有什麼區別?">
+        - **演示（Demo）**:純前端,只用來驗證想法和流程,使用假數據
+        - **原型（Prototype）**:等同於演示,不含研發
+        - **研發（Development）**:把真實能力（如發郵件）接上去,變成真正可服務其他用戶的產品
+    </Accordion>
+</AccordionGroup>
+
+## 使用 superun 構建
+<AccordionGroup>
+    <Accordion title="如何高效構建?">
+        一次專注於一項功能,逐步構建,並在修復之前盡可能地重現問題.
+    </Accordion>
+    <Accordion title="提示技巧">
+        清晰具體;迭代;如有幫助,請包含樣式或設計關鍵字.
+    </Accordion>
+    <Accordion title="後端和數據">
+        使用 Supabase 實現持久性,身份驗證和邊緣功能.
+    </Accordion>
+    <Accordion title="支援哪些登錄方式?">
+        在您的項目中,superun 可以自動集成以下登錄方式（使用 Supabase auth）:
+        - **郵箱密碼登錄**
+        - **手機驗證碼登錄**
+        - **Google 登錄**
+
+        我們正在開發基於 Supabase 的自定義微信登錄功能,後續將上線並支援微信登錄.
+    </Accordion>
+    <Accordion title="superun 提供哪些服務?">
+        superun 提供以下服務,您可以將它們集成到您的項目中:
+        - **superun Cloud**:將使用者身份驗證,資料儲存以及後端功能整合到您的產品中.
+        - **superun AI**:將 AI 功能整合到您的產品中.
+        - **Stripe**:將付款處理功能整合到您的產品中.安全地接受付款,管理訂閱並處理交易.
+        - **Nano Banana**:將 AI 圖像生成功能整合到您的產品中.
+    </Accordion>
+    <Accordion title="秘密">
+        切勿在聊天中粘貼秘密.將它們存儲在環境變量或秘密中.
+    </Accordion>
+    <Accordion title="搜索引擎優化">
+       設置頁面標題/描述,使用語義結構並提供社交共享圖像.
+    </Accordion>
+</AccordionGroup>
+
+## 特點
+<AccordionGroup>
+    <Accordion title="項目可見性">
+        在發佈設置中配置項目可見性.發布上線的項目會有幾率被選擇為社區展示（出現在"看看其他人的創作"中）.如果不想在社區中展示,可以聯繫客服去掉,或將項目下線.
+    </Accordion>
+    <Accordion title="如何在不發布的情況下分享項目?">
+        即使項目未發布或已下線,你也可以通過內部分享鏈接分享給他人:
+        - 在項目導航欄中找到"在新標籤頁中開啟預覽"選項
+        - 點擊後會在新標籤頁中打開預覽
+        - 複製該預覽頁面的 URL 分享給對方
+        - 內部分享鏈接是實時的,不會出現在公開列表中
+    </Accordion>
+    <Accordion title="如何查看表單提交的數據?">
+        可以通過以下方式查看表單提交的數據:
+        - AI 在對話中會告訴查看路徑
+        - 需要在項目中生成後台管理頁面
+        - 如果使用 superun Cloud,可以在數據庫中查看
+    </Accordion>
+    <Accordion title="諮詢功能什麼時候可以免費使用?">
+        諮詢功能在以下時機可以免費使用:
+        - 在最開始生成 4 個風格之前,等待過程可以同時諮詢
+        - 在項目工作完成後,點擊諮詢後詢問問題
+        - 如果正在生成中,諮詢需要排隊,等工作完成後再諮詢
+    </Accordion>
+    <Accordion title="模式">
+       根據您的任務在可編輯設計和代碼模式之間切換.注意:代碼模式功能（包括查看和下載代碼）需要付費用戶才能使用.
+    </Accordion>
+    <Accordion title="我可以復制一個項目嗎?">
+        使用 復刻 複製項目.必須先斷開與 Supabase 連接的項目.
+    </Accordion>
+    <Accordion title="如何發布我的項目?">
+        編輯後,打開發布流程,設置可見性並生成可共享鏈接.
+    </Accordion>
+    <Accordion title="如何添加自定義域?">
+        使用發佈設置嚮導連接自定義域（支持主要 DNS 提供商）.
+    </Accordion>
+    <Accordion title="我可以查看已發布項目的分析嗎?">
+        支持基本的訪問分析;您還可以集成第三方工具.
+    </Accordion>
+    <Accordion title="目前支援哪些檔案上傳格式與限制?">
+        superun 目前支援的檔案上傳類型與限制如下:
+
+        **支援的檔案格式**
+        - 圖片:`png`, `jpg`, `jpeg`, `webp`, `gif`, `svg`
+        - 文件與程式碼／文字檔:`pdf`, `js`, `ts`, `jsx`, `tsx`, `py`, `java`, `cpp`, `c`, `h`, `cs`, `php`, `rb`, `go`, `rs`, `swift`, `html`, `css`, `scss`, `less`, `json`, `xml`, `yaml`, `yml`, `md`
+        - 影片:`mp4`, `avi`, `mov`, `wmv`, `flv`, `webm`, `mkv`
+        - 音訊與其他二進位檔:`mp3`, `wav`, `ogg`, `flac`, `m4a`, `aac`
+
+        **大小限制**
+        - 圖片:單檔最大 **3.5 MB**
+        - 文件與程式碼／文字檔:單檔最大 **5 MB**
+        - 影片,音訊與其他二進位檔:單檔最大 **100 MB**
+        - 每次請求最多檔案數量:**10 個**
+        - 請求超時時間:**60 秒**
+
+        以上限制適用於 superun 中支援檔案上傳的相關流程（例如在對話中附加檔案,或使用支援上傳的工具時）.
+    </Accordion>
+    <Accordion title="我可以在提示中添加圖像嗎?">
+        是的.粘貼草圖,屏幕截圖或設計參考以改進結果.
+    </Accordion>
+    <Accordion title="我可以將視頻添加到提示中嗎?">
+        還沒有.請改用關鍵幀屏幕截圖.
+    </Accordion>
+    <Accordion title="我可以從 Figma 導入設計嗎?">
+        是的.從 Figma 導入作為起點,並通過聊天/視覺編輯進行完善.
+    </Accordion>
+    <Accordion title="我可以從現有代碼（例如 GitHub）開始嗎?">
+        目前還沒有.不支持從現有存儲庫啟動.
+    </Accordion>
+    <Accordion title="如何查看我的項目歷史記錄?">
+        使用聊天記錄或歷史記錄面板查看,預覽和恢復版本.
+    </Accordion>
+    <Accordion title="我可以恢復早期版本嗎?">
+        是的.只需單擊一下即可恢復到任何先前版本,以實現安全迭代.
+    </Accordion>
+</AccordionGroup>
+
+## 管理您的帳戶
+<AccordionGroup>
+    <Accordion title="更改登錄電子郵件">
+        目前尚不支持.作為解決方法,創建一個新帳戶並通過公開項目 + 復刻 進行遷移.
+    </Accordion>
+    <Accordion title="轉讓所有權">
+       使用 復刻 或存儲庫協作方法來轉移所有權.
+    </Accordion>
+    <Accordion title="我可以刪除我的帳戶嗎?">
+        聯繫支持人員（例如 support@uxarts.ai）以請求刪除帳戶.
+    </Accordion>
+    <Accordion title="代幣如何獲取?">
+        代幣可以通過以下方式獲取:
+        - **每日簽到**:每天登錄自動送 10 代幣,單月上限 40（無需手動簽到）
+        - **邀請獎勵**:對方需通過你的邀請鏈接註冊並完成一個演示（選擇風格並執行完成）,完成後獎勵 20 幣
+        - **充值**:在充值頁面可以進行充值,最右邊有"自定義充值"選項
+        - 在代幣明細中查看具體獲得和消耗情況
+    </Accordion>
+    <Accordion title="如何聯繫技術支持?">
+        正確的技術支持郵箱是 `support@uxarts.ai`（注意是 .ai 不是 .com）.你也可以通過網站上的官方支持渠道聯繫支持團隊.
+    </Accordion>
+</AccordionGroup>
+
+## 政策和安全
+<AccordionGroup>
+    <Accordion title="我如何獲得支持?">
+        使用網站上的官方支持渠道或向支持團隊發送電子郵件.
+    </Accordion>
+    <Accordion title="在哪裡可以找到隱私政策?">
+        請參閱網站頁腳中的隱私政策.
+    </Accordion>
+    <Accordion title="在哪裡可以找到服務條款?">
+        請參閱網站頁腳中的服務條款.
+    </Accordion>
+    <Accordion title="你們的退款政策是什麼?">
+        退款遵循服務條款.請參閱最新政策更新.
+    </Accordion>
+    <Accordion title="superun 符合安全標準嗎?">
+        superun 符合行業最佳實踐,並通過第三方審計和風險管理提高合規性.
+    </Accordion>
+    <Accordion title="superun 符合 GDPR 規定嗎?">
+        是的. superun遵循GDPR,不斷改進數據保護和隱私.
+    </Accordion>
+</AccordionGroup>
+
+## superun 的工作原理
+<AccordionGroup>
+    <Accordion title="superun 知道哪些技術棧?">
+        使用 React/Tailwind 進行前端;連接到 OpenAPI 後端;使用 Supabase 進行持久化/身份驗證.
+    </Accordion>
+    <Accordion title="superun支持移動應用開發嗎?">
+        專注於網絡應用程序;您可以構建適合移動設備的響應式頁面.
+    </Accordion>
+    <Accordion title="superun 如何記住上下文?">
+        通過對最近的消息和項目狀態進行建模.在每個提示中提供關鍵詳細資訊以獲得最佳結果.
+    </Accordion>
+    <Accordion title="誰擁有所創建的項目和代碼?">
+        您,創建者,擁有您的項目和代碼（受適用條款和第三方許可的約束）.
+    </Accordion>
+</AccordionGroup>
+
+## 關於superun
+<AccordionGroup>
+    <Accordion title="superun 總部在哪裡?">
+        superun 作為分佈在多個地點的遠程優先團隊運作.
+    </Accordion>
+    <Accordion title="superun 正在招聘嗎?">
+        查看我們的網站和社交渠道上的最新空缺職位.
+    </Accordion>
+</AccordionGroup>
+
+<Card title="superun 網站" icon="globe" href="https://superun.ai/web" horizontal>
+  訪問 superun 網站,了解產品,解決方案和更新.
+</Card>

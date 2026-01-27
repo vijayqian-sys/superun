@@ -1,0 +1,221 @@
+---
+title: "superun FAQ"
+description: "Answers to common questions about superun features, workflows, data, security, and policies."
+---
+## Getting started
+<AccordionGroup>
+    <Accordion title="What is superun?">
+        superun is an AI-powered platform that helps users of any skill level create websites or apps using natural language.
+    </Accordion>
+    <Accordion title="What can I build with superun?">
+        From landing pages to complex tools, internal platforms, and interactive prototypes—superun lets you build and iterate quickly.
+    </Accordion>
+    <Accordion title="Do I need coding experience?">
+        No. Whether you code or not, you can build using chat and visual editing.
+    </Accordion>
+    <Accordion title="How do I create a project?">
+        Describe your goal in the dashboard message box. superun generates a starting version. Start small and refine incrementally.
+    </Accordion>
+    <Accordion title="Can I start from templates?">
+       Yes. Use templates or remix public projects to jumpstart your build.
+    </Accordion>
+    <Accordion title="I'm not receiving verification codes during registration?">
+        If you're using QQ email or Gmail and not receiving verification codes, try the following:
+        - Check your spam/junk folder, verification codes may be marked as spam
+        - Gmail users should check the spam folder, sender is `UCDarts`
+        - If you haven't received it for a long time, you can retrigger the registration process
+    </Accordion>
+    <Accordion title="What's the difference between Demo, Prototype, and Development?">
+        - **Demo**: Pure frontend, used only to validate ideas and workflows, uses fake data
+        - **Prototype**: Same as Demo, does not include development
+        - **Development**: Connects real capabilities (such as sending emails) to become a product that can actually serve other users
+    </Accordion>
+</AccordionGroup>
+
+## Building with superun
+<AccordionGroup>
+    <Accordion title="How to build efficiently?">
+        Focus on one feature at a time, build step by step, and reproduce issues minimally before fixing.
+    </Accordion>
+    <Accordion title="Prompt tips">
+        Be clear and specific; iterate; include style or design keywords when helpful.
+    </Accordion>
+    <Accordion title="Backend & data">
+        Use Supabase for persistence, authentication, and Edge Functions.
+    </Accordion>
+    <Accordion title="What login methods are supported?">
+        In your projects, superun can automatically integrate the following login methods using Supabase auth:
+        - **Email and password login**
+        - **Phone verification code login**
+        - **Google login**
+
+        We are working on custom WeChat login integration with Supabase and plan to support WeChat login in the future.
+    </Accordion>
+    <Accordion title="What services does superun provide?">
+        superun offers the following services that you can integrate into your projects:
+        - **superun Cloud**: Integrate user authentication, data storage, and backend functions into your product.
+        - **superun AI**: Integrate AI functions into your product.
+        - **Stripe**: Integrate payment processing functions into your product. Securely accept payments, manage subscriptions, and process transactions.
+        - **Nano Banana**: Integrate AI image generation functions into your product.
+    </Accordion>
+    <Accordion title="Secrets">
+        Never paste secrets in chat. Store them in environment variables or secrets.
+    </Accordion>
+    <Accordion title="SEO">
+       Set page title/description, use semantic structure, and provide social share images.
+    </Accordion>
+</AccordionGroup>
+
+## Features
+<AccordionGroup>
+    <Accordion title="Project visibility">
+        Configure project visibility in Publish settings. Published projects have a chance to be selected for community showcase (appearing in "See others' creations"). If you don't want your project in the community showcase, you can contact support to remove it, or take the project offline.
+    </Accordion>
+    <Accordion title="How can I share a project without publishing it?">
+        Even if a project is unpublished or offline, you can share it with others through an internal share link:
+        - Find the "Open preview in new tab" option in the project navigation bar
+        - Click to open preview in a new tab
+        - Copy the preview page URL and share it with others
+        - Internal share links are real-time and will not appear in public lists
+    </Accordion>
+    <Accordion title="How do I view form submission data?">
+        You can view form submission data through the following methods:
+        - AI will tell you the viewing path in the conversation
+        - You need to generate a backend management page in the project
+        - If using superun Cloud, you can view it in the database
+    </Accordion>
+    <Accordion title="When can I use the consultation feature for free?">
+        The consultation feature can be used for free at the following times:
+        - Before generating the initial 4 styles, you can consult simultaneously during the waiting process
+        - After project work is completed, click consultation and ask questions
+        - If generation is in progress, consultation needs to queue, wait until work is completed before consulting
+    </Accordion>
+    <Accordion title="Modes">
+       Switch between Editable Design and Code mode depending on your task. Note: Code Mode features (including viewing and downloading code) require a paid subscription.
+    </Accordion>
+    <Accordion title="Can I make a copy of a project?">
+        Use Remix to duplicate a project. Projects connected to Supabase must be disconnected first.
+    </Accordion>
+    <Accordion title="How do I publish my project?">
+        After editing, open the publish flow, set visibility, and generate a shareable link.
+    </Accordion>
+    <Accordion title="How do I add a custom domain?">
+        Use the publish settings wizard to connect a custom domain (major DNS providers supported).
+    </Accordion>
+    <Accordion title="Can I see analytics for my published projects?">
+        Basic visit analytics are supported; you can also integrate third-party tools.
+    </Accordion>
+    <Accordion title="What file types and sizes can I upload?">
+        superun currently supports the following upload types and limits:
+
+        **Supported file types**
+        - Images: `png`, `jpg`, `jpeg`, `webp`, `gif`, `svg`
+        - Documents & code/text files: `pdf`, `js`, `ts`, `jsx`, `tsx`, `py`, `java`, `cpp`, `c`, `h`, `cs`, `php`, `rb`, `go`, `rs`, `swift`, `html`, `css`, `scss`, `less`, `json`, `xml`, `yaml`, `yml`, `md`
+        - Video: `mp4`, `avi`, `mov`, `wmv`, `flv`, `webm`, `mkv`
+        - Audio & other binary: `mp3`, `wav`, `ogg`, `flac`, `m4a`, `aac`
+
+        **Limits**
+        - Images: up to **3.5 MB** per file
+        - Documents & code/text files: up to **5 MB** per file
+        - Video, audio & other binary files: up to **100 MB** per file
+        - Maximum number of files per request: **10**
+        - Request timeout: **60 seconds**
+
+        These limits apply to file uploads in relevant superun flows (for example, attaching files in chat or tools that accept uploads).
+    </Accordion>
+    <Accordion title="Can I add images to a prompt?">
+        Yes. Paste sketches, screenshots, or design references to improve results.
+    </Accordion>
+    <Accordion title="Can I add videos to a prompt?">
+        Not yet. Use keyframe screenshots instead.
+    </Accordion>
+    <Accordion title="Can I import designs from Figma?">
+        Yes. Import from Figma as a starting point and refine via chat/visual edits.
+    </Accordion>
+    <Accordion title="Can I start from existing code (e.g., GitHub)?">
+        Not currently. Starting from an existing repository is not supported.
+    </Accordion>
+    <Accordion title="How do I see my project history?">
+        Use the chat history or the history panel to view, preview, and restore versions.
+    </Accordion>
+    <Accordion title="Can I restore an earlier version?">
+        Yes. Restore to any prior version in a single click for safe iteration.
+    </Accordion>
+</AccordionGroup>
+
+## Managing your account
+<AccordionGroup>
+    <Accordion title="Change login email">
+        Not supported yet. As a workaround, create a new account and migrate via public + Remix.
+    </Accordion>
+    <Accordion title="Transfer ownership">
+       Use Remix or repository collaboration approaches to transition ownership.
+    </Accordion>
+    <Accordion title="Can I delete my account?">
+        Contact support (e.g., support@uxarts.ai) to request account deletion.
+    </Accordion>
+    <Accordion title="How do I get Credits?">
+        Credits can be obtained through the following methods:
+        - **Daily check-in**: Automatically receive 10 Credits per day when logging in, monthly cap of 40 (no manual check-in required)
+        - **Invite rewards**: Friend needs to register through your invite link and complete a demo (select a style and execute to completion), you'll receive 20 Credits after completion
+        - **Top-up**: You can top up on the top-up page, with a "Custom top-up" option on the far right
+        - View specific earning and consumption details in Credits details
+    </Accordion>
+    <Accordion title="How do I contact technical support?">
+        The correct technical support email is `support@uxarts.ai` (note it's .ai not .com). You can also contact the support team through official support channels on the website.
+    </Accordion>
+</AccordionGroup>
+
+## Policies and Security
+<AccordionGroup>
+    <Accordion title="How can I get support?">
+        Use the official support channels on the website or email the support team.
+    </Accordion>
+    <Accordion title="Where can I find privacy policy?">
+        See the Privacy Policy in the footer of the website.
+    </Accordion>
+    <Accordion title="Where can I find Terms of Service?">
+        See the Terms of Service in the footer of the website.
+    </Accordion>
+    <Accordion title="What is your refund policy?">
+        Refunds follow the Terms of Service. Refer to the latest policy updates.
+    </Accordion>
+    <Accordion title="Is superun compliant with security standards?">
+        superun aligns with industry best practices and advances compliance via third‑party audits and risk management.
+    </Accordion>
+    <Accordion title="Is superun GDPR compliant?">
+        Yes. superun follows GDPR and continuously improves data protection and privacy.
+    </Accordion>
+</AccordionGroup>
+
+## How superun works
+<AccordionGroup>
+    <Accordion title="What tech stacks does superun know?">
+        Frontend with React/Tailwind; connects to OpenAPI backends; persistence/auth with Supabase.
+    </Accordion>
+    <Accordion title="Does superun support mobile app development?">
+        Focused on web apps; you can build mobile‑friendly responsive pages.
+    </Accordion>
+    <Accordion title="How does superun remember context?">
+        By modeling recent messages and project state. Provide key details in each prompt for best results.
+    </Accordion>
+    <Accordion title="Who owns the projects and code created?">
+        You, the creator, own your projects and code (subject to applicable terms and third‑party licenses).
+    </Accordion>
+</AccordionGroup>
+
+## About superun
+<AccordionGroup>
+    <Accordion title="Where is superun based?">
+        superun operates as a distributed, remote-first team across multiple locations.
+    </Accordion>
+    <Accordion title="Is superun hiring?">
+        See the latest openings on our website and social channels.
+    </Accordion>
+</AccordionGroup>
+
+<Card title="superun Website" icon="globe" href="https://superun.ai/web" horizontal>
+  Visit the superun website to learn about products, solutions, and updates.
+</Card>
+
+

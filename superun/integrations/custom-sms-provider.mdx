@@ -1,0 +1,243 @@
+---
+title: "Custom SMS Provider"
+description: "Implement custom SMS provider using Supabase Auth Hooks"
+image: "https://b.ux-cdn.com/uxarts/files/t20251201143554/mm27xz4u.png"
+---
+
+# Custom SMS Provider
+
+This guide explains how to implement a custom SMS provider using Supabase Auth Hooks. Instead of relying on Supabase's built-in SMS providers, you can use auth hooks to integrate your own SMS service or gateway.
+
+## Overview
+
+Supabase Auth Hooks allow you to intercept authentication events and customize the behavior. The `send_sms` hook lets you:
+
+- Use any SMS provider or gateway
+- Customize SMS message format and content
+- Add additional logic before sending SMS
+- Integrate with your existing SMS infrastructure
+
+## Step 1: Environment Variables
+
+The following environment variables are automatically configured when you start superun Cloud:
+
+- **`SEND_SMS_HOOK_SECRET`**: Secret key for webhook signature verification
+- **`SUPERUN_CLOUD_API_KEY`**: API key for superun Gateway SMS service
+
+<Note>
+You don't need to manually set these environment variables. They will be automatically available in your Edge Functions once superun Cloud is running.
+</Note>
+
+## Step 2: Create Edge Function
+
+Create an Edge Function at `supabase/functions/send_sms/index.ts`:
+
+```typescript
+import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
+import { Webhook } from "https://esm.sh/standardwebhooks@1.0.0";
+
+// Send SMS function using superun Gateway
+async function sendSMS(
+  apiKey: string,
+  phone: string,
+  code: string,
+  countryCode?: string,
+) {
+  const response = await fetch("https://gateway.superun.ai/sms/send-code", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${apiKey}`,
+    },
+    body: JSON.stringify({
+      countryCode: countryCode || null,
+      phone: phone,
+      code: code,
+    }),
+  });
+
+  const result = await response.json();
+  
+  // Check if SMS was sent successfully
+  // Response format: {code, msg, data}
+  // Success: code === 0 && data === true
+  if (result.code !== 0 || result.data !== true) {
+    throw new Error(result.msg || "Failed to send SMS verification code");
+  }
+
+  return result;
+}
+
+serve(async (req) => {
+  try {
+    // Read request payload
+    const payload = await req.text();
+    
+    // Get webhook secret from environment
+    const hookSecret = Deno.env.get("SEND_SMS_HOOK_SECRET");
+    if (!hookSecret) {
+      return new Response(
+        JSON.stringify({
+          error: {
+            http_code: 500,
+            message: "SEND_SMS_HOOK_SECRET is not configured",
+          },
+        }),
+        {
+          status: 500,
+          headers: { "Content-Type": "application/json" },
+        }
+      );
+    }
+
+    // Extract base64 secret (remove 'v1,whsec_' prefix)
+    const base64Secret = hookSecret.replace("v1,whsec_", "");
+    
+    // Get request headers
+    const headers = Object.fromEntries(req.headers);
+    
+    // Verify webhook signature
+    const wh = new Webhook(base64Secret);
+    const { user, sms } = wh.verify(payload, headers) as {
+      user: { phone: string };
+      sms: { otp: string };
+    };
+
+    // Get API key for SMS gateway
+    const apiKey = Deno.env.get("SUPERUN_CLOUD_API_KEY");
+    if (!apiKey) {
+      return new Response(
+        JSON.stringify({
+          error: {
+            http_code: 500,
+            message: "SUPERUN_CLOUD_API_KEY is not available. Please ensure superun Cloud is running.",
+          },
+        }),
+        {
+          status: 500,
+          headers: { "Content-Type": "application/json" },
+        }
+      );
+    }
+
+    // Send SMS using superun Gateway
+    await sendSMS(apiKey, user.phone, sms.otp);
+
+    // Return success response
+    return new Response(
+      JSON.stringify({}),
+      {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      }
+    );
+  } catch (error) {
+    console.error("Failed to send SMS:", error);
+    
+    return new Response(
+      JSON.stringify({
+        error: {
+          http_code: 500,
+          message: `Failed to send SMS: ${error.message}`,
+        },
+      }),
+      {
+        status: 500,
+        headers: { "Content-Type": "application/json" },
+      }
+    );
+  }
+});
+```
+
+## Step 3: Configure Auth Hook
+
+Add the following configuration to your Supabase `config.toml` file:
+
+```toml
+[auth.hook.send_sms]
+enabled = true
+uri = "env(SUPABASE_URL)/functions/v1/send_sms"
+# Comma separated list of secrets for webhook verification
+secrets = "env(SEND_SMS_HOOK_SECRETS)"
+```
+
+**Configuration Details:**
+
+- `enabled`: Set to `true` to activate the SMS hook
+- `uri`: The endpoint URL for your Edge Function, using `SUPABASE_URL` environment variable. **Note: The `/v1/` prefix is required** as all Supabase Edge Functions use this version prefix in their URL path.
+- `secrets`: Secret key(s) for webhook signature verification (stored as environment variable)
+
+<Note>
+The `SUPABASE_URL` environment variable will be automatically resolved to your Supabase instance URL (e.g., `https://your-project.supabase.co`). The final URI will be `https://your-project.supabase.co/functions/v1/send_sms`. The `/v1/` prefix is mandatory for all Supabase Edge Functions.
+</Note>
+
+## Step 4: Client Integration
+
+Integrate the SMS authentication flow in your client application. This is the frontend integration logic that users interact with:
+
+```typescript
+import { supabase } from "@/integrations/supabase/client";
+
+// Send OTP via SMS - Call this when user clicks "Send Verification Code"
+async function sendOTP(phone: string) {
+  const { data, error } = await supabase.auth.signInWithOtp({
+    phone: phone,
+  });
+
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  return data;
+}
+
+// Verify OTP - Call this when user clicks "Login" or "Verify"
+async function verifyOTP(phone: string, token: string) {
+  const { data, error } = await supabase.auth.verifyOtp({
+    phone: phone,
+    token: token,
+    type: "sms",
+  });
+
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  return data;
+}
+```
+
+**Usage Flow:**
+
+1. **User clicks "Send Verification Code"**: Call `sendOTP(phone)` to trigger the SMS sending. This will invoke your Edge Function via the auth hook.
+2. **User enters verification code and clicks "Login"**: Call `verifyOTP(phone, token)` to verify the code and complete authentication.
+
+## How It Works
+
+1. **User initiates SMS authentication**: When a user requests phone authentication, Supabase generates an OTP
+2. **Hook is triggered**: Instead of using Supabase's built-in SMS provider, the `send_sms` hook is triggered
+3. **Webhook verification**: Your Edge Function receives the request and verifies the webhook signature
+4. **SMS is sent**: Your Edge Function sends the SMS using your custom provider (superun Gateway in this example)
+5. **Response**: Your function returns success or error status to Supabase Auth
+
+
+## Error Handling
+
+The Edge Function should return appropriate HTTP status codes:
+
+- **200**: SMS sent successfully (return empty JSON object `{}`)
+- **400**: Bad request (invalid phone number, missing parameters)
+- **500**: Internal server error (SMS provider failure, configuration error)
+
+Error response format:
+
+```json
+{
+  "error": {
+    "http_code": 500,
+    "message": "Failed to send SMS: Provider timeout"
+  }
+}
+```
+

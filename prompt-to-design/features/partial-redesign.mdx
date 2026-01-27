@@ -1,0 +1,162 @@
+---
+title: Partial Redesign
+---
+
+import Image from '@/components/Image';
+
+Partial Redesign lets you update **one specific area** of a frame without affecting the rest of your layout.  
+This is useful when you want to refresh a card, redesign a section, or explore variations while keeping your page structure intact.
+
+---
+
+## 1. Select the **Partial Redesign** tab
+
+Open the **prompt.to.design** plugin and click the **Partial Redesign** tab.  
+This mode allows you to pick an existing area inside a frame and regenerate just that part.
+
+<img
+  src="/images/region-redesign/1.png"
+  alt="Open the plugin and select the Region Redesign tab"
+  width={700}
+/>
+
+---
+
+## 2. Select a frame that contains the region you want to redesign
+
+To begin, you must select an entire **frame** on your Figma canvas.  
+The plugin needs to know which page you want to work inside before you can choose a specific region.
+
+### Why this step matters:
+
+- Region Redesign **only works when a frame is selected first**  
+- If no frame is selected, the plugin cannot enter region-selection mode  
+- Once a frame is selected, the plugin will show the message:  
+  **"Select a region in the frame"**
+
+<img
+  src="/images/region-redesign/2_A.png"
+  alt="Click on a frame to enable region selection mode"
+  width={600}
+/>
+
+<img
+  src="/images/region-redesign/2_frame.png"
+  alt="Example of a selected frame that will be used for region redesign"
+  width={500}
+/>
+
+---
+
+## 3. Select a region inside the frame
+
+After selecting a frame, click on the specific area you want to redesign - for example, a card, a section, or a content block.
+
+<img
+  src="/images/region-redesign/3_A.png"
+  alt="Plugin shows the selected region after a frame area is chosen"
+  width={600}
+/>
+
+### Recommended method (especially for beginners):
+**Use the left-side Figma Layer Panel to select the exact region.**
+
+This ensures you pick the correct component or container even when layers are nested.
+
+
+<img
+  src="/images/region-redesign/3_region.png"
+  alt="Use the Layer Panel or canvas to select a specific region inside the frame"
+  width={675}
+/>
+
+
+
+---
+
+## 4. Describe what you want to update in the selected region
+
+Type a short prompt describing how you want the selected area to be redesigned.  
+Only the chosen region will be updated - the rest of your page stays unchanged.
+
+Example prompt:
+> "Redesign this rating card into a premium, luxury hotel style.  
+Use warm tones, soft elevation, and refined typography. Keep all content, but make it feel elegant and high-end."
+
+<img
+  src="/images/region-redesign/4.png"
+  alt="Enter a description of how to redesign the selected region"
+  width={350}
+/>
+
+---
+
+## 5. Generate and review redesigned previews
+
+Click **Generate** to create new variations of the selected region.  
+The preview will show new designs that match your frame's existing style system.
+
+You can scroll or zoom to compare different versions.
+
+<img
+  src="/images/region-redesign/5.png"
+  alt="Review AI-generated variations for the selected region"
+  width={700}
+/>
+
+---
+
+## 6. Insert the redesigned region into Figma
+
+Click **Insert to Figma** to apply the new version.  
+Only the selected area will be replaced - the rest of the frame will remain exactly the same.
+
+The updated region will appear as fully editable Figma layers.
+
+<img
+  src="/images/region-redesign/6_newframe.png"
+  alt="Insert the redesigned region into the existing frame"
+  width={900}
+/>
+
+---
+
+## Summary
+
+With Partial Redesign, you can:
+
+- Update only one part of a page without affecting the rest  
+- Explore multiple design variations quickly  
+- Keep your page structure and spacing unchanged  
+- Maintain stylistic consistency across your layout  
+- Edit all generated output as native Figma layers  
+
+Region Redesign is perfect for improving cards, sections, modules, or any part of a page that needs a fresh look.
+
+
+
+
+<div style={{
+  marginTop: '2rem',
+  display: 'flex',
+  justifyContent: 'center',
+}}>
+  <a
+    href="https://www.figma.com/community/plugin/1528325292196938261/prompt-to-design-by-superun-ai-10x-faster-with-ai-design-like-a-pro-prototype-instantly"
+    style={{
+      backgroundColor: '#0F172A',
+      color: 'white',
+      padding: '12px 28px',
+      borderRadius: '8px',
+      fontSize: '16px',
+      fontWeight: '600',
+      textDecoration: 'none',
+      boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+      transition: 'all 0.2s ease',
+    }}
+    onMouseOver="this.style.backgroundColor='#1E293B'"
+    onMouseOut="this.style.backgroundColor='#0F172A'"
+  >
+    Start Designing with Prompt.to.design
+  </a>
+</div>

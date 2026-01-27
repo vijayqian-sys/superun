@@ -1,0 +1,45 @@
+---
+title: "Custom Domain"
+description: "Bind a custom domain to your superun project for branding and SEO; setup steps and FAQs."
+image: "https://b.ux-cdn.com/uxarts/files/t20251201143554/mm27xz4u.png"
+---
+
+
+You can publish your superun project on a custom domain to improve branding and SEO.
+
+## Why use a custom domain
+
+- Consistent branding looks more professional
+- Better for search indexing
+- Easier to remember and share
+
+## Requirements
+
+- Own a domain
+- Use platforms like Vercel/Netlify for hosting and automatic certificates
+
+## Connect your domain（Ex：Vercel）
+
+1. Connect your project to Vercel
+2. Add the domain under Vercel Domains
+3. Follow the DNS instructions (e.g., CNAME to `cname.vercel-dns.com`)
+4. Wait for SSL issuance (minutes to a few hours)
+
+## Other providers
+
+- Netlify: import repo → domain management → follow DNS guide
+- Namecheap + GitHub Pages: host on GitHub and configure A/CNAME per guide
+
+## FAQ
+
+- Domain connected but not accessible: check DNS propagation (dnschecker), ensure DNS‑only mode, verify SSL issued
+- Subdomains supported: yes—enter a subdomain in the connection flow
+- SSL: hosting providers typically handle issuance and renewals automatically
+
+---
+
+<Card title="superun Website" icon="globe" href="https://superun.ai/web" horizontal>
+  Visit the website to learn more features and examples.
+</Card>
+
+

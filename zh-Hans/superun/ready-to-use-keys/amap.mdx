@@ -1,0 +1,164 @@
+---
+title: "高德地图"
+description: "整合高德地图服务,实现地图,地理编码和基于位置的功能"
+image: "https://b.ux-cdn.com/uxarts/files/t20251201143554/mm27xz4u.png"
+---
+
+# 高德地图
+
+本指南说明如何将高德地图服务整合到您的 superun 应用中.此整合使用边缘函数安全地获取 API 配置,然后在前端初始化地图.
+
+## 相关文档
+
+如需了解更多高德地图 API 的详细资讯,请参考官方文档:
+
+- [Web 服务 API](https://lbs.amap.com/api/webservice/guide/api/georegeo) - 地理编码和逆地理编码服务
+- [JavaScript API](https://lbs.amap.com/api/javascript-api-v2/guide/abc/load) - 地图载入和初始化指南
+
+## 环境变数
+
+将以下环境变数添加到您的 supabase secrets,plugin_secret_prefix 应为 SUPERUN
+- `AMAP_WEB_API_KEY` - 高德地图 Web API Key
+- `AMAP_JS_API_KEY` - 高德地图 JavaScript API Key
+- `AMAP_SECURITY_CODE` - 高德地图安全密钥
+
+<Warning>
+  **重要**:切勿在客户端程序码中直接暴露这些 API 密钥.请始终使用边缘函数安全地获取配置.
+</Warning>
+
+## 步骤 1:建立边缘函数
+
+建立一个 Supabase 边缘函数以安全地返回高德地图 API 配置:
+
+```typescript
+// supabase/functions/amap-config/index.ts
+
+serve(async (req) => {
+  // 返回高德地图配置
+  return new Response(
+    JSON.stringify({
+      webApiKey: Deno.env.get("SUPERUN_AMAP_WEB_API_KEY"),
+      jsApiKey: Deno.env.get("SUPERUN_AMAP_JS_API_KEY"),
+      securityCode: Deno.env.get("SUPERUN_AMAP_SECURITY_CODE"),
+    }),
+    {
+      headers: { "Content-Type": "application/json" },
+    }
+  );
+});
+```
+
+## 步骤 2:安装高德地图载入器
+
+安装高德地图 JavaScript API 载入器:
+
+```bash
+npm i @amap/amap-jsapi-loader@1.0.1 --save
+```
+
+## 步骤 3:前端整合
+
+```jsx
+import { useEffect, useRef, useState } from "react";
+import AMapLoader from "@amap/amap-jsapi-loader";
+import { supabase } from "@/integrations/supabase/client";
+
+export default function AmapComponent({
+  center = [116.397428, 39.90923],
+  zoom = 13,
+  mapStyle = "amap://styles/dark",
+  onMapReady,
+  onMapError,
+  className = "h-full w-full",
+}: AmapComponentProps) {
+  const mapContainerRef = useRef<HTMLDivElement>(null);
+  const mapInstanceRef = useRef<any>(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const initMap = async () => {
+      try {
+        // 步驟 1:从边緣函数获取 API 密钥
+        const { data, error } = await supabase.functions.invoke("amap-config");
+        
+        if (error) throw error;
+        
+        if (!data?.jsApiKey) {
+          throw new Error("No API key returned");
+        }
+
+        // 步驟 2:配置安全密钥
+        (window as any)._AMapSecurityConfig = {
+          securityJsCode: data.securityCode,
+        };
+
+        // 步驟 3:使用官方加载器加载高德地图
+        setIsLoading(true);
+        
+        const AMap = await AMapLoader.load({
+          key: data.jsApiKey, // 使用从边緣函数获取的密钥
+          version: "2.0",
+          plugins: [
+            "AMap.Geolocation",
+            "AMap.Scale",
+            "AMap.ToolBar",
+            "AMap.Marker",
+            "AMap.InfoWindow",
+          ],
+        });
+
+        // 步驟 4:初始化地图
+        if (!mapContainerRef.current) return;
+        
+        const map = new AMap.Map(mapContainerRef.current, {
+          zoom,
+          center,
+          mapStyle,
+          viewMode: "3D",
+        });
+
+        mapInstanceRef.current = map;
+        setIsLoading(false);
+
+        // 步驟 6:使用地图实例呼叫回调
+        if (onMapReady) {
+          onMapReady(map);
+        }
+      } catch (error) {
+        console.error("Failed to initialize Amap:", error);
+        setIsLoading(false);
+        if (onMapError) {
+          onMapError(error as Error);
+        }
+      }
+    };
+
+    initMap();
+
+    // 清理:在卸载时销毁地图
+    return () => {
+      if (mapInstanceRef.current) {
+        mapInstanceRef.current.destroy();
+        mapInstanceRef.current = null;
+      }
+    };
+  }, []); // 在掛载时执行一次
+
+  return (
+    <div className="relative h-full w-full">
+      <div ref={mapContainerRef} className={className} />
+      
+      {/* 加载覆盖層 */}
+      {isLoading && (
+        <div className="absolute inset-0 flex items-center justify-center bg-stone-900/90">
+          <div className="text-center">
+            <div className="mb-4 h-12 w-12 animate-spin rounded-full border-4 border-stone-700 border-t-amber-500 mx-auto" />
+            <p className="text-sm text-stone-400">加载地图中...</p>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+```
+

@@ -1,0 +1,71 @@
+---
+title: "superun SMS Provider"
+description: "使用 superun Cloud 整合 SMS 手機驗證 - 自動配置並可直接使用"
+image: "https://b.ux-cdn.com/uxarts/files/t20251201143554/mm27xz4u.png"
+---
+
+# superun SMS Provider
+
+本指南說明如何使用 superun Cloud 整合 SMS 手機驗證.當 superun Cloud 運行時,手機登入會自動啟用,所有必要的驗證鉤子配置都會自動處理.
+
+## 概述
+
+superun Cloud 自動處理 SMS 驗證設置:
+
+- **自動啟用手機登入**:當 superun Cloud 啟動時,手機驗證會自動啟用
+- **預配置驗證鉤子**:`send_sms` 鉤子會自動配置並連接到 superun Gateway
+- **無需手動配置**:您不需要手動創建 Edge Functions 或配置驗證鉤子
+- **可直接使用**:只需在應用程式中整合客戶端驗證流程
+
+## 客戶端整合
+
+在客戶端應用程式中整合 SMS 驗證流程.這是用戶互動的前端整合邏輯:
+
+```typescript
+import { supabase } from "@/integrations/supabase/client";
+
+// 透過 SMS 發送 OTP - 當用戶點擊「發送驗證碼」時調用此函數
+async function sendOTP(phone: string) {
+  const { data, error } = await supabase.auth.signInWithOtp({
+    phone: phone,
+  });
+
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  return data;
+}
+
+// 驗證 OTP - 當用戶點擊「登入」或「驗證」時調用此函數
+async function verifyOTP(phone: string, token: string) {
+  const { data, error } = await supabase.auth.verifyOtp({
+    phone: phone,
+    token: token,
+    type: "sms",
+  });
+
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  return data;
+}
+```
+
+**使用流程:**
+
+1. **用戶點擊「發送驗證碼」**:調用 `sendOTP(phone)` 觸發 SMS 發送.superun Cloud 會透過預配置的驗證鉤子自動處理 SMS 發送.
+2. **用戶輸入驗證碼並點擊「登入」**:調用 `verifyOTP(phone, token)` 驗證代碼並完成驗證.
+
+## 運作方式
+
+1. **用戶發起 SMS 驗證**:當用戶透過 `signInWithOtp()` 請求手機驗證時,Supabase 會生成一個 OTP
+2. **驗證鉤子自動觸發**:superun Cloud 預配置的 `send_sms` 鉤子會攔截驗證事件
+3. **自動發送 SMS**:鉤子會使用 superun Gateway 發送 SMS 驗證碼
+4. **用戶驗證代碼**:用戶輸入代碼,`verifyOtp()` 完成驗證流程
+
+<Note>
+所有後端基礎設施（Edge Functions,驗證鉤子配置,webhook 驗證和 SMS 閘道整合）都由 superun Cloud 自動處理.您只需要實作上述的客戶端驗證流程.
+</Note>
+

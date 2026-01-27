@@ -1,0 +1,641 @@
+[
+  {
+    "phrase": "💡 在搭應用之前,先把這幾件事想清楚:你要做什麼,給誰用,怎麼用,在哪裡用,風格如何",
+    "phraseEn": "💡 Before you build, get clear on what, who, how, where, and style",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#在搭應用之前，先把這幾件事想清楚",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#before-you-build-get-clear-on-the-basics",
+    "stage": 1,
+    "category": "專案規劃技巧",
+    "categoryEn": "Project planning"
+  },
+  {
+    "phrase": "💡 需求澄清後的頁面步驟:符合預期直接開始生成,不符合可點擊還沒想好或輸入自己的想法",
+    "phraseEn": "💡 Page steps after clarification: start if satisfied, click 'not sure' or input your ideas if not",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#需求澄清後的頁面步驟操作",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#page-steps-after-requirement-clarification",
+    "stage": 1,
+    "category": "專案規劃技巧",
+    "categoryEn": "Project planning"
+  },
+  {
+    "phrase": "💡 風格選擇與主題預覽:點擊選擇風格,滑鼠移動預覽主題,確認後點擊右上角繼續生成",
+    "phraseEn": "💡 Style selection and theme preview: click to select style, hover to preview themes, confirm and continue",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#風格選擇與主題預覽",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#style-selection-and-theme-preview",
+    "stage": 1,
+    "category": "專案規劃技巧",
+    "categoryEn": "Project planning"
+  },
+  {
+    "phrase": "💡 生成演示版本:點擊知道了開始演示吧,查看演示後可選擇功能點生成詳細演示或直接生成真實功能,研發階段可根據模型推薦順序勾選功能實現,功能完成後可驗收並提出修改意見,驗收通過後可繼續選擇剩餘功能或提出新需求,開發過程中可通過導航欄路由切換下拉列表跳轉到後台管理等單獨路由頁面,點擊下一步上線運營可查看發布、搜索優化、分析和效能等功能",
+    "phraseEn": "💡 Generate demo version: click 'got it, start demo' to preview, then choose features to generate detailed demo or real features. In development stage, select features based on model recommendations. After features are completed, test and provide feedback for modifications. Once accepted, continue selecting remaining features or propose new requirements. During development, use the route switcher dropdown in the navigation bar to navigate to backend management or other standalone route pages. Click 'next step, launch and operations' to access publishing, search optimization, analytics, and performance features",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#生成演示版本",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#generate-demo-version",
+    "stage": 1,
+    "category": "專案規劃技巧",
+    "categoryEn": "Project planning"
+  },
+  {
+    "phrase": "💡 列出最小可行產品的核心功能,專注最必要的特性",
+    "phraseEn": "💡 List the must‑have features for your MVP and cut everything else for later",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#列出最小可行產品的核心功能",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#list-the-must-have-features-for-your-mvp",
+    "stage": 1,
+    "category": "專案規劃技巧",
+    "categoryEn": "Project planning"
+  },
+  {
+    "phrase": "💡 根據專案特點選擇構建方法:前端優先還是後端優先",
+    "phraseEn": "💡 Choose your build approach: frontend‑first or backend‑first based on the problem",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#選擇構建方法：前端優先或後端優先",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#choose-your-build-approach-frontend-first-or-backend-first",
+    "stage": 1,
+    "category": "專案規劃技巧",
+    "categoryEn": "Project planning"
+  },
+  {
+    "phrase": "💡 從空白開始,比從半成品開始更穩,就像搭積木一樣逐步構建",
+    "phraseEn": "💡 Start from a clean slate and build in small bricks instead of fixing a messy draft",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#從空白開始，比從「半成品」開始更穩",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#start-from-a-clean-slate-rather-than-a-messy-draft",
+    "stage": 1,
+    "category": "專案規劃技巧",
+    "categoryEn": "Project planning"
+  },
+  {
+    "phrase": "💡 一次只做一件事,別貪多,一步一步來比一次到位更快更穩",
+    "phraseEn": "💡 Do one thing at a time—small focused changes beat one giant request",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#一次只做一件事，別貪多",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#do-one-thing-at-a-time-dont-ask-for-everything-at-once",
+    "stage": 1,
+    "category": "專案規劃技巧",
+    "categoryEn": "Project planning"
+  },
+  {
+    "phrase": "💡 遇到問題先調查原因,必要時回滾版本,不要盲目修改",
+    "phraseEn": "💡 When something breaks, investigate first and roll back if needed—don't panic‑edit",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#遇到問題先調查原因",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#when-things-break-investigate-before-you-fix",
+    "stage": 1,
+    "category": "專案規劃技巧",
+    "categoryEn": "Project planning"
+  },
+  {
+    "phrase": "💡 出 bug 時別急著讓它亂改,先理解問題再修復",
+    "phraseEn": "💡 When there's a bug, don't let AI thrash—understand the error, then fix",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#省錢：出-bug-時，別急著讓它亂改",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#when-theres-a-bug-dont-let-ai-thrash-understand-first-then-fix",
+    "stage": 1,
+    "category": "專案規劃技巧",
+    "categoryEn": "Project planning"
+  },
+  {
+    "phrase": "💡 使用歷史版本回滾,快速回到之前的穩定狀態",
+    "phraseEn": "💡 Use version history rollback to quickly return to the last known‑good state",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#使用歷史版本回滾",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#use-version-history-rollback",
+    "stage": 1,
+    "category": "專案規劃技巧",
+    "categoryEn": "Project planning"
+  },
+  {
+    "phrase": "💡 盡早收集用戶反饋,建議收集 10 個潛在用戶的意見",
+    "phraseEn": "💡 Ship early and collect feedback from at least 10 real users",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#尽早收集用戶反饋",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#get-user-feedback-early",
+    "stage": 1,
+    "category": "專案規劃技巧",
+    "categoryEn": "Project planning"
+  },
+  {
+    "phrase": "💡 從小專案開始練習,逐步提升技能水平",
+    "phraseEn": "💡 Practice on small projects first to level up before tackling big ideas",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#從小專案開始練習",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#practice-with-small-projects-first",
+    "stage": 1,
+    "category": "專案規劃技巧",
+    "categoryEn": "Project planning"
+  },
+  {
+    "phrase": "💡 在提示中明確頁面或模塊,說明期望的行為和結果",
+    "phraseEn": "💡 In prompts, always point to a specific page or module and say what should happen",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#在提示中明確頁面或模塊",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#be-specific-about-which-page-or-module",
+    "stage": 1,
+    "category": "提示編寫技巧",
+    "categoryEn": "Prompt writing"
+  },
+  {
+    "phrase": "💡 改東西時說清楚「只改哪一小塊」,改得越少出錯越少",
+    "phraseEn": "💡 When editing, spell out exactly which small piece to change and leave the rest alone",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#改東西時，說清楚「只改哪一小塊」",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#when-editing-spell-out-exactly-which-small-piece-to-change",
+    "stage": 1,
+    "category": "提示編寫技巧",
+    "categoryEn": "Prompt writing"
+  },
+  {
+    "phrase": "💡 附上截圖或錄屏,讓 AI 更好理解需求",
+    "phraseEn": "💡 Add screenshots or screen recordings so AI can see what you mean",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#附上截圖或錄屏",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#include-screenshots-or-screen-recordings",
+    "stage": 1,
+    "category": "提示編寫技巧",
+    "categoryEn": "Prompt writing"
+  },
+  {
+    "phrase": "💡 多用「聊天模式」想清楚,再讓 AI 動手,可以節省積分",
+    "phraseEn": "💡 Use chat to think through structure first, then let AI build—saves credits and rework",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#省錢：多用「聊天模式」想清楚，再讓-ai-動手",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#use-chat-mode-to-think-through-structure-first-then-let-ai-build",
+    "stage": 1,
+    "category": "提示編寫技巧",
+    "categoryEn": "Prompt writing"
+  },
+  {
+    "phrase": "💡 使用標準化的提示模板,提高效率和準確性",
+    "phraseEn": "💡 Reuse prompt templates so your requests stay clear and consistent",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#使用提示模板",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#use-prompt-templates",
+    "stage": 1,
+    "category": "提示編寫技巧",
+    "categoryEn": "Prompt writing"
+  },
+  {
+    "phrase": "💡 在聊天中直接上傳圖片,AI 會自動插入並設置樣式",
+    "phraseEn": "💡 Upload images directly in chat and tell AI where and how to place them",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#在聊天中直接上傳圖片",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#upload-images-directly-in-chat",
+    "stage": 2,
+    "category": "圖片使用技巧",
+    "categoryEn": "Images"
+  },
+  {
+    "phrase": "💡 使用設計編輯器替換圖片,可視化操作所見即所得",
+    "phraseEn": "💡 Use the Design Editor to visually swap images—what you see is what you get",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#使用設計編輯器替換圖片",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#replace-images-using-the-design-editor",
+    "stage": 2,
+    "category": "圖片使用技巧",
+    "categoryEn": "Images"
+  },
+  {
+    "phrase": "💡 使用 CDN 圖片鏈接,適合引用外部設計資源",
+    "phraseEn": "💡 Use CDN image URLs when you want to reuse assets hosted elsewhere",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#使用-cdn-圖片鏈接",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#use-cdn-image-urls",
+    "stage": 2,
+    "category": "圖片使用技巧",
+    "categoryEn": "Images"
+  },
+  {
+    "phrase": "💡 專案圖片上傳到 superun storage,統一管理專案資源",
+    "phraseEn": "💡 Upload project images to superun storage for centralized, versioned assets",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#專案圖片上傳到-superun-storage",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#upload-project-images-to-superun-storage",
+    "stage": 2,
+    "category": "圖片使用技巧",
+    "categoryEn": "Images"
+  },
+  {
+    "phrase": "💡 優化大圖片尺寸,避免加載和預覽變慢",
+    "phraseEn": "💡 Optimize large images to keep load times and previews snappy",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#優化大圖片尺寸",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#optimize-large-image-sizes",
+    "stage": 2,
+    "category": "圖片使用技巧",
+    "categoryEn": "Images"
+  },
+  {
+    "phrase": "💡 預設當作「手機優先」,大多數用戶第一次看到是在手機上",
+    "phraseEn": "💡 Design mobile‑first—most people will see your app on their phone",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#默認當作「手機優先」",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#design-mobile-first-by-default",
+    "stage": 2,
+    "category": "界面設計技巧",
+    "categoryEn": "UI design"
+  },
+  {
+    "phrase": "💡 使用設計編輯器快速調整顏色,排版,間距等樣式",
+    "phraseEn": "💡 Use the Design Editor to quickly tweak colors, typography, spacing, and layout",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#使用設計編輯器快速調整樣式",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#use-the-design-editor-to-quickly-adjust-styles",
+    "stage": 2,
+    "category": "界面設計技巧",
+    "categoryEn": "UI design"
+  },
+  {
+    "phrase": "💡 可視化編輯比改代碼更快更安全",
+    "phraseEn": "💡 Prefer visual editing over code when possible—it's faster and safer",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#可視化編輯的優势",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#advantages-of-visual-editing",
+    "stage": 2,
+    "category": "界面設計技巧",
+    "categoryEn": "UI design"
+  },
+  {
+    "phrase": "💡 手機端上不能編輯設計主題,可以選擇風格並繼續",
+    "phraseEn": "💡 On mobile, you can't edit design themes, but you can select styles and continue",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#手機端功能限制",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#mobile-device-limitations",
+    "stage": 2,
+    "category": "界面設計技巧",
+    "categoryEn": "UI design"
+  },
+  {
+    "phrase": "💡 把 AI 模型直接接進你的產品,不用自己研究底層",
+    "phraseEn": "💡 Plug AI models directly into your product without wiring the backend yourself",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#ai-模型直接接入",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#ai-models-directly-integrated",
+    "stage": 3,
+    "category": "功能實現自動化",
+    "categoryEn": "Automation"
+  },
+  {
+    "phrase": "💡 自動部署到雲端,不用再折騰服務器",
+    "phraseEn": "💡 Let superun auto‑deploy to the cloud instead of managing servers yourself",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#自動部署到雲端",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#auto-deploy-to-the-cloud",
+    "stage": 3,
+    "category": "功能實現自動化",
+    "categoryEn": "Automation"
+  },
+  {
+    "phrase": "💡 圖片,影片自動存儲,直接能用在網站裡",
+    "phraseEn": "💡 Use built‑in storage so images and videos are ready to use in your app",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#圖片、影片自動儲存",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#images-and-videos-auto-stored",
+    "stage": 3,
+    "category": "功能實現自動化",
+    "categoryEn": "Automation"
+  },
+  {
+    "phrase": "💡 自帶文生圖工具（nano banana）,無需外部服務",
+    "phraseEn": "💡 Try the nano banana image tool to generate visuals without extra services",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#文生圖工具（nano-banana）",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#text-to-image-tool-nano-banana",
+    "stage": 3,
+    "category": "功能實現自動化",
+    "categoryEn": "Automation"
+  },
+  {
+    "phrase": "💡 註冊,登錄,收費這些麻煩事,一步到位自動幫你配好",
+    "phraseEn": "💡 Let superun auto‑wire auth, billing, and core flows so you can focus on product",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#自動配置常用功能",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#auto-configure-common-features",
+    "stage": 3,
+    "category": "功能實現自動化",
+    "categoryEn": "Automation"
+  },
+  {
+    "phrase": "💡 使用自定義知識記錄產品願景,用戶旅程,核心功能",
+    "phraseEn": "💡 Capture product vision, user journeys, and rules in Custom Knowledge",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#使用自定義知识記錄專案資訊",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#use-custom-knowledge-to-document-project-info",
+    "stage": 3,
+    "category": "知識庫管理技巧",
+    "categoryEn": "Knowledge"
+  },
+  {
+    "phrase": "💡 定義角色和邊界（管理員/用戶/投資者）,幫助 AI 生成正確代碼",
+    "phraseEn": "💡 Define roles and boundaries so AI can generate code with the right permissions",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#定義角色和邊界",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#define-roles-and-boundaries",
+    "stage": 3,
+    "category": "知識庫管理技巧",
+    "categoryEn": "Knowledge"
+  },
+  {
+    "phrase": "💡 基於已實現的功能,為專案生成知識庫",
+    "phraseEn": "💡 Ask AI to generate a project knowledge base from the features you've already built",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#生成專案知识庫",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#generate-project-knowledge-base",
+    "stage": 3,
+    "category": "知識庫管理技巧",
+    "categoryEn": "Knowledge"
+  },
+  {
+    "phrase": "💡 把好用的做法記下來,下次直接復用,形成自己的最佳實踐庫",
+    "phraseEn": "💡 Save prompts and flows that work well so you can reuse them next time",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#把好用的做法记下來，下次直接復用",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#save-what-works-and-reuse-it-next-time",
+    "stage": 3,
+    "category": "知識庫管理技巧",
+    "categoryEn": "Knowledge"
+  },
+  {
+    "phrase": "💡 具體指向頁面或模塊,明確說明要實現的功能",
+    "phraseEn": "💡 Always anchor your change to a concrete page, section, or component",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#具體指向頁面或模塊",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#point-to-a-specific-page-or-module",
+    "stage": 3,
+    "category": "提示優化技巧",
+    "categoryEn": "Prompt optimization"
+  },
+  {
+    "phrase": "💡 先穩定前端,再連接資料庫,避免前後端同時出問題",
+    "phraseEn": "💡 Stabilize the frontend first, then connect the database",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#先穩定前端再連接資料庫",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#stabilize-the-frontend-first-then-connect-the-database",
+    "stage": 3,
+    "category": "資料庫集成技巧",
+    "categoryEn": "Database integration"
+  },
+  {
+    "phrase": "💡 回滾前驗證資料庫架構兼容性,避免資料問題",
+    "phraseEn": "💡 Before rolling back, verify your DB schema is compatible",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#回滾前驗證資料庫架構",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#validate-database-schema-before-rollback",
+    "stage": 3,
+    "category": "資料庫集成技巧",
+    "categoryEn": "Database integration"
+  },
+  {
+    "phrase": "💡 固定每個已知的良好狀態,創建版本標記",
+    "phraseEn": "💡 Pin every known‑good state with a version tag",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#固定每個良好狀態",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#pin-each-known-good-state",
+    "stage": 3,
+    "category": "版本管理技巧",
+    "categoryEn": "Versioning"
+  },
+  {
+    "phrase": "💡 使用版本差異定位問題,快速找到問題所在",
+    "phraseEn": "💡 Use diffs between versions to pinpoint what broke and why",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#使用版本差異定位問題",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#use-version-diffs-to-locate-issues",
+    "stage": 3,
+    "category": "版本管理技巧",
+    "categoryEn": "Versioning"
+  },
+  {
+    "phrase": "💡 陷入錯誤循環時,使用歷史版本回滾功能回到穩定狀態",
+    "phraseEn": "💡 When things spiral, roll back to a stable version and rebuild from there",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#使用歷史版本回滾重建",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#use-version-rollback-when-stuck-in-error-loops",
+    "stage": 3,
+    "category": "版本管理技巧",
+    "categoryEn": "Versioning"
+  },
+  {
+    "phrase": "💡 小步驟,始終可逆:每次修改足夠小,易於驗證",
+    "phraseEn": "💡 Keep changes small and reversible—one step at a time",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#小步驟，始终可逆",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#small-steps-always-reversible",
+    "stage": 3,
+    "category": "開發節奏技巧",
+    "categoryEn": "Dev cadence"
+  },
+  {
+    "phrase": "💡 每個步驟後進行回歸檢查和用戶流驗證",
+    "phraseEn": "💡 After each step, run quick regression checks and user‑flow tests",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#每個步驟後進行驗證",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#validate-after-each-step",
+    "stage": 3,
+    "category": "開發節奏技巧",
+    "categoryEn": "Dev cadence"
+  },
+  {
+    "phrase": "💡 將工作分解為最小的可驗證增量",
+    "phraseEn": "💡 Break work into the smallest chunks you can independently build and verify",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#將工作分解為最小增量",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#break-work-into-smallest-verifiable-increments",
+    "stage": 3,
+    "category": "開發節奏技巧",
+    "categoryEn": "Dev cadence"
+  },
+  {
+    "phrase": "💡 使用 Resend 配置郵件服務:註冊帳戶後在儀表板創建 API 密鑰,在對話中輸入即可",
+    "phraseEn": "💡 Configure email service with Resend: Create an API key in the dashboard after signing up, then enter it in the conversation",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#使用-resend-配置郵件服務",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#configure-email-service-with-resend",
+    "stage": 3,
+    "category": "郵件服務配置技巧",
+    "categoryEn": "Email setup"
+  },
+  {
+    "phrase": "💡 個人網易郵箱 5 分鐘就能配置郵件服務,無需企業資質",
+    "phraseEn": "💡 Use a personal 163 email to quickly set up SMTP for testing and internal emails",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#使用個人網易郵箱配置-smtp",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#configure-smtp-with-personal-163-email",
+    "stage": 3,
+    "category": "郵件服務配置技巧",
+    "categoryEn": "Email setup"
+  },
+  {
+    "phrase": "💡 接入語音轉文字和文字轉語音功能,支持百度,訊飛,火山,阿裡雲",
+    "phraseEn": "💡 Plug in speech engines (Baidu, iFlytek, Volcano, Aliyun) for ASR and TTS",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#语音引擎配置技巧（按需）",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#speech-engine-configuration-optional",
+    "stage": 3,
+    "category": "語音引擎配置技巧",
+    "categoryEn": "Speech engines"
+  },
+  {
+    "phrase": "💡 html2canvas 元素對齊問題?通過動態 CSS 注入解決對齊偏差",
+    "phraseEn": "💡 Fix html2canvas misalignment by injecting temporary CSS and waiting for assets",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#html2canvas-元素對齊問題解決方案",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#html2canvas-element-alignment-fix",
+    "stage": 3,
+    "category": "開發工具技巧",
+    "categoryEn": "Dev tools"
+  },
+  {
+    "phrase": "💡 不要在聊天中粘貼密鑰,使用後端環境變量管理敏感信息",
+    "phraseEn": "💡 Never paste secrets in chat—store them in backend env vars or secret managers",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#不要在聊天中粘貼密鑰",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#never-paste-secrets-in-chat",
+    "stage": 4,
+    "category": "安全最佳實踐",
+    "categoryEn": "Security"
+  },
+  {
+    "phrase": "💡 生產/測試/開發環境完全隔離,使用不同的配置和資料庫",
+    "phraseEn": "💡 Keep prod, staging, and dev fully isolated with separate configs and DBs",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#環境完全隔離",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#keep-environments-fully-isolated",
+    "stage": 4,
+    "category": "安全最佳實踐",
+    "categoryEn": "Security"
+  },
+  {
+    "phrase": "💡 遵循最小權限原則,避免廣泛特權",
+    "phraseEn": "💡 Follow least‑privilege—only grant what each role truly needs",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#遵循最小權限原則",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#follow-the-principle-of-least-privilege",
+    "stage": 4,
+    "category": "安全最佳實踐",
+    "categoryEn": "Security"
+  },
+  {
+    "phrase": "💡 定期升級依賴,啟用安全掃描",
+    "phraseEn": "💡 Regularly upgrade dependencies and enable security scanning",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#定期升級依賴",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#regularly-upgrade-dependencies",
+    "stage": 4,
+    "category": "安全最佳實踐",
+    "categoryEn": "Security"
+  },
+  {
+    "phrase": "💡 不要在前端打包大型機密或證書",
+    "phraseEn": "💡 Never bundle secrets or certificates into frontend bundles",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#不要在前端打包機密",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#dont-bundle-secrets-in-the-frontend",
+    "stage": 4,
+    "category": "安全最佳實踐",
+    "categoryEn": "Security"
+  },
+  {
+    "phrase": "💡 所有公共端點強制身份驗證和速率限制",
+    "phraseEn": "💡 Enforce auth and rate limiting on all public endpoints",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#強制身份驗證和速率限制",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#enforce-authentication-and-rate-limiting",
+    "stage": 4,
+    "category": "接口安全技巧",
+    "categoryEn": "API security"
+  },
+  {
+    "phrase": "💡 驗證所有輸入和文件上傳,防止安全漏洞",
+    "phraseEn": "💡 Validate every input and file upload—types, formats, size, and content",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#驗證所有輸入和檔案上傳",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#validate-all-inputs-and-file-uploads",
+    "stage": 4,
+    "category": "接口安全技巧",
+    "categoryEn": "API security"
+  },
+  {
+    "phrase": "💡 保護個人身份信息和隱私資料,遵守資料保護法規",
+    "phraseEn": "💡 Encrypt and strictly control access to personal and sensitive data",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#保護個人身份資訊",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#protect-personally-identifiable-information",
+    "stage": 4,
+    "category": "接口安全技巧",
+    "categoryEn": "API security"
+  },
+  {
+    "phrase": "💡 檢查代碼中是否硬編碼了密鑰",
+    "phraseEn": "💡 Scan for hard‑coded keys before every release",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#檢查硬編碼的密鑰",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#check-for-hardcoded-keys",
+    "stage": 4,
+    "category": "預發布檢查",
+    "categoryEn": "Pre‑release checks"
+  },
+  {
+    "phrase": "💡 移除所有調試標誌和調試日誌",
+    "phraseEn": "💡 Strip debug flags and noisy logs from production builds",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#移除調試标誌和日誌",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#remove-debug-flags-and-logs",
+    "stage": 4,
+    "category": "預發布檢查",
+    "categoryEn": "Pre‑release checks"
+  },
+  {
+    "phrase": "💡 確保錯誤日誌不洩露敏感信息",
+    "phraseEn": "💡 Make sure error logs never leak secrets or personal data",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#確保錯誤日誌不洩露敏感資訊",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#ensure-error-logs-dont-leak-sensitive-info",
+    "stage": 4,
+    "category": "預發布檢查",
+    "categoryEn": "Pre‑release checks"
+  },
+  {
+    "phrase": "💡 配置正確的跨域資源共享策略",
+    "phraseEn": "💡 Configure CORS carefully—no wildcards, only trusted origins",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#配置跨域資源共享策略",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#configure-cors-properly",
+    "stage": 4,
+    "category": "預發布檢查",
+    "categoryEn": "Pre‑release checks"
+  },
+  {
+    "phrase": "💡 需要多語言或自定義 sitemap?直接讓 AI 幫忙生成或修改對應的文件",
+    "phraseEn": "💡 Need a multilingual or custom sitemap? Ask AI to generate or modify the files",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#生成多語言或自定義-sitemap",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#generate-multilingual-or-custom-sitemap",
+    "stage": 4,
+    "category": "預發布檢查",
+    "categoryEn": "Pre‑release checks"
+  },
+  {
+    "phrase": "💡 強制使用安全連接,設置安全傳輸頭",
+    "phraseEn": "💡 Force HTTPS with proper security headers like HSTS and CSP",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#強制使用安全連接",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#enforce-secure-connections",
+    "stage": 4,
+    "category": "預發布檢查",
+    "categoryEn": "Pre‑release checks"
+  },
+  {
+    "phrase": "💡 資料自動恢復?使用單獨後台管理資料,分離模型邏輯",
+    "phraseEn": "💡 If data keeps reverting, separate data management from model logic",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#資料自動恢復問題",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#data-keeps-reverting-automatically",
+    "stage": 5,
+    "category": "資料問題解決",
+    "categoryEn": "Data issues"
+  },
+  {
+    "phrase": "💡 讓模型直接修改資料,減少中間環節",
+    "phraseEn": "💡 Let the model modify data directly through a single, well‑defined entry point",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#讓模型直接修改資料",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#let-the-model-modify-data-directly",
+    "stage": 5,
+    "category": "資料問題解決",
+    "categoryEn": "Data issues"
+  },
+  {
+    "phrase": "💡 AI 功能報錯?檢查請求頭參數與請求體序列化格式是否一緻",
+    "phraseEn": "💡 When AI calls fail, check headers and body serialization first",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#ai-功能报錯排查",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#ai-feature-errors",
+    "stage": 5,
+    "category": "接口錯誤解決",
+    "categoryEn": "API issues"
+  },
+  {
+    "phrase": "💡 移除多餘的請求頭參數,確保內容類型匹配",
+    "phraseEn": "💡 Make sure Content‑Type matches your request body format",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#確保內容類型匹配",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#ensure-content-type-matches",
+    "stage": 5,
+    "category": "接口錯誤解決",
+    "categoryEn": "API issues"
+  },
+  {
+    "phrase": "💡 代幣充值後會話異常?查看日誌 → 使用檢修 → 重新測試",
+    "phraseEn": "💡 After topping up credits, check logs and run auto‑fix before retrying",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#代幣充值後會話異常",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#session-errors-after-credit-top-up",
+    "stage": 5,
+    "category": "代幣問題解決",
+    "categoryEn": "Credits"
+  },
+  {
+    "phrase": "💡 superun 生成的是網頁應用,不是原生應用",
+    "phraseEn": "💡 superun generates web apps, not native apps—use responsive design for mobile",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#superun-生成的是网頁應用",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#superun-generates-web-apps",
+    "stage": 5,
+    "category": "部署問題解決",
+    "categoryEn": "Deployment"
+  },
+  {
+    "phrase": "💡 需要後台?先生成後台管理係統,再獲取訪問地址",
+    "phraseEn": "💡 Generate an admin panel first, then point a domain and secure access",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#後台管理係統部署",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#admin-system-deployment",
+    "stage": 5,
+    "category": "部署問題解決",
+    "categoryEn": "Deployment"
+  },
+  {
+    "phrase": "💡 行動端體驗?使用響應式設計或漸進式網頁應用",
+    "phraseEn": "💡 For mobile experience, combine responsive design with PWA where it makes sense",
+    "anchor": "https://docs.superun.ai/zh-Hant/superun/tips-tricks/detailed-tips#移動端體驗優化",
+    "anchorEn": "https://docs.superun.ai/superun/tips-tricks/detailed-tips#mobile-experience-optimization",
+    "stage": 5,
+    "category": "部署問題解決",
+    "categoryEn": "Deployment"
+  }
+]

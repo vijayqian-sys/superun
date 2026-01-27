@@ -1,0 +1,879 @@
+---
+title: "Stripe 集成"
+description: "使用 Stripe 將支付處理功能添加到您的 superun 應用程序"
+image: "https://b.ux-cdn.com/uxarts/files/t20251201143554/mm27xz4u.png"
+---
+
+## 概述
+
+Stripe 是一個支付處理平台,可讓您在線接受付款.通過 superun 的 Stripe 集成,您可以輕鬆地將支付功能添加到您的應用程序中,包括一次性支付,訂閱和市場功能.
+
+superun 現在允許您完全通過 **聊天** 設置 Stripe.
+
+**聊天驅動的自動設置（推薦）**
+連接 **superun Cloud**（或 Supabase）,並在 **研發 → 服務 → Stripe** 中設定好 Stripe 憑證（如下文的設定步驟）,然後只需在聊天中描述你的需求:
+
+*“添加三個訂閱級別:基本版為 9 美元/月,專業版為 29 美元/月,企業版為 99 美元/月”
+*“為我的電子書創建一次性結賬,價格為 29 美元”
+*“為我的產品頁面設置付款表格”
+
+superun 生成結賬組件,數據庫表和支付邏輯,除非您要求,否則無需手動編碼或 Webhook.
+
+<Note>
+- 對於**一次性銷售**,請確保您的購物車或產品頁面已正常運行.
+  - 對於 **訂閱**,請確認 superun Cloud（或 Supabase）身份驗證已到位,以便 superun 可以將 Stripe 客戶鏈接到每個用戶的 **id**
+</Note>
+
+### 要點
+
+* 使用**聊天驅動流程**進行訂閱和一次性付款.
+* **切勿在聊天中粘貼您的 Stripe 密鑰.** 請在 **研發 → 服務 → Stripe** 中透過 **STRIPE_API_KEY** 欄位進行設定.
+* **Webhook 是可選擇加入的.** 如果需要使用 Webhook,請在 **STRIPE_WEBHOOK_SECRET** 欄位填入 Stripe 的 Webhook 簽名密鑰,讓 superun 可以驗證事件.
+* 在 **瀏覽器控制台 → 網絡/錯誤**,**superun Cloud → 日誌** 和 **Stripe 儀表板 → 日誌** 中進行調試.
+* 始終在 **Stripe 測試模式**下進行測試,然後進行部署.
+
+## 什麼是 Stripe
+
+Stripe 提供一整套支付 API 和工具:
+
+- **付款處理:**接受信用Card,數字錢包和本地付款方式
+- **訂閱:** 定期計費和訂閱管理
+- **市場:** 多方支付和市場功能
+- **連接:** 市場和平台的平台支付
+- **計費:** 發票和計費管理
+- **稅收:** 自動稅收計算和合規性
+
+## 主要優點
+
+- **全球覆蓋範圍:** 接受全球客戶的付款
+- **多種付款方式:**信用Card,數字錢包,銀行轉賬等
+- **開發人員友好:** 記錄完善的 API 和出色的開發人員體驗
+- **合規性:** 符合 PCI DSS 標準,安全處理敏感支付數據
+- **實時:** 即時付款處理和網絡鉤子通知
+
+## 要求
+
+在集成 Stripe 之前,請確保滿足以下先決條件:
+
+* 項目**必須**連接到 **superun Cloud**（或 Supabase）. [詳細了解 superun Cloud](/zh-Hant/superun/integrations/cloud) 或 [Supabase 集成](/zh-Hant/superun/integrations/supabase)
+* 具有正確配置產品的 **Stripe 帳戶**（用於訂閱）
+* 一個工作的**前端**:
+* 對於單個產品銷售,請確保購物車和結帳頁面正常運行.
+* 對於訂閱,設置登錄功能和不同的定價等級.
+
+<Note>
+**請Note意**
+  Stripe 集成在預覽版中不起作用.要測試集成,請確保**部署**您的項目.嘗試該功能時,您還應該確保在 Stripe 中處於**測試模​​式**.測試付款時,使用測試卡號:“4242 4242 4242 4242”,任意 3 位數字作為 CVC,以及任意未來日期.
+</Note>
+
+## Stripe 支付設置（無代碼聊天流程）
+
+superun 現在為您生成所有 Stripe 邏輯.當你透過 **研發 → 服務 → Stripe** 設定好 **STRIPE_API_KEY**（以及可選的 **STRIPE_WEBHOOK_SECRET**）並且專案已**連接到 superun Cloud**（或 Supabase）後,只需在聊天中告訴 superun 你需要什麼,無需手動編碼.
+
+<Steps>
+  <Step title="第 1 步:準備您的項目">
+    * **superun Cloud** （或 Supabase）已連接
+    * **Stripe 密鑰** 通過 **研發 → 服務 → Stripe** 進行設定
+    *（可選）價格或產品 ID 可從 Stripe 儀表板獲取
+  </Step>
+
+    <Step title="第2步:在聊天中描述您的付款需求">
+    示例:
+
+*"為我的'數字課程'創建一次性結賬,價格為 29 美元"
+    *"設置年度高級計劃,價格為 99 美元,與每個用戶的 ID 綁定"
+    *"添加三個訂閱級別:基本版為 9 美元/月,專業版為 29 美元/月,企業版為 99 美元/月"
+    *"為我的產品頁面創建付款表格"
+  </Step>
+
+  <Step title="第 3 步:審核併申請">
+    superun 自動搭建支付組件,數據庫表（如果使用 superun Cloud）和 UI 元素（全部與用戶 ID 相關聯）的支架.檢查預覽,然後單擊**應用**進行部署.
+  </Step>
+  </Steps>
+
+<Note>
+  * 訂閱應始終鏈接到 superun Cloud（或 Supabase）中經過身份驗證的用戶的“id”,以實現安全,基於角色的訪問.
+</Note>
+
+## 入門
+
+### 1. 創建 Stripe 帳戶
+
+1. 前往 [Stripe.com](https://Stripe.com) 並註冊
+2. 完成帳戶設置過程
+3. 驗證您的企業Info
+4. 激活您的帳戶（測試模式立即可用）
+
+### 2. 獲取您的 API 密鑰
+
+在您的 Stripe 儀表板中:
+
+1. 轉到 **開發人員 → API 密鑰**
+2. 複製您的**可發布密鑰**（以“pk_test_”或“pk_live_”開頭）
+3. 複製您的**密鑰**（以“sk_test_”或“sk_live_”開頭）
+4. 確保您的密鑰安全,切勿在客戶端代碼中公開它
+
+<Warning>
+**重要安全Warning**
+
+切勿將您的 **密鑰** 直接粘貼到 superun 聊天中.將其視為您家的鑰匙 - 暴露它可能會導致未經授權的訪問您的 Stripe 帳戶.相反,請使用 **研發 → 服務 → Stripe** 功能安全地存儲它.
+</Warning>
+
+## 3. 在 superun 中配置 Stripe
+
+您可以通過兩種方式啟用 Stripe 集成:
+
+#### 選項 1:通過研發服務啟用（推薦）
+
+1. 在你的 superun 專案中,前往 **研發** 分頁  
+2. 打開 **服務**,選擇 **Stripe**  
+3. 在 **STRIPE_API_KEY** 欄位貼上你的 **Stripe Secret Key**（例如 `sk_test_...` 或 `sk_live_...`）  
+4. （可選）在 **STRIPE_WEBHOOK_SECRET** 欄位貼上 Stripe 的 **Webhook 簽名密鑰**（例如 `whsec_...`）,如果你打算使用 Webhook  
+5. 點擊 **Save Changes**,等待 Stripe 整合顯示啟用完成  
+
+superun 會根據這些憑證自動為你的專案配置 Stripe.
+
+#### 選項 2:通過聊天啟用
+
+您還可以通過在聊天中詢問 superun 來啟用 Stripe:
+
+```
+Enable Stripe payment processing for my project
+```
+
+或者
+
+```
+Add Stripe integration with test keys
+```
+
+superun 將指導您完成設置過程並自動配置集成.出現提示時,使用 **研發 → 服務** 安全地添加您的 API 密鑰.
+
+## 手動付款設置（高級）
+
+<Note>
+**推薦:** 使用上面描述的 **聊天驅動流程** 來實現最簡單的設置.以下部分適用於想要手動實施付款或自定義生成的代碼的高級用戶.
+</Note>
+
+## 安裝 Stripe SDK
+
+當您啟用 Stripe 集成時,superun 自動包含 Stripe SDK,但您也可以手動安裝:
+
+```bash
+npm install @stripe/stripe-js
+```
+
+## 初始化 Stripe
+
+```jsx
+import { loadStripe } from '@stripe/stripe-js';
+
+// Initialize Stripe
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
+```
+
+## 一次性付款
+
+### 創建付款意圖
+
+```jsx
+// Server-side: Create payment intent
+const createPaymentIntent = async (amount, currency = 'usd') => {
+  const response = await fetch('/api/create-payment-intent', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      amount: amount * 100, // Amount in cents
+      currency,
+    }),
+  });
+
+  const { clientSecret } = await response.json();
+  return clientSecret;
+};
+```
+
+### 處理付款
+
+```jsx
+import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
+
+const CheckoutForm = () => {
+  const stripe = useStripe();
+  const elements = useElements();
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    if (!stripe || !elements) {
+      return;
+    }
+
+    setLoading(true);
+
+    // Create payment intent
+    const clientSecret = await createPaymentIntent(50); // $50.00
+
+    // Confirm payment
+    const { error, paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
+      payment_method: {
+        card: elements.getElement(CardElement),
+      },
+    });
+
+    if (error) {
+      console.error('Payment failed:', error);
+    } else if (paymentIntent.status === 'succeeded') {
+      console.log('Payment succeeded:', paymentIntent);
+      // Handle successful payment
+    }
+
+    setLoading(false);
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <CardElement
+        options={{
+          style: {
+            base: {
+              fontSize: '16px',
+              color: '#424770',
+              '::placeholder': {
+                color: '#aab7c4',
+              },
+            },
+          },
+        }}
+      />
+      <button disabled={!stripe || loading}>
+        {loading ? 'Processing...' : 'Pay $50.00'}
+      </button>
+    </form>
+  );
+};
+
+// Wrap your app with Elements
+const App = () => {
+  return (
+    <Elements stripe={stripePromise}>
+      <CheckoutForm />
+    </Elements>
+  );
+};
+```
+
+## 訂閱
+
+### 創建訂閱
+
+```jsx
+// Create a subscription
+const createSubscription = async (priceId, customerId) => {
+  const response = await fetch('/api/create-subscription', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      priceId,
+      customerId,
+    }),
+  });
+
+  const { subscription } = await response.json();
+  return subscription;
+};
+```
+
+### 訂閱管理
+
+```jsx
+// Cancel a subscription
+const cancelSubscription = async (subscriptionId) => {
+  const response = await fetch('/api/cancel-subscription', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      subscriptionId,
+    }),
+  });
+
+  const { subscription } = await response.json();
+  return subscription;
+};
+
+// Update subscription
+const updateSubscription = async (subscriptionId, newPriceId) => {
+  const response = await fetch('/api/update-subscription', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      subscriptionId,
+      newPriceId,
+    }),
+  });
+
+  const { subscription } = await response.json();
+  return subscription;
+};
+```
+
+## 客戶管理
+
+### 創建客戶
+
+```jsx
+// Create a customer
+const createCustomer = async (email, name) => {
+  const response = await fetch('/api/create-customer', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      email,
+      name,
+    }),
+  });
+
+  const { customer } = await response.json();
+  return customer;
+};
+```
+
+### 客戶門戶
+
+```jsx
+// Create customer portal session
+const createPortalSession = async (customerId) => {
+  const response = await fetch('/api/create-portal-session', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      customerId,
+    }),
+  });
+
+  const { url } = await response.json();
+  return url;
+};
+
+// Redirect to customer portal
+const handleManageSubscription = async () => {
+  const url = await createPortalSession(customerId);
+  window.location.href = url;
+};
+```
+
+## 高級集成:Webhooks 和 superun Cloud
+
+對於復雜的支付結構,例如**訂閱和基於角色的訪問**,superun 建議使用 **superun Cloud**（或 Supabase）來安全地處理 Stripe 集成.這允許正確的 Webhook 處理,訂閱管理和基於支付級別的基於角色的訪問控制.
+
+<Note>
+  對於基本支付流程,Webhook 是**可選**. superun 可以在沒有 Webhooks 的情況下處理付款,但設置它們可以實現實時更新和更好的訂閱管理.
+</Note>
+
+### 設置 Webhooks
+
+<Steps>
+  <Step title="第 1 步:連接 superun Cloud">
+    入門很簡單. superun 使連接 superun Cloud 變得毫不費力:
+
+1. 轉到 **研發 → 服務**
+    2. 找到 **superun Cloud** 並點擊 **啟用**
+    3. 按照說明設置您的雲項目
+    4. 連接後,superun Cloud 可實現安全支付處理,訂閱管理,Webhook 處理,客戶數據存儲和錯誤處理.
+  </Step>
+
+  <Step title="第 2 步:檢索 Webhook 端點 URL">
+    superun 生成 Webhook 處理程序後,從以下位置檢索端點 URL:
+    * **superun Cloud** → **函數** → 您的 webhook 函數
+    * 或者在聊天中詢問 superun:"我的 Stripe webhook 端點 URL 是什麼?"
+  </Step>
+
+  <Step title="第 3 步:在 Stripe 儀表板中配置 Webhook">
+    1. 轉到 **Stripe 儀表板** → **開發人員** → **Webhooks** → **添加端點**
+    2. 輸入第 2 步中的 Webhook URL
+    3. 選擇您要監聽的事件:
+      * `付款意圖.成功`
+      * `付款意圖.付款失敗`
+      * `客戶.訂閱.創建`
+      * `客戶.訂閱.更新`
+      * `客戶.訂閱.已刪除`
+    4. 複製 **Webhook 簽名密鑰**（以 `whsec_` 開頭）
+  </Step>
+
+  <Step title="第 4 步:安全存儲 Webhook 密鑰">
+    將 Webhook 簽名密鑰存儲在您的 superun Cloud 環境變量中,或者在聊天中詢問 superun 以幫助您安全地配置它.
+
+    <Info>
+    如果不確定如何命名秘密,請在 **免費諮詢** 中向 superun 尋求指導.
+    </Info>
+  </Step>
+  </Steps>
+
+### 處理 Webhooks
+
+```jsx
+// webhook handler
+import Stripe from 'stripe';
+
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+
+export default async function handler(req, res) {
+  if (req.method !== 'POST') {
+    return res.status(405).end();
+  }
+
+  const sig = req.headers['stripe-signature'];
+  const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET;
+
+  let event;
+
+  try {
+    event = stripe.webhooks.constructEvent(req.body, sig, endpointSecret);
+  } catch (err) {
+    console.error('Webhook signature verification failed:', err.message);
+    return res.status(400).send(`Webhook Error: ${err.message}`);
+  }
+
+  // Handle the event
+  switch (event.type) {
+    case 'payment_intent.succeeded':
+      const paymentIntent = event.data.object;
+      console.log('Payment succeeded:', paymentIntent.id);
+      // Update your database, send confirmation email, etc.
+      break;
+
+    case 'customer.subscription.created':
+      const subscription = event.data.object;
+      console.log('Subscription created:', subscription.id);
+      // Activate user's premium features
+      break;
+
+    case 'customer.subscription.updated':
+      const updatedSubscription = event.data.object;
+      console.log('Subscription updated:', updatedSubscription.id);
+      // Update subscription status
+      break;
+
+    case 'customer.subscription.deleted':
+      const deletedSubscription = event.data.object;
+      console.log('Subscription cancelled:', deletedSubscription.id);
+      // Deactivate user's premium features
+      break;
+
+    default:
+      console.log(`Unhandled event type ${event.type}`);
+  }
+
+  res.json({ received: true });
+}
+```
+
+## 高級功能
+
+### 付款方式
+
+```jsx
+// Save payment method for future use
+const savePaymentMethod = async (customerId, paymentMethodId) => {
+  const response = await fetch('/api/save-payment-method', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      customerId,
+      paymentMethodId,
+    }),
+  });
+
+  const { paymentMethod } = await response.json();
+  return paymentMethod;
+};
+
+// List customer's payment methods
+const getPaymentMethods = async (customerId) => {
+  const response = await fetch(`/api/payment-methods/${customerId}`);
+  const { paymentMethods } = await response.json();
+  return paymentMethods;
+};
+```
+
+### 發票
+
+```jsx
+// Create an invoice
+const createInvoice = async (customerId, items) => {
+  const response = await fetch('/api/create-invoice', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      customerId,
+      items,
+    }),
+  });
+
+  const { invoice } = await response.json();
+  return invoice;
+};
+
+// Send invoice to customer
+const sendInvoice = async (invoiceId) => {
+  const response = await fetch('/api/send-invoice', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      invoiceId,
+    }),
+  });
+
+  const { invoice } = await response.json();
+  return invoice;
+};
+```
+
+### 市場支付
+
+```jsx
+// Create a connected account
+const createConnectedAccount = async (email, country) => {
+  const response = await fetch('/api/create-connected-account', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      email,
+      country,
+    }),
+  });
+
+  const { account } = await response.json();
+  return account;
+};
+
+// Create account link for onboarding
+const createAccountLink = async (accountId) => {
+  const response = await fetch('/api/create-account-link', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      accountId,
+    }),
+  });
+
+  const { url } = await response.json();
+  return url;
+};
+```
+
+## 測試您的集成
+
+### 測試模式設置
+
+* **使用 Stripe 的測試模式**在上線前安全地測試付款
+* **在 Stripe 儀表板中切換到測試模式**（在右上角切換）
+* **使用測試 API 密鑰**（以 `pk_test_` 和 `sk_test_` 開頭）
+
+### 測試Card
+
+使用這些測試Card號進行測試:
+
+- **支付成功:** `4242 4242 4242 4242`
+  - 任何未來的到期日期（例如 12/25）
+  - 任何 3 位 CVC（例如 123）
+- **拒絕付款:** `4000 0000 0000 0002`
+- **需要身份驗證:** `4000 0025 0000 3155`
+- **資金不足:** `4000 0000 0000 9995`
+
+<Note>
+  **重要提示:** Stripe 集成在預覽模式下不起作用.確保**部署**您的應用程序來測試集成.
+</Note>
+
+### 測試場景
+
+```jsx
+// Test different payment scenarios
+const testCards = {
+  success: '4242424242424242',
+  declined: '4000000000000002',
+  requiresAuth: '4000002500003155',
+  insufficientFunds: '4000000000009995',
+};
+
+// Test webhook events
+const testWebhook = async () => {
+  const response = await fetch('/api/test-webhook', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      eventType: 'payment_intent.succeeded',
+      data: { /* test data */ },
+    }),
+  });
+
+  const result = await response.json();
+  return result;
+};
+```
+
+## 安全最佳實踐
+
+### 環境變量
+
+```bash
+# .env.local
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_...
+STRIPE_SECRET_KEY=sk_test_...
+STRIPE_WEBHOOK_SECRET=whsec_...
+```
+
+### 服務器端驗證
+
+```jsx
+// Always validate on the server
+const validatePayment = async (paymentIntentId) => {
+  const paymentIntent = await stripe.paymentIntents.retrieve(paymentIntentId);
+  
+  if (paymentIntent.status !== 'succeeded') {
+    throw new Error('Payment not completed');
+  }
+  
+  return paymentIntent;
+};
+```
+
+### Webhook 安全
+
+```jsx
+// Verify webhook signatures
+const verifyWebhook = (payload, signature, secret) => {
+  try {
+    const event = stripe.webhooks.constructEvent(payload, signature, secret);
+    return event;
+  } catch (err) {
+    throw new Error('Invalid webhook signature');
+  }
+};
+```
+
+## 常見模式
+
+### 付款表格組件
+
+```jsx
+const PaymentForm = ({ amount, onSuccess, onError }) => {
+  const stripe = useStripe();
+  const elements = useElements();
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    if (!stripe || !elements) {
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const { error, paymentIntent } = await stripe.confirmCardPayment(
+        clientSecret,
+        {
+          payment_method: {
+            card: elements.getElement(CardElement),
+          },
+        }
+      );
+
+      if (error) {
+        onError(error);
+      } else if (paymentIntent.status === 'succeeded') {
+        onSuccess(paymentIntent);
+      }
+    } catch (err) {
+      onError(err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <CardElement />
+      <button disabled={!stripe || loading}>
+        {loading ? 'Processing...' : `Pay ${amount}`}
+      </button>
+    </form>
+  );
+};
+```
+
+### 訂閱狀態​​組件
+
+```jsx
+const SubscriptionStatus = ({ customerId }) => {
+  const [subscription, setSubscription] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchSubscription = async () => {
+      try {
+        const response = await fetch(`/api/subscription/${customerId}`);
+        const data = await response.json();
+        setSubscription(data.subscription);
+      } catch (error) {
+        console.error('Error fetching subscription:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchSubscription();
+  }, [customerId]);
+
+  if (loading) return <div>Loading...</div>;
+
+  if (!subscription) return <div>No active subscription</div>;
+
+  return (
+    <div>
+      <h3>Subscription Status: {subscription.status}</h3>
+      <p>Current Period: {subscription.current_period_start} - {subscription.current_period_end}</p>
+      <p>Amount: ${subscription.items.data[0].price.unit_amount / 100}</p>
+    </div>
+  );
+};
+```
+
+## 調試和故障排除
+
+<AccordionGroup>
+  <Accordion title="檢查控制台日誌">
+    <Steps>
+      <Step title="第 1 步">
+        打開**開發人員工具**（在 Chrome 中右鍵單擊 → 檢查 → 控制台）.
+      </Step>
+
+      <Step title="第 2 步">
+        查找錯誤並查看付款事件日誌.
+      </Step>
+
+      <Step title="第 3 步">
+        複製錯誤消息並在聊天中向 superun 尋求調試幫助.
+      </Step>
+    </Steps>
+  </Accordion>
+
+<Accordion title="查看 superun Cloud 日誌">
+    <Steps>
+        <Step title="第 1 步">
+        轉到 **研發 → 服務 → superun Cloud**
+      </Step>
+
+  <Step title="第 2 步">
+        導航到 **日誌** 或 **函數** → **日誌**
+      </Step>
+
+  <Step title="第 3 步">
+        檢查 Webhook 錯誤和付款處理問題.
+      </Step>
+    </Steps>
+  </Accordion>
+
+<Accordion title="驗證 Stripe 中的 Webhook 事件">
+    <Steps>
+        <Step title="第 1 步">
+        導航到 **Stripe 儀表板** → **開發人員** → **Webhooks**
+      </Step>
+
+  <Step title="第 2 步">
+        單擊您的 Webhook 端點
+      </Step>
+
+  <Step title="第 3 步">
+        查看 **Events** 選項Card以確認 Stripe 正在正確發送數據.
+      </Step>
+    </Steps>
+  </Accordion>
+
+<Accordion title="使用superun免費諮詢">
+    <Steps>
+        <Step title="第 1 步">
+        切換到 **免費諮詢** 並詢問 superun 後續問題.
+      </Step>
+
+  <Step title="第 2 步">
+        逐步描述您的問題:
+        *“我的付款表格沒有display”
+        *“尚未創建訂閱”
+        *“Webhook 不起作用”
+      </Step>
+
+  <Step title="第 3 步">
+        使用**橡皮鴨方法**並逐步解釋您的問題以澄清問題.
+      </Step>
+    </Steps>
+  </Accordion>
+</AccordionGroup>
+
+### 常見問題
+
+**問:付款失敗並display“您的Card被拒絕”**
+
+答:這可能是由於:
+- 在實時模式下使用測試Card（反之亦然）
+- 資金不足（測試Card請使用`4242 4242 4242 4242`）
+- 不支持銀行Card在線支付
+- Card詳細Info不正確
+- 銀行阻止交易
+
+**問:未收到 Webhook**
+
+答:檢查:
+- Webhook URL 可從互聯網訪問
+- Webhook 端點返回 200 狀態
+- Webhook 簽名密鑰正確
+- 在 Stripe 儀表板中正確選擇事件
+- 您正在部署模式（而非預覽）下進行測試
+
+**問:測試付款不起作用**
+
+答:確保:
+- 您正在使用測試 API 密鑰（`pk_test_` 和 `sk_test_`）
+- 測試Card號碼正確（`4242 4242 4242 4242`）
+- 金額以美分為單位（例如,10.00 美元 = 1000 美分）
+- 您的應用程序已**部署**（Stripe 在預覽模式下不起作用）
+- 您在 Stripe 儀表板中處於 **測試模​​式**
+
+**問:訂閱 webhook 未觸發**
+
+答:驗證:
+- 訂閱創建成功
+- 為訂閱事件選擇Webhook事件
+- Webhook 端點正在正確處理事件
+- Webhook 機密正確存儲在 superun Cloud 中
+
+<Card title="需要幫助嗎?" icon="help-circle" href="/zh-Hant/superun/introduction/faq">
+  查看我們的常見問題解答,了解常見的 Stripe 集成問題和故障排除提示.
+</Card>

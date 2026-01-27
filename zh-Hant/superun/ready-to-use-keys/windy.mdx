@@ -1,0 +1,70 @@
+---
+title: "Windy Weather"
+description: "整合 Windy API 以取得即時天氣資料,預報和氣象視覺化"
+image: "https://b.ux-cdn.com/uxarts/files/t20251201143554/mm27xz4u.png"
+---
+
+# Windy Weather
+
+本指南說明如何將 Windy API 整合到您的 superun 應用程式中.此整合使用邊緣函數來安全地代理所有 API 請求,確保您的 API 金鑰永遠不會傳送到客戶端.
+
+## 文件
+
+有關 Windy API 的更多詳細資訊,請參閱官方文件:
+
+- [Windy API 文件](https://api.windy.com/) - 完整的 API 參考
+
+## 環境變數
+
+將以下環境變數新增到您的 supabase secrets 中,plugin_secret_prefix 必須為 SUPERUN:
+- `WINDY_POINT_FORECAST_KEY` - Windy 點預報 API 金鑰
+- `WINDY_MAP_FORECAST_KEY` - Windy 地圖預報 API 金鑰
+- `WINDY_WEBCAMS_KEY` - Windy 網路攝影機 API 金鑰
+
+## 步驟 1:建立邊緣函數
+
+建立一個 Supabase 邊緣函數來安全地代理 Windy API 請求.此範例展示了如何處理不同的 Windy API 端點:
+
+### 點預報
+- [windy point forecast](https://api.windy.com/point-forecast/docs)
+
+### 地圖預報
+- [windy map forecast](https://api.windy.com/map-forecast/docs)
+
+### 網路攝影機 API
+- [windy webcams api](https://api.windy.com/webcams/docs)
+
+## 步驟 2:前端整合
+
+直接從前端呼叫邊緣函數.API 金鑰會安全地保存在伺服器上:
+
+## API 功能
+
+Windy API 提供三種主要服務:
+
+### 點預報 API
+- 特定座標的即時天氣狀況
+- 多天預報（最多 10 天）
+- 多種天氣參數（溫度,風速,降水量等）
+- 高解析度天氣資料（最高 1 公里解析度）
+
+### 地圖預報 API
+- 用於地圖疊加層的天氣資料視覺化
+- 多種資料來源（ECMWF,GFS 等）
+- 可自訂的參數和模型
+- 區域和全球覆蓋範圍
+
+### 網路攝影機 API
+- 附近網路攝影機位置,用於視覺天氣驗證
+- 即時攝影機畫面
+- 基於位置的搜尋,支援半徑過濾
+- 天氣狀況驗證
+
+## 使用指南
+
+使用 Windy API 時:
+
+- 遵守速率限制和使用配額
+- 適當快取天氣資料以減少 API 呼叫
+- 優雅地處理錯誤,並在可用時提供備用資料
+

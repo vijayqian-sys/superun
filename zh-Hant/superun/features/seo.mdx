@@ -1,0 +1,162 @@
+---
+title: "SEO"
+description: "搜尋引擎最佳化（SEO）能幫助你的網頁在 Google 與其他搜尋引擎上得到更高排名,提升可見性."
+image: "https://b.ux-cdn.com/uxarts/files/t20250924144227/ipkumj75.png"
+---
+
+superun 在每個頁面與元件中都內建完善的 SEO 預設.本指南將說明 superun 如何自動最佳化你的專案以利搜尋引擎索引,以及你如何進一步增強網站的可發現性.
+
+## 自動 SEO 功能
+
+superun 會在所有生成的頁面上自動套用下列 SEO 最佳化設定:
+
+* 保持 `<title>` 標籤簡潔（約 60 字元）並包含主要關鍵字  
+* 根據頁面目的撰寫約 160 字元的 meta description,並自然使用關鍵字  
+* 確保每個頁面僅有一個 `<h1>`  
+* 使用語意化 HTML 結構內容  
+* 為圖片加入具描述性與關鍵字相關的 alt text  
+* 在適用時加入 JSON-LD 結構化資料（公開的評價元件,列表頁,詳細頁等）  
+* 應用圖片延遲載入（lazy-load）與延後非必要腳本  
+* 自動生成 canonical URL  
+* 套用以行動裝置優先的 RWD（響應式）版面與正確 viewport 設定  
+* 產生乾淨且人類可閱讀的網址  
+* 將 SEO metadata（title,description,canonical）自動套用到 AI 生成的頁面  
+* 對內部系統頁（Analytics,Reports,Settings,Team,Integrations）自動套用 `noindex`,避免管理路徑被搜尋引擎收錄  
+* 自動加入來自 **Website Info** 設定的 Open Graph 資料（網站標題,描述,OG 圖片）
+
+這些最佳化設定能確保你的專案符合現代 SEO 標準,減少手動調整的需求.
+
+## Website Info（全域 SEO 設定）
+
+在 **Launch → SEO** 下,你可以設定整個專案的全域 metadata:
+
+* **Website Title** — 用於 `<title>` 與 Open Graph 標籤  
+* **Description** — 用於頁面敘述與社群分享卡片  
+* **Image（OG Image）** — 網站在社群平台分享時顯示的圖片  
+* **Icon** — 瀏覽器頁籤與書籤中顯示的圖示  
+
+這些設定會套用到所有生成頁面,提供搜尋引擎一致且完整的 metadata.
+
+<img
+  src="/images/superun/seo.png"
+  alt="editable icon"
+  width={800}
+/>
+
+## 生成 SEO 檔案
+
+superun 讓你能直接從介面產生必要的 SEO 檔案（`robots.txt` 與 `sitemap.xml`）:
+
+1. 點擊頂部導覽中的 **“Launch”**  
+2. 在左側選擇 **“SEO”**  
+3. 在 **SEO File** 區塊中,點擊 `robots.txt` 或 `sitemap.xml` 旁的 **“Generate”**
+
+這些檔案能幫助搜尋引擎有效地爬取與索引你的專案.
+
+### `robots.txt`
+控制搜尋引擎可存取哪些頁面.
+
+### `sitemap.xml`
+提供所有公開頁面的完整清單供搜尋引擎索引.
+
+兩者在專案結構變動時會自動更新.
+
+## 內建頁面速度最佳化
+
+效能診斷工具已移至 **Launch → Performance**.
+
+superun 內建由 Google Lighthouse 驅動的速度審查工具,可協助找出以下方面的改善空間:
+
+* 更快的頁面渲染速度  
+* 更好的 SEO 評分  
+* 提升無障礙使用體驗  
+* 改善使用者體驗  
+
+執行方式:
+
+1. 點擊 **“Launch” → Performance**  
+2. 查看 Lighthouse 各項指標  
+3. 使用 **Try to fix** 套用建議的最佳化措施  
+
+這可確保網站在行動與桌面裝置上都維持良好效能,進而提升 SEO 與使用體驗.
+
+## Tips and Tricks
+
+<AccordionGroup>
+
+<Accordion title="Sitemap 加速搜尋引擎索引">
+Sitemap 有助搜尋引擎更快速地發現與索引你的網站內容.
+
+1. 前往 **Launch → SEO** 並點擊 `sitemap.xml` 旁的 **“Generate”**  
+2. 將 sitemap 提交到 Google Search Console 加速索引:  
+   `https://yourdomain/sitemap.xml`  
+3. 當 `robots.txt` 與 `sitemap.xml` 都生成後,系統會自動在 robots.txt 中加入 sitemap 參考.
+
+手動驗證:  
+`curl https://yourdomain/sitemap.xml`
+</Accordion>
+
+<Accordion title="Robots.txt 搜尋引擎控制設定">
+`robots.txt` 用於告訴搜尋引擎網站內哪些區域可以或不可以爬取.
+
+1. 前往 **Launch → SEO** 並點擊 **“Generate”**  
+2. 預設設定允許所有頁面被爬取,但 superun 對系統頁面會自動套用 `noindex`.
+
+範例:
+```txt
+User-agent: *
+Allow: /
+Sitemap: https://yourdomain/sitemap.xml
+
+```
+</Accordion>
+<Accordion title="提升 SEO 的內部連結策略">
+內部連結能幫助搜尋引擎理解網站內容結構,並提升頁面權重傳遞效率.
+
+superun 能協助:
+
+- 建議相關的內部連結  
+- 維持合理的導航階層  
+- 改善爬取深度與內容語意  
+</Accordion>
+
+<Accordion title="更多最佳化技巧">
+- 保持頁面內容獨特且持續更新  
+- 添加具有意義的圖片 alt text 並壓縮資產  
+- 針對長尾關鍵字進行優化  
+- 在適合的情況加入結構化資料  
+- 確保每個頁面具有明確的核心主題  
+</Accordion>
+
+</AccordionGroup>
+
+---
+
+## FAQ
+
+<AccordionGroup>
+
+<Accordion title="搜尋引擎索引需要多久?">
+索引通常需要數小時到數天.提交你的 `sitemap.xml` 能加速搜尋引擎發現網站內容.
+</Accordion>
+
+<Accordion title="如果沒有排名怎麼辦?">
+請檢查 sitemap,內容品質,內部連結,頁面速度,行動體驗,並確認沒有誤套用 `noindex`.
+</Accordion>
+
+<Accordion title="superun 是否支援行動裝置 SEO?">
+是的.所有 superun 專案皆採用行動優先的 RWD 設計並具備正確的 viewport 設定.
+</Accordion>
+
+</AccordionGroup>
+
+---
+
+<Card
+  title="superun 網站"
+  icon="globe"
+  href="https://superun.ai/web"
+  horizontal
+>
+  造訪官方網站以查看更多功能與示例.
+</Card>

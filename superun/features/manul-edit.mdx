@@ -1,0 +1,235 @@
+---
+title: "Manul Edit"
+description: "Visually tweak layouts, styles, and copy on a single page with Manul Edit after using Select element and edit, then apply or discard your changes."
+image: "https://b.ux-cdn.com/uxarts/files/t20251201143554/mm27xz4u.png"
+---
+
+## Overview
+
+**Manul Edit** lets you **manually fine‑tune a single page** after AI has generated it.
+
+You can:
+
+- Adjust layout and styles (colors, font sizes, alignment, borders, image edits, etc.)
+- Edit copy directly in a WYSIWYG view
+- Apply your changes back to the project, or discard them for this session only
+
+> Manul Edit is **completely free to use** and **does not consume any Credits**.  
+> It operates on the **current page only** and does not automatically change other pages in the project.
+
+---
+
+## How to use Manul Edit
+
+### 1. Start from Preview
+
+On the project page, go to the **Preview** tab and wait for the page to fully load.
+
+At the **top‑right corner**, you’ll see the button:
+
+- **Select element and edit** (icon button in the toolbar)
+
+<img
+  src="https://b.ux-cdn.com/uxarts/files/t20260107154428/i49rjpat.png"
+  alt="Design editor entry from Preview"
+  width={1100}
+/>
+
+### 2. Select an element
+
+Click **Select element and edit**, then move your cursor over the page.
+
+- Elements will be highlighted with green outlines
+- When you click an element, a small dialog appears next to it
+
+In that dialog, click **Manul Edit** to open the Manul Edit editor for the selected element and page.
+
+<img
+  src="https://b.ux-cdn.com/uxarts/files/t20260108102434/rmsqr12l.png"
+  alt="Manul Edit button in element dialog"
+  width={420}
+/>
+
+> Only users with edit permission (owner / editor) and a fully loaded preview can see and use this entry point.
+
+---
+
+## When Manul Edit Is Allowed
+
+The **Manul Edit** entry is only enabled when all of the following are true:
+
+- **Permissions**
+  - Your role in the project is **owner** or **editor**
+  - View‑only roles (viewer) cannot enter edit mode
+
+- **Page state**
+  - Preview has finished loading
+  - The current session has already generated a page and there is a valid `codePath`
+  - The project is **past the style/theme selection step** 
+
+- **Editing flow**
+  - You are not currently editing 
+  - The previous “enter editor” flow has finished 
+  - No “Update Prototype” action is still running 
+
+On first use, a short **editing tip dialog** may pop up asking you to scroll through the page once before editing. Confirm to continue.
+
+---
+
+## When Manul Edit Is Not Available
+
+The **Select element and edit** / **Manul Edit** buttons are disabled or will not open the editor in these cases. In all of these states, the **Select element and edit** entry in the top‑right toolbar is shown as disabled, and only becomes clickable again after the relevant conversation or system flow has finished and the page is fully ready:
+
+- **No edit permission**
+  - You are not an owner/editor (e.g. invited as read‑only)
+
+- **Page not ready**
+  - Preview is still loading or the preview service is starting right after publish
+  - The session has not yet generated a page (`codePath` is missing)
+  - The project is still on the “choose style / theme” step
+
+- **Conversation flow still running**
+  - There is an ongoing AI conversation / generation flow that has not finished yet
+
+- **Editing flow conflicts**
+  - The editor is still entering (previous click is initializing)
+  - A previous **Update Prototype** is still in progress
+  - You are already in edit mode; clicking again works as **exit**, not as a new editing session
+
+<img
+  src="https://b.ux-cdn.com/uxarts/files/t20260107164316/kld5b4ni.png"
+  alt="Select element and edit button in disabled state"
+  width={420}
+/>
+
+---
+
+## Editing in Manul Edit
+
+Once inside Manul Edit, the screen is split into:
+
+- **Left panel** – style controls for the selected element:
+  - Text color, background color
+  - Font size, weight, alignment
+  - Border width, style, color
+  - Other layout and visual options
+- **Right side** – live preview of the current page
+- **Top‑right** – **Apply changes** button
+
+<img
+  src="https://b.ux-cdn.com/uxarts/files/t20260107154429/w0p1xd33.png"
+  alt="Manul Edit layout and style panel"
+  width={1100}
+/>
+
+You can freely tweak values in the left panel and immediately see the result in the live preview. After there are pending edits, two buttons — **Restore** and **Save as draft** — will appear in the bottom bar so you can keep a draft before deciding whether to apply it.
+
+> **Note**: Available style controls in the left panel are dynamically displayed based on the selected element type.  
+> - **This content is dynamically controlled by product logic. Please exit and modify via chat.**
+
+### Example: Emphasize a button
+
+For example, select the **“Mobile”** button in a pricing/estimation page and change:
+
+- Background color to a red tone
+- Border color to a matching accent
+
+<img
+  src="https://b.ux-cdn.com/uxarts/files/t20260107154429/yjwxj2ni.png"
+  alt="Example of edited button state"
+  width={1100}
+/>
+
+---
+
+## Editor Actions: Restore, Save as draft, Apply changes, Exit
+
+At the bottom (and top‑right), you’ll see a set of actions that control **how** your Manul Edit changes are applied.
+
+### 1. Restore
+
+- **What it does**: Undo all changes made in the **current editing session** that have not been applied yet.
+- **Effect**: The page returns to the state when you first opened Manul Edit.
+- **Scope**: Only affects this session’s unsaved edits; it does **not** roll back earlier versions that were already applied to the project.
+
+### 2. Save as draft
+
+- **What it does**: Temporarily save your style / layout edits into the **current editing session**, and reflect them in the right‑hand preview.
+- **Important**: These changes are **not yet written back to the project**.
+- You can press **Save as draft** multiple times; each successful draft increments the counter on **Apply changes**.
+
+### 3. Apply changes / Apply N changes
+
+- Initial state: **Apply changes** is disabled when there is no draft.
+- After at least one **Save as draft**:
+  - The button becomes **“Apply 1 changes”**, **“Apply 2 changes”**, etc.
+  - The button is highlighted and clickable.
+- When you click it:
+  - All N changes are written back to the project (updating the page prototype/code)
+  - A success toast such as **“Changes saved”** appears
+  - The counter resets to zero and the button returns to the disabled “Apply changes” state.
+
+<img
+  src="https://b.ux-cdn.com/uxarts/files/t20260107154429/cggzv1rt.png"
+  alt="Changes saved toast and Apply changes button"
+  width={1100}
+/>
+
+### 4. Exit
+
+- **What it does**: Exit the Design Editor and return to Preview.
+- **If there are no un‑applied changes**:
+  - The editor closes directly.
+- **If there are un‑applied drafts**:
+  - A confirmation dialog appears:
+    - **Exit anyway** – discard all un‑applied edits for this session
+    - **Apply changes and exit** – apply all pending changes first, then close
+
+<img
+  src="https://b.ux-cdn.com/uxarts/files/t20260107154429/ovvaafsq.png"
+  alt="Apply changes and exit confirmation dialog"
+  width={520}
+/>
+
+---
+
+## What Happens After You Apply or Discard
+
+### If you **Apply changes**
+
+- Manul Edit sends the updated UI structure back to superun.
+- The current project’s prototype is updated for this page:
+  - Future Preview sessions use this new version
+  - Build code view is based on this version
+  - AI continue‑editing uses this as the new baseline
+
+In other words: from this moment on, the **“source of truth”** for this page is the manually tuned version you just saved.
+
+### If you **Discard changes**
+
+- The current editing session is discarded.
+- No changes from this session are written back to the project.
+- The page returns to its pre‑editor state; AI and code continue to work on the previously saved version.
+
+### If there is an error or interruption
+
+- If the browser tab is closed or network fails during **entering Manul Edit** or **updating prototype**:
+  - The current editing round might not be saved.
+  - The system resets intermediate “entering edit” states, so you can click the Design Editor button again later to retry.
+
+- If you have **saved drafts (Save as draft) but have not yet applied them**, and then refresh the page or leave midway, you may see a temporary mismatch when you come back:
+  - The **Preview page** may still show the version **before** your drafts were saved.
+  - After re‑entering Manul Edit, the editor may show the version **with** your saved drafts.
+  - In other words, the same page can briefly look different between Preview and the Manul Edit editor.
+
+  If this happens, you can resolve it by:
+  - **Use the version history rollback feature**: Use **version history rollback** to restore to a confirmed good version. This is the recommended approach, as it safely reverts to a previous stable state.
+  - Sending a chat instruction such as **"deploy directly, skip checks"** to ask superun to deploy the current version immediately while **skipping the longer debug/check phase**.
+
+---
+
+<Card title="superun Website" icon="globe" href="https://superun.ai/web" horizontal>
+  Visit the website to learn more features and examples.
+</Card>
+
+

@@ -1,0 +1,73 @@
+---
+title: "最佳實踐"
+description: "在superun中構建的最佳實踐——提示,版本,Supabase,高效性和故障排除."
+image: "https://b.ux-cdn.com/uxarts/files/t20251201143554/mm27xz4u.png"
+---
+
+本指南可幫助您更有效地在 superun 中構建並避免常見陷阱.
+
+## 1. 使用自定義知識作為您的項目大腦
+- 記錄產品願景,關鍵用戶旅程,核心功能和設計規則
+- 定義角色和邊界（管理員/用戶/投資者等）
+- 這些知識會被持續引用並改進未來的編輯
+
+> 問AI例子:
+```
+Generate knowledge for my project at T=0 based on features implemented.
+```
+
+## 2. 提示最佳實踐
+- 具體:指向頁面/模塊和預期行為
+- 一次只做一件事;分塊實施並驗證
+- 指定請勿觸摸區域（請勿觸摸...）
+- 為了清晰起見,包括屏幕截圖/截屏視頻
+
+> 問AI模板:
+```
+On page /settings, implement [feature]. Expected: [XYZ].
+Please don’t touch component A / layout B / shared logic unless necessary.
+```
+
+## 3. Supabase 和全棧節奏
+- 先穩定前端,再連接Supabase
+- 在回滾版本之前驗證數據庫架構兼容性
+
+> 問人工智能:
+```
+Validate SQL schema at T=0 and ensure no breaking changes.
+```
+
+## 4. 使用可編輯設計快速更改 UI
+- 副本/color/排版/間距/響應能力的可視化編輯更快,更安全
+- Boxify 消耗積分;其他編輯則不然
+
+## 5. 利用版本和差異
+- 固定每個已知的良好狀態
+- 使用版本差異來定位有問題的更改
+
+> 問人工智能:
+```
+Compare version at T–1 to T–0. What changed and what might break?
+```
+
+## 6.使用復刻作為重置選項
+- 如果陷入錯誤循環或沉重的技術債務,請使用 復刻 從乾淨的基線進行重建
+- 在復刻連接的項目之前斷開 Supabase
+
+## 7. 小Step,始終可逆
+- 將工作分解為最小的可驗證增量
+- 在每個Step之後,進行回歸檢查和用戶流驗證
+
+## 8. 文檔和社區
+- 閱讀文檔流程和模板;出現問題時首先搜索
+- 在尋求幫助之前整理您的問題和背景
+
+## 9. 安全性和合規性基礎知識
+- 切勿粘貼秘密;使用後端環境變量/秘密
+- 最小權限,環境隔離,預發布安全檢查
+
+---
+
+<Card title="superun 網站" icon="globe" href="https://superun.ai/web" horizontal>
+  了解更多產品功能和示例.
+</Card>

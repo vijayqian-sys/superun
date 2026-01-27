@@ -1,0 +1,241 @@
+---
+title: "WeChat H5 Payment Setup Guide"
+description: "Step-by-step guide to integrate WeChat H5 payment in superun, including merchant account registration, payment credentials, and environment variable configuration."
+image: "https://b.ux-cdn.com/uxarts/files/t20251201143554/mm27xz4u.png"
+---
+
+## Overview
+
+WeChat Pay is a leading mobile payment platform in China. This guide will walk you through the complete process of integrating WeChat H5 payment, including merchant account registration, payment credentials, permission activation, and configuration in superun.
+
+<Note>
+**Please note**
+WeChat Pay integration requires users to complete merchant account registration and credential acquisition themselves. superun provides guidance for configuring environment variables. Use WeChat Pay's test environment when testing.
+</Note>
+
+---
+
+## Step 1: Register Merchant Account
+
+1. Open your browser and visit: `https://pay.weixin.qq.com`
+2. Click "Become a Merchant" in the top right corner
+3. Select registration type (Enterprise/Individual)
+4. Fill in the required information:
+   - Business license photos
+   - Legal representative ID card (front and back)
+   - Settlement bank account information
+   - Contact information
+5. Submit and wait for review (usually 1-3 business days)
+6. After approval, log in to see your **merchant number**
+
+---
+
+## Step 2: Obtain Payment Credentials
+
+### 2.1 Get Merchant Number (MCH_ID)
+
+1. Open: `https://pay.weixin.qq.com`
+2. Log in by scanning QR code with administrator WeChat
+3. Click "Account Center" in the top menu
+4. Click "Merchant Information" on the left
+5. Find "WeChat Pay Merchant Number" on the page, which is your merchant number (10 digits)
+
+### 2.2 Associate AppID and Get It
+
+1. Open: `https://pay.weixin.qq.com`
+2. Click "Product Center" in the top menu
+3. Click "AppID Account Management" on the left
+4. If not associated, click "Associate AppID":
+   - Enter your Official Account/Mini Program AppID
+   - Go to the corresponding Official Account/Mini Program backend to confirm authorization
+5. After successful association, copy your AppID (starts with `wx`) from the list
+
+### 2.3 Set APIv3 Key
+
+1. Open: `https://pay.weixin.qq.com`
+2. Click "Account Center" in the top menu
+3. Click "API Security" on the left
+4. Find "APIv3 Key" section, click "Set"
+5. Scan QR code with administrator WeChat to verify identity
+6. Enter a **32-character string** as the key (can include uppercase/lowercase letters and numbers)
+   - Example: `Abc123DefGhi456Jkl789Mno012Pqr3`
+7. Click confirm, **save this key immediately** (cannot be viewed again after closing the page)
+
+### 2.4 Apply and Download API Certificate
+
+1. Open: `https://pay.weixin.qq.com`
+2. Click "Account Center" in the top menu
+3. Click "API Security" on the left
+4. Find "Merchant API Certificate" section, click "Apply Certificate"
+5. Select "Use CA-issued Certificate"
+6. Scan QR code with administrator WeChat to verify
+7. Complete certificate application as prompted
+8. After successful application, click "Download Certificate"
+9. Download the `cert.zip` file
+
+### 2.5 Extract Certificate File Content
+
+Extract `cert.zip` to get the following files:
+
+```
+├── apiclient_key.pem      ← Private key (needs extraction)
+├── apiclient_cert.pem     ← Public key certificate
+└── apiclient_cert.p12     ← PKCS12 format
+```
+
+**Extract Private Key (PRIVATE_KEY)**:
+
+1. Find the `apiclient_key.pem` file
+2. **Windows**: Right-click → Open with → Notepad
+3. **Mac**: Right-click → Open with → TextEdit
+4. You'll see content like:
+
+```
+-----BEGIN PRIVATE KEY-----
+MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC7...
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx...
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx...
+-----END PRIVATE KEY-----
+```
+
+5. Press `Ctrl+A` (Mac: `Cmd+A`) to select all
+6. Press `Ctrl+C` (Mac: `Cmd+C`) to copy
+7. Paste into the configuration field (**including the BEGIN and END lines**)
+
+### 2.6 Get Certificate Serial Number
+
+**Method A - Web Extraction**:
+
+1. Open: `https://pay.weixin.qq.com`
+2. Click "Account Center" in the top menu
+3. Click "API Security" on the left
+4. Find "API Certificate" section
+5. In the certificate list, find the "Certificate Serial Number" column
+6. Copy the serial number (about 40 characters, e.g., `4B23C5D6E7F8A9B0C1D2E3F4A5B6C7D8E9F0A1B2`)
+
+**Method B - Command Line Extraction**:
+
+```bash
+openssl x509 -in apiclient_cert.pem -noout -serial
+```
+
+Output: `serial=4B23C5D6E7F8A9B0C1D2E3F4...` (copy the part after the equals sign)
+
+---
+
+## Step 3: Enable H5 Payment Permission
+
+1. Open: `https://pay.weixin.qq.com`
+2. Click "Product Center" in the top menu
+3. Find "H5 Payment" in the product list
+4. Click "Apply to Enable"
+5. Fill in application information:
+   - **H5 Payment Domain**: Your website domain (e.g., `www.example.com`)
+   - **Website Name**: Your website name
+   - **Website ICP Record Number**: ICP record number
+6. Click "Submit Application"
+7. Wait for review (usually 1-3 business days)
+8. After approval, status changes to "Enabled"
+
+---
+
+## Step 4: Configure Credentials in superun
+
+Configure the following 5 environment variables in superun platform:
+
+Set the following environment variables in **Build → Services → WeChat Pay**:
+
+| Variable Name | Content to Fill | Source |
+|---------------|-----------------|--------|
+| `WECHAT_MCH_ID` | Merchant Number | Account Center → Merchant Information |
+| `WECHAT_APP_ID` | AppID | Product Center → AppID Account Management |
+| `WECHAT_API_V3_KEY` | APIv3 Key | Account Center → API Security → APIv3 Key |
+| `WECHAT_PRIVATE_KEY` | Private Key File Content | `apiclient_key.pem` file |
+| `WECHAT_CERT_SERIAL_NO` | Certificate Serial Number | Account Center → API Security → API Certificate |
+
+<Warning>
+**Important Notes**
+- **Never paste your WeChat Pay keys and private key in chat.** Configure them via **Build → Services → WeChat Pay** using environment variables.
+- Private key file content must include both `-----BEGIN PRIVATE KEY-----` and `-----END PRIVATE KEY-----` lines.
+- Certificate serial number must match the private key, otherwise you'll get `SIGN_ERROR`.
+</Warning>
+
+---
+
+## Step 5: Payment Flow
+
+```
+User                    Frontend                  Backend                  WeChat
+ │                       │                         │                         │
+ │── Select plan, buy ──▶│                         │                         │
+ │                       │── Call create-order ───▶│                         │
+ │                       │                         │── Call unified order ───▶│
+ │                       │                         │◀── Return h5_url ───────│
+ │                       │◀── Return payment link ─│                         │
+ │◀── Redirect to WeChat ─│                         │                         │
+ │                       │                         │                         │
+ │────────────────── User completes payment ─────────────────────────────────▶│
+ │                       │                         │◀── Payment callback ────│
+ │                       │                         │── Update order, activate│
+ │◀───────────────── Return to app, show status ──│                         │
+```
+
+### Using Chat-Driven Flow
+
+After configuring environment variables, you can describe your needs in chat:
+
+* "Add WeChat Pay functionality, support H5 payment"
+* "Set up WeChat Pay checkout for my product page"
+* "Create subscription functionality using WeChat Pay"
+
+superun will automatically generate payment components, database tables, and payment logic.
+
+---
+
+## Step 6: Common Errors
+
+<AccordionGroup>
+  <Accordion title="SIGN_ERROR Certificate Serial Number Incorrect">
+    Serial number doesn't match the private key. Verify the serial number in the API Security page, ensure `WECHAT_CERT_SERIAL_NO` matches `WECHAT_PRIVATE_KEY`.
+  </Accordion>
+
+  <Accordion title="NO_AUTH Product Permission Not Enabled">
+    H5 payment is not enabled. Go to Product Center to apply for H5 payment and wait for approval.
+  </Accordion>
+
+  <Accordion title="PARAM_ERROR Domain Mismatch">
+    H5 domain is not configured. Add the correct payment domain in H5 Payment settings, ensure it matches the actual domain being used.
+  </Accordion>
+
+  <Accordion title="Other Errors">
+    If you encounter other errors, please check:
+    - Whether environment variables are correctly configured
+    - Whether merchant number and AppID are correct
+    - Whether APIv3 key is correct
+    - Whether private key file content is complete (includes BEGIN and END lines)
+    - Whether certificate serial number is correct
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Debugging and Troubleshooting
+
+### Check Configuration
+
+1. **Browser Console**: Check network requests and error messages
+2. **superun Cloud Logs**: Check error messages in backend logs
+3. **WeChat Pay Merchant Platform**: View transaction records and error logs in the merchant platform
+
+### Testing Recommendations
+
+1. Test payment functionality in **test environment** first
+2. Use WeChat Pay's testing tools for verification
+3. Confirm all environment variables are correctly configured
+4. Check if H5 payment domain is correctly configured
+
+---
+
+<Card title="superun Website" icon="globe" href="https://superun.ai/web" horizontal>
+  Learn more about product features and examples.
+</Card>

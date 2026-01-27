@@ -1,0 +1,87 @@
+/* 隐藏分页导航 */
+.pagination,
+#pagination {
+  display: none !important;
+}
+
+/* 隐藏 eyebrow */
+.eyebrow {
+  display: none !important;
+}
+
+/* 隐藏 footer */
+footer,
+#footer {
+  display: none !important;
+}
+
+/* 居中标题（全局，但排除黑名单页面） */
+body:not([data-page="blog-index"]) header h1,
+body:not([data-page="blog-index"]) #page-title {
+  text-align: center !important;
+  max-width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* 描述左对齐（默认对齐） */
+body:not([data-page="blog-index"]) header p,
+body:not([data-page="blog-index"]) header div[class*="description"] {
+  text-align: left !important;
+  max-width: 100% !important;
+}
+
+/* 黑名单：隐藏标题和描述的页面列表 */
+/* 在 content 目录中的 .js 文件中为这些页面添加 data-page 属性 */
+/* 当前黑名单：blog/index */
+
+/* 隐藏 blog/index 页面的 header */
+body[data-page="blog-index"] #header,
+body[data-page="blog-index"] header#header,
+body[data-page="blog-index"] header {
+  display: none !important;
+}
+
+body[data-page="blog-index"] .eyebrow,
+body[data-page="blog-index"] #page-title,
+body[data-page="blog-index"] header h1,
+body[data-page="blog-index"] header p {
+  display: none !important;
+}
+
+body[data-page="blog-index"] #pagination,
+body[data-page="blog-index"] .pagination {
+  display: none !important;
+}
+
+/* 确保 index 页面的标题居中 */
+#superun {
+  text-align: center !important;
+  display: inline-block !important;
+  margin: 0 auto !important;
+}
+
+/* 隐藏 get-started 页面的标题和描述 */
+body[data-page*="get-started"] header h1,
+body[data-page*="get-started"] #page-title,
+body[data-page*="get-started"] header p,
+body[data-page*="get-started"] header div[class*="description"] {
+  display: none !important;
+}
+
+/* 隐藏标题的锚点链接图标 */
+h1 a[href^="#"],
+h2 a[href^="#"],
+h3 a[href^="#"],
+h4 a[href^="#"],
+h5 a[href^="#"],
+h6 a[href^="#"],
+.anchor-link,
+[data-anchor],
+a.anchor {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+

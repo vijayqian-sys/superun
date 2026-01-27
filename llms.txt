@@ -1,0 +1,57 @@
+# superun Documentation
+
+> superun is an AI-powered builder for apps and web, from prompt to publish with code and visual editing. Complete documentation for superun features, integrations, tips & tricks, and use cases.
+
+## Documentation
+
+- [Changelog](https://docs.superun.ai/superun/changelog): News from the superun engineering team.
+- [Fix](https://docs.superun.ai/superun/features/auto-fix): Automatically fix common issues during Preview — no Credits required.
+- [Ask](https://docs.superun.ai/superun/features/chat-mode): Free consultation with superun AI assistant to understand your project without making changes.
+- [Code Mode](https://docs.superun.ai/superun/features/code-mode): Switch to Code Mode to view your project's code directly in the Build tab.
+- [Custom Domain](https://docs.superun.ai/superun/features/custom-domain): Bind a custom domain to your superun project for branding and SEO; setup steps and FAQs.
+- [Design Options](https://docs.superun.ai/superun/features/design-options): Explore multiple design options before building—superun generates four design options for you to choose from.
+- [Editable Design](https://docs.superun.ai/superun/features/editable-design): Full-page visual editing in superun — choose between Design Editor for full-page editable mode or Select Element & Edit for quick targeted changes.
+- [Project Feature List](https://docs.superun.ai/superun/features/feature-list): A project-specific list of suggested features generated to improve your product.
+- [Image upload](https://docs.superun.ai/superun/features/image-upload): Upload images in chat to help superun better understand your intent.
+- [Custom Knowledge](https://docs.superun.ai/superun/features/knowledge): Provide long‑term project context (goals, rules, assets) to guide superun reliably.
+- [Manul Edit](https://docs.superun.ai/superun/features/manul-edit): Visually tweak layouts, styles, and copy on a single page with Manul Edit after using Select element and edit, then apply or discard your changes.
+- [superun Modes](https://docs.superun.ai/superun/features/modes): Learn superun’s modes — Agent autonomy vs. guided chat and visual/code edits — to build faster and more reliably.
+- [Private Projects](https://docs.superun.ai/superun/features/private-projects): Control project visibility in superun — public vs. private, security notes, and plan availability.
+- [Idea Creation](https://docs.superun.ai/superun/features/prompt-question): How superun asks clarifying questions to better understand your idea.
+- [Publish](https://docs.superun.ai/superun/features/publish): Publish your superun project, share safely, and connect a custom domain.
+- [Security](https://docs.superun.ai/superun/features/security): Security and compliance (superun)
+- [SEO](https://docs.superun.ai/superun/features/seo): Search Engine Optimization (SEO) helps your pages rank higher on Google and other search engines, making them more discoverable.
+- [Temporary Chat](https://docs.superun.ai/superun/features/temporary-chat): Free temporary chat with superun AI consultant while waiting for style generation to complete.
+- [Version History Rollback](https://docs.superun.ai/superun/features/version-history): Manage and restore previous versions of your project—view version history and use version history rollback to restore any previous state with one click.
+- [superun AI](https://docs.superun.ai/superun/integrations/ai): Unlock powerful AI models like GPT-4, Claude, and Gemini—no API keys, no setup required.
+- [superun Cloud](https://docs.superun.ai/superun/integrations/cloud): Build complex applications seamlessly
+- [Custom SMS Provider](https://docs.superun.ai/superun/integrations/custom-sms-provider): Implement custom SMS provider using Supabase Auth Hooks
+- [Introduction](https://docs.superun.ai/superun/integrations/introduction): Extend your superun app's functionality with integrations and external APIs
+- [Nano Banana](https://docs.superun.ai/superun/integrations/nano-banana): Use the Nano Banana image model inside superun for advanced image generation, editing, and image-to-video flows.
+- [Resend Integration](https://docs.superun.ai/superun/integrations/resend): Add email capabilities to your superun app using Resend's modern email API
+- [SMS Login](https://docs.superun.ai/superun/integrations/sms-login): Implement custom SMS provider for user registration and login using Edge Functions
+- [superun Storage](https://docs.superun.ai/superun/integrations/storage): Integrate storage capabilities into your product. Store and retrieve data securely.
+- [Stripe Integration](https://docs.superun.ai/superun/integrations/stripe): Add payment processing capabilities to your superun app using Stripe
+- [superun SMS Provider](https://docs.superun.ai/superun/integrations/superun-sms-provider): Integrate SMS phone authentication with superun Cloud - automatically configured and ready to use
+- [superun FAQ](https://docs.superun.ai/superun/introduction/faq): Answers to common questions about superun features, workflows, data, security, and policies.
+- [Getting Started](https://docs.superun.ai/superun/introduction/getting-started): Get started with superun: from first prompt to publish — setup, workflows, and integrations.
+- [Welcome to superun](https://docs.superun.ai/superun/introduction/welcome): Discover superun.ai — AI‑powered builder for apps and web, from prompt to publish with code and visual editing.
+- [Pricing](https://docs.superun.ai/superun/pricing): Understand superun's Free and Pro plans, how Credits work, and what each plan includes.
+- [Ready-to-use API Keys](https://docs.superun.ai/superun/ready-to-use-keys/all): Test your integrations with our ready-to-use API keys. These keys are shared and may become unavailable due to high usage or provider limitations.
+- [Amap](https://docs.superun.ai/superun/ready-to-use-keys/amap): Integrate Amap (高德地图) services for mapping, geocoding, and location-based features
+- [Pexels](https://docs.superun.ai/superun/ready-to-use-keys/pexels): Integrate Pexels API for high-quality, royalty-free images and photo search
+- [Unsplash](https://docs.superun.ai/superun/ready-to-use-keys/unsplash): Integrate Unsplash API for high-quality, royalty-free images and photo search
+- [Windy Weather](https://docs.superun.ai/superun/ready-to-use-keys/windy): Integrate Windy API for real-time weather data, forecasts, and meteorological visualizations
+- [Avoiding Security Pitfalls](https://docs.superun.ai/superun/tips-tricks/avoiding-security-pitfalls): Avoid common security pitfalls in superun — secrets, least privilege, API protection, and pre‑publish checks.
+- [Best Practices](https://docs.superun.ai/superun/tips-tricks/best-practice): Best practices for building efficiently in superun — prompts, versions, Supabase, security, and troubleshooting.
+- [Alipay H5 Payment Setup Guide](https://docs.superun.ai/superun/tips-tricks/configure-alipay-pay): Step-by-step guide to integrate Alipay H5 payment in superun, including application registration, payment credentials, and environment variable configuration.
+- [WeChat H5 Payment Setup Guide](https://docs.superun.ai/superun/tips-tricks/configure-wechat-pay): Step-by-step guide to integrate WeChat H5 payment in superun, including merchant account registration, payment credentials, and environment variable configuration.
+- [Detailed Tips](https://docs.superun.ai/superun/tips-tricks/detailed-tips): Detailed tips and tricks for superun, covering planning, design, development, publishing, and troubleshooting stages.
+- [From Idea to Working App](https://docs.superun.ai/superun/tips-tricks/from-idea-to-app): A practical path to turn ideas into a working product with superun — scope, bricks, Remix, and validation.
+- [Troubleshooting Common Issues](https://docs.superun.ai/superun/tips-tricks/troubleshooting): Common issues encountered when using superun and their solutions, including data rollback, AI feature errors, Credits issues, and more.
+- [Using Images in superun](https://docs.superun.ai/superun/tips-tricks/using-images): Four ways to add/replace images in superun — chat upload, Editable Design, external URLs, and public assets.
+- [Build web app](https://docs.superun.ai/superun/use-case/build-web-app): Step-by-step guide to creating an AI-powered travel planner web app using superun
+- [Inspiration Showcase](https://docs.superun.ai/superun/use-case/inspiration-showcase): Browse real interfaces, landing pages, dashboards, and creative UI ideas you can instantly generate with superun.
+- [Landing Page](https://docs.superun.ai/superun/use-case/landing-page): Two ways to build a landing page in superun — one‑shot generation or section‑by‑section with Editable Design.
+- [Prototype](https://docs.superun.ai/superun/use-case/prototype): Build a functional prototype with superun — flows, minimal pages, and basic Supabase integration.
+- [SaaS](https://docs.superun.ai/superun/use-case/saas): Build a SaaS with superun — modules, integrations (Supabase/Stripe/Resend), and recommended workflow.
