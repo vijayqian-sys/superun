@@ -40,8 +40,8 @@
       "og:image:alt": "superun Documentation - AI-Powered App Builder",
       "og:description": "Official documentation for superun and Prompt.to.design. Complete guides for AI-powered app building, visual editing, integrations, and best practices.",
       "og:site_name": "superun Documentation",
-      "og:locale": "en_US",
-      "og:locale:alternate": "zh-Hant, zh-Hans",
+      "og:locale": "zh_CN",
+      "og:locale:alternate": "en, zh-Hant",
       "twitter:card": "summary_large_image",
       "twitter:site": "@superun",
       "twitter:creator": "@superun",
@@ -65,15 +65,15 @@
   "navigation": {
     "languages": [
       {
-        "language": "en",
+        "language": "zh-Hans",
         "tabs": [
           {
-            "tab": "Overview",
+            "tab": "概览",
             "groups": [
               {
                 "group": "​",
                 "pages": [
-                  "index"
+                  "zh-Hans/index"
                 ]
               }
             ]
@@ -82,116 +82,118 @@
             "tab": "superun",
             "groups": [
               {
-                "group": "Guide",
+                "group": "指南",
                 "pages": [
-                  "superun/introduction/welcome",
-                  "superun/introduction/getting-started",
-                  "superun/introduction/faq"
+                  "zh-Hans/superun/introduction/welcome",
+                  "zh-Hans/superun/introduction/getting-started",
+                  "zh-Hans/superun/introduction/faq"
                 ]
               },
               {
-                "group": "Workflow",
+                "group": "工作流程",
                 "pages": [
                   {
-                    "group": "Idea",
+                    "group": "构想",
                     "pages": [
-                      "superun/features/prompt-question"
+                      "zh-Hans/superun/features/prompt-question"
                     ]
                   },
                   {
-                    "group": "Preview",
+                    "group": "演示",
                     "pages": [
-                      "superun/features/design-options",
-                      "superun/features/editable-design",
-                      "superun/features/auto-fix"
+                      "zh-Hans/superun/features/design-options",
+                      "zh-Hans/superun/features/editable-design",
+                      "zh-Hans/superun/features/auto-fix"
                     ]
                   },
                   {
-                    "group": "Build",
+                    "group": "研发",
                     "pages": [
                       {
-                        "group": "Integrations",
+                        "group": "集成",
                         "pages": [
-                          "superun/integrations/introduction",
-                          "superun/integrations/ai",
-                          "superun/integrations/cloud",
-                          "superun/integrations/storage",
-                          "superun/integrations/stripe",
-                          "superun/integrations/nano-banana",
-                          "superun/integrations/resend",
-                          "superun/integrations/superun-sms-provider"
+                          "zh-Hans/superun/integrations/introduction",
+                          "zh-Hans/superun/integrations/ai",
+                          "zh-Hans/superun/integrations/cloud",
+                          "zh-Hans/superun/integrations/storage",
+                          "zh-Hans/superun/integrations/stripe",
+                          "zh-Hans/superun/integrations/nano-banana",
+                          "zh-Hans/superun/integrations/resend",
+                          "zh-Hans/superun/integrations/superun-sms-provider"
                         ]
                       },
-                      "superun/features/feature-list"
+                      "zh-Hans/superun/features/feature-list"
                     ]
                   },
                   {
-                    "group": "Launch",
+                    "group": "营运",
                     "pages": [
-                      "superun/features/private-projects",
-                      "superun/features/publish",
-                      "superun/features/custom-domain",
-                      "superun/features/seo"
+                      "zh-Hans/superun/features/private-projects",
+                      "zh-Hans/superun/features/publish",
+                      "zh-Hans/superun/features/custom-domain",
+                      "zh-Hans/superun/features/seo"
                     ]
                   }
                 ]
               },
               {
-                "group": "Ready-to-use Keys",
+                "group": "即用密钥",
                 "pages": [
-                  "superun/ready-to-use-keys/all",
-                  "superun/ready-to-use-keys/amap",
-                  "superun/ready-to-use-keys/unsplash",
-                  "superun/ready-to-use-keys/pexels",
-                  "superun/ready-to-use-keys/windy"
+                  "zh-Hans/superun/ready-to-use-keys/all",
+                  "zh-Hans/superun/ready-to-use-keys/amap",
+                  "zh-Hans/superun/ready-to-use-keys/unsplash",
+                  "zh-Hans/superun/ready-to-use-keys/pexels",
+                  "zh-Hans/superun/ready-to-use-keys/windy"
                 ]
               },
               {
-              "group": "Features",
-              "pages": [
-              "superun/features/version-history",
-              "superun/features/image-upload",
-              "superun/features/code-mode",
-              "superun/features/knowledge",
-              "superun/features/chat-mode",
-              "superun/features/temporary-chat",
-              "superun/features/security",
-              "superun/features/manul-edit"
-              ]
-              },
-              {
-                "group": "Tips & tricks",
+                "group": "功能",
                 "pages": [
-                  "superun/tips-tricks/detailed-tips",
-                  "superun/tips-tricks/best-practice",
-                  "superun/tips-tricks/using-images",
-                  "superun/tips-tricks/from-idea-to-app",
-                  "superun/tips-tricks/avoiding-security-pitfalls",
-                  "superun/tips-tricks/configure-wechat-pay",
-                  "superun/tips-tricks/configure-alipay-pay",
-                  "superun/tips-tricks/troubleshooting"
+                  "zh-Hans/superun/features/version-history",
+                  "zh-Hans/superun/features/image-upload",
+                  "zh-Hans/superun/features/code-mode",
+                  "zh-Hans/superun/features/knowledge",
+                  "zh-Hans/superun/features/chat-mode",
+                  "zh-Hans/superun/features/temporary-chat",
+                  "zh-Hans/superun/features/security",
+                  "zh-Hans/superun/features/manul-edit"
                 ]
               },
               {
-                "group": "Use Cases",
+                "group": "技巧与提示",
                 "pages": [
-                  "superun/use-case/inspiration-showcase",
-                  "superun/use-case/build-web-app",
-                  "superun/use-case/landing-page",
-                  "superun/use-case/prototype",
-                  "superun/use-case/saas"
+                  "zh-Hans/superun/tips-tricks/detailed-tips",
+                  "zh-Hans/superun/tips-tricks/best-practice",
+                  "zh-Hans/superun/tips-tricks/using-images",
+                  "zh-Hans/superun/tips-tricks/from-idea-to-app",
+                  "zh-Hans/superun/tips-tricks/avoiding-security-pitfalls",
+                  "zh-Hans/superun/tips-tricks/configure-163-smtp",
+                  "zh-Hans/superun/tips-tricks/configure-wechat-pay",
+                  "zh-Hans/superun/tips-tricks/configure-alipay-pay",
+                  "zh-Hans/superun/tips-tricks/troubleshooting",
+                  "zh-Hans/superun/tips-tricks/speech-engines"
                 ]
               },
               {
-                "group": "Pricing",
+                "group": "使用案例",
                 "pages": [
-                  "superun/pricing"
+                  "zh-Hans/superun/use-case/inspiration-showcase",
+                  "zh-Hans/superun/use-case/build-web-app",
+                  "zh-Hans/superun/use-case/landing-page",
+                  "zh-Hans/superun/use-case/prototype",
+                  "zh-Hans/superun/use-case/saas"
                 ]
               },
               {
-                "group": "Changelog",
+                "group": "定价",
                 "pages": [
-                  "superun/changelog"
+                  "zh-Hans/superun/pricing"
+                ]
+              },
+              {
+                "group": "更新日志",
+                "pages": [
+                  "zh-Hans/superun/changelog"
                 ]
               }
             ]
@@ -200,77 +202,77 @@
             "tab": "Prompt.to.design",
             "groups": [
               {
-                "group": "Guide",
+                "group": "指南",
                 "pages": [
-                  "prompt-to-design/guide/welcome",
-                  "prompt-to-design/guide/get-started",
-                  "prompt-to-design/guide/faq"
+                  "zh-Hans/prompt-to-design/guide/welcome",
+                  "zh-Hans/prompt-to-design/guide/get-started",
+                  "zh-Hans/prompt-to-design/guide/faq"
                 ]
               },
               {
-                "group": "Features",
+                "group": "功能",
                 "pages": [
-                  "prompt-to-design/features/kick-start",
-                  "prompt-to-design/features/style-transfer",
-                  "prompt-to-design/features/partial-redesign",
-                  "prompt-to-design/features/smart-fill",
-                  "prompt-to-design/features/template-remix",
-                  "prompt-to-design/features/frame-redesign",
-                  "prompt-to-design/features/real-prototype",
-                  "prompt-to-design/features/modify-elements"
+                  "zh-Hans/prompt-to-design/features/kick-start",
+                  "zh-Hans/prompt-to-design/features/style-transfer",
+                  "zh-Hans/prompt-to-design/features/partial-redesign",
+                  "zh-Hans/prompt-to-design/features/smart-fill",
+                  "zh-Hans/prompt-to-design/features/template-remix",
+                  "zh-Hans/prompt-to-design/features/frame-redesign",
+                  "zh-Hans/prompt-to-design/features/real-prototype",
+                  "zh-Hans/prompt-to-design/features/modify-elements"
                 ]
               },
               {
-                "group": "Use Cases",
+                "group": "使用案例",
                 "pages": [
                   {
-                    "group": "Templates",
+                    "group": "模板",
                     "pages": [
-                      "prompt-to-design/templates/index",
-                      "prompt-to-design/templates/homepage",
-                      "prompt-to-design/templates/dashboard",
-                      "prompt-to-design/templates/signup",
-                      "prompt-to-design/templates/pricing",
-                      "prompt-to-design/templates/workspace",
-                      "prompt-to-design/templates/chatbot",
-                      "prompt-to-design/templates/support",
-                      "prompt-to-design/templates/tutorial",
-                      "prompt-to-design/templates/editor",
-                      "prompt-to-design/templates/account",
-                      "prompt-to-design/templates/order",
-                      "prompt-to-design/templates/chart",
-                      "prompt-to-design/templates/setting",
-                      "prompt-to-design/templates/code",
-                      "prompt-to-design/templates/follow"
+                      "zh-Hans/prompt-to-design/templates/index",
+                      "zh-Hans/prompt-to-design/templates/homepage",
+                      "zh-Hans/prompt-to-design/templates/dashboard",
+                      "zh-Hans/prompt-to-design/templates/signup",
+                      "zh-Hans/prompt-to-design/templates/pricing",
+                      "zh-Hans/prompt-to-design/templates/workspace",
+                      "zh-Hans/prompt-to-design/templates/chatbot",
+                      "zh-Hans/prompt-to-design/templates/support",
+                      "zh-Hans/prompt-to-design/templates/tutorial",
+                      "zh-Hans/prompt-to-design/templates/editor",
+                      "zh-Hans/prompt-to-design/templates/account",
+                      "zh-Hans/prompt-to-design/templates/order",
+                      "zh-Hans/prompt-to-design/templates/chart",
+                      "zh-Hans/prompt-to-design/templates/setting",
+                      "zh-Hans/prompt-to-design/templates/code",
+                      "zh-Hans/prompt-to-design/templates/follow"
                     ]
                   },
                   {
-                    "group": "Tutorials",
+                    "group": "教学范例",
                     "pages": [
-                      "prompt-to-design/use-cases/maintain-style-consistency",
-                      "prompt-to-design/use-cases/recreate-design",
-                      "prompt-to-design/use-cases/convert-mobile",
-                      "prompt-to-design/use-cases/expand-multi",
-                      "prompt-to-design/use-cases/meeting-note",
-                      "prompt-to-design/use-cases/messy-redesign",
-                      "prompt-to-design/use-cases/region-update",
-                      "prompt-to-design/use-cases/speed-up",
-                      "prompt-to-design/use-cases/update-frame",
-                      "prompt-to-design/use-cases/wireframe"
+                      "zh-Hans/prompt-to-design/use-cases/maintain-style-consistency",
+                      "zh-Hans/prompt-to-design/use-cases/recreate-design",
+                      "zh-Hans/prompt-to-design/use-cases/convert-mobile",
+                      "zh-Hans/prompt-to-design/use-cases/expand-multi",
+                      "zh-Hans/prompt-to-design/use-cases/meeting-note",
+                      "zh-Hans/prompt-to-design/use-cases/messy-redesign",
+                      "zh-Hans/prompt-to-design/use-cases/region-update",
+                      "zh-Hans/prompt-to-design/use-cases/speed-up",
+                      "zh-Hans/prompt-to-design/use-cases/update-frame",
+                      "zh-Hans/prompt-to-design/use-cases/wireframe"
                     ]
                   }
                 ]
               },
               {
-                "group": "Pricing",
+                "group": "价格",
                 "pages": [
-                  "prompt-to-design/pricing/index"
+                  "zh-Hans/prompt-to-design/pricing/index"
                 ]
               },
               {
-                "group": "Updates",
+                "group": "更新",
                 "pages": [
-                  "prompt-to-design/changelog"
+                  "zh-Hans/prompt-to-design/changelog"
                 ]
               }
             ]
@@ -493,15 +495,15 @@
         ]
       },
       {
-        "language": "zh-Hans",
+        "language": "en",
         "tabs": [
           {
-            "tab": "概览",
+            "tab": "Overview",
             "groups": [
               {
                 "group": "​",
                 "pages": [
-                  "zh-Hans/index"
+                  "index"
                 ]
               }
             ]
@@ -510,118 +512,116 @@
             "tab": "superun",
             "groups": [
               {
-                "group": "指南",
+                "group": "Guide",
                 "pages": [
-                  "zh-Hans/superun/introduction/welcome",
-                  "zh-Hans/superun/introduction/getting-started",
-                  "zh-Hans/superun/introduction/faq"
+                  "superun/introduction/welcome",
+                  "superun/introduction/getting-started",
+                  "superun/introduction/faq"
                 ]
               },
               {
-                "group": "工作流程",
+                "group": "Workflow",
                 "pages": [
                   {
-                    "group": "构想",
+                    "group": "Idea",
                     "pages": [
-                      "zh-Hans/superun/features/prompt-question"
+                      "superun/features/prompt-question"
                     ]
                   },
                   {
-                    "group": "演示",
+                    "group": "Preview",
                     "pages": [
-                      "zh-Hans/superun/features/design-options",
-                      "zh-Hans/superun/features/editable-design",
-                      "zh-Hans/superun/features/auto-fix"
+                      "superun/features/design-options",
+                      "superun/features/editable-design",
+                      "superun/features/auto-fix"
                     ]
                   },
                   {
-                    "group": "研发",
+                    "group": "Build",
                     "pages": [
                       {
-                        "group": "集成",
+                        "group": "Integrations",
                         "pages": [
-                          "zh-Hans/superun/integrations/introduction",
-                          "zh-Hans/superun/integrations/ai",
-                          "zh-Hans/superun/integrations/cloud",
-                          "zh-Hans/superun/integrations/storage",
-                          "zh-Hans/superun/integrations/stripe",
-                          "zh-Hans/superun/integrations/nano-banana",
-                          "zh-Hans/superun/integrations/resend",
-                          "zh-Hans/superun/integrations/superun-sms-provider"
+                          "superun/integrations/introduction",
+                          "superun/integrations/ai",
+                          "superun/integrations/cloud",
+                          "superun/integrations/storage",
+                          "superun/integrations/stripe",
+                          "superun/integrations/nano-banana",
+                          "superun/integrations/resend",
+                          "superun/integrations/superun-sms-provider"
                         ]
                       },
-                      "zh-Hans/superun/features/feature-list"
+                      "superun/features/feature-list"
                     ]
                   },
                   {
-                    "group": "营运",
+                    "group": "Launch",
                     "pages": [
-                      "zh-Hans/superun/features/private-projects",
-                      "zh-Hans/superun/features/publish",
-                      "zh-Hans/superun/features/custom-domain",
-                      "zh-Hans/superun/features/seo"
+                      "superun/features/private-projects",
+                      "superun/features/publish",
+                      "superun/features/custom-domain",
+                      "superun/features/seo"
                     ]
                   }
                 ]
               },
               {
-                "group": "即用密钥",
+                "group": "Ready-to-use Keys",
                 "pages": [
-                  "zh-Hans/superun/ready-to-use-keys/all",
-                  "zh-Hans/superun/ready-to-use-keys/amap",
-                  "zh-Hans/superun/ready-to-use-keys/unsplash",
-                  "zh-Hans/superun/ready-to-use-keys/pexels",
-                  "zh-Hans/superun/ready-to-use-keys/windy"
+                  "superun/ready-to-use-keys/all",
+                  "superun/ready-to-use-keys/amap",
+                  "superun/ready-to-use-keys/unsplash",
+                  "superun/ready-to-use-keys/pexels",
+                  "superun/ready-to-use-keys/windy"
                 ]
               },
               {
-                "group": "功能",
+              "group": "Features",
+              "pages": [
+              "superun/features/version-history",
+              "superun/features/image-upload",
+              "superun/features/code-mode",
+              "superun/features/knowledge",
+              "superun/features/chat-mode",
+              "superun/features/temporary-chat",
+              "superun/features/security",
+              "superun/features/manul-edit"
+              ]
+              },
+              {
+                "group": "Tips & tricks",
                 "pages": [
-                  "zh-Hans/superun/features/version-history",
-                  "zh-Hans/superun/features/image-upload",
-                  "zh-Hans/superun/features/code-mode",
-                  "zh-Hans/superun/features/knowledge",
-                  "zh-Hans/superun/features/chat-mode",
-                  "zh-Hans/superun/features/temporary-chat",
-                  "zh-Hans/superun/features/security",
-                  "zh-Hans/superun/features/manul-edit"
+                  "superun/tips-tricks/detailed-tips",
+                  "superun/tips-tricks/best-practice",
+                  "superun/tips-tricks/using-images",
+                  "superun/tips-tricks/from-idea-to-app",
+                  "superun/tips-tricks/avoiding-security-pitfalls",
+                  "superun/tips-tricks/configure-wechat-pay",
+                  "superun/tips-tricks/configure-alipay-pay",
+                  "superun/tips-tricks/troubleshooting"
                 ]
               },
               {
-                "group": "技巧与提示",
+                "group": "Use Cases",
                 "pages": [
-                  "zh-Hans/superun/tips-tricks/detailed-tips",
-                  "zh-Hans/superun/tips-tricks/best-practice",
-                  "zh-Hans/superun/tips-tricks/using-images",
-                  "zh-Hans/superun/tips-tricks/from-idea-to-app",
-                  "zh-Hans/superun/tips-tricks/avoiding-security-pitfalls",
-                  "zh-Hans/superun/tips-tricks/configure-163-smtp",
-                  "zh-Hans/superun/tips-tricks/configure-wechat-pay",
-                  "zh-Hans/superun/tips-tricks/configure-alipay-pay",
-                  "zh-Hans/superun/tips-tricks/troubleshooting",
-                  "zh-Hans/superun/tips-tricks/speech-engines"
+                  "superun/use-case/inspiration-showcase",
+                  "superun/use-case/build-web-app",
+                  "superun/use-case/landing-page",
+                  "superun/use-case/prototype",
+                  "superun/use-case/saas"
                 ]
               },
               {
-                "group": "使用案例",
+                "group": "Pricing",
                 "pages": [
-                  "zh-Hans/superun/use-case/inspiration-showcase",
-                  "zh-Hans/superun/use-case/build-web-app",
-                  "zh-Hans/superun/use-case/landing-page",
-                  "zh-Hans/superun/use-case/prototype",
-                  "zh-Hans/superun/use-case/saas"
+                  "superun/pricing"
                 ]
               },
               {
-                "group": "定价",
+                "group": "Changelog",
                 "pages": [
-                  "zh-Hans/superun/pricing"
-                ]
-              },
-              {
-                "group": "更新日志",
-                "pages": [
-                  "zh-Hans/superun/changelog"
+                  "superun/changelog"
                 ]
               }
             ]
@@ -630,77 +630,77 @@
             "tab": "Prompt.to.design",
             "groups": [
               {
-                "group": "指南",
+                "group": "Guide",
                 "pages": [
-                  "zh-Hans/prompt-to-design/guide/welcome",
-                  "zh-Hans/prompt-to-design/guide/get-started",
-                  "zh-Hans/prompt-to-design/guide/faq"
+                  "prompt-to-design/guide/welcome",
+                  "prompt-to-design/guide/get-started",
+                  "prompt-to-design/guide/faq"
                 ]
               },
               {
-                "group": "功能",
+                "group": "Features",
                 "pages": [
-                  "zh-Hans/prompt-to-design/features/kick-start",
-                  "zh-Hans/prompt-to-design/features/style-transfer",
-                  "zh-Hans/prompt-to-design/features/partial-redesign",
-                  "zh-Hans/prompt-to-design/features/smart-fill",
-                  "zh-Hans/prompt-to-design/features/template-remix",
-                  "zh-Hans/prompt-to-design/features/frame-redesign",
-                  "zh-Hans/prompt-to-design/features/real-prototype",
-                  "zh-Hans/prompt-to-design/features/modify-elements"
+                  "prompt-to-design/features/kick-start",
+                  "prompt-to-design/features/style-transfer",
+                  "prompt-to-design/features/partial-redesign",
+                  "prompt-to-design/features/smart-fill",
+                  "prompt-to-design/features/template-remix",
+                  "prompt-to-design/features/frame-redesign",
+                  "prompt-to-design/features/real-prototype",
+                  "prompt-to-design/features/modify-elements"
                 ]
               },
               {
-                "group": "使用案例",
+                "group": "Use Cases",
                 "pages": [
                   {
-                    "group": "模板",
+                    "group": "Templates",
                     "pages": [
-                      "zh-Hans/prompt-to-design/templates/index",
-                      "zh-Hans/prompt-to-design/templates/homepage",
-                      "zh-Hans/prompt-to-design/templates/dashboard",
-                      "zh-Hans/prompt-to-design/templates/signup",
-                      "zh-Hans/prompt-to-design/templates/pricing",
-                      "zh-Hans/prompt-to-design/templates/workspace",
-                      "zh-Hans/prompt-to-design/templates/chatbot",
-                      "zh-Hans/prompt-to-design/templates/support",
-                      "zh-Hans/prompt-to-design/templates/tutorial",
-                      "zh-Hans/prompt-to-design/templates/editor",
-                      "zh-Hans/prompt-to-design/templates/account",
-                      "zh-Hans/prompt-to-design/templates/order",
-                      "zh-Hans/prompt-to-design/templates/chart",
-                      "zh-Hans/prompt-to-design/templates/setting",
-                      "zh-Hans/prompt-to-design/templates/code",
-                      "zh-Hans/prompt-to-design/templates/follow"
+                      "prompt-to-design/templates/index",
+                      "prompt-to-design/templates/homepage",
+                      "prompt-to-design/templates/dashboard",
+                      "prompt-to-design/templates/signup",
+                      "prompt-to-design/templates/pricing",
+                      "prompt-to-design/templates/workspace",
+                      "prompt-to-design/templates/chatbot",
+                      "prompt-to-design/templates/support",
+                      "prompt-to-design/templates/tutorial",
+                      "prompt-to-design/templates/editor",
+                      "prompt-to-design/templates/account",
+                      "prompt-to-design/templates/order",
+                      "prompt-to-design/templates/chart",
+                      "prompt-to-design/templates/setting",
+                      "prompt-to-design/templates/code",
+                      "prompt-to-design/templates/follow"
                     ]
                   },
                   {
-                    "group": "教学范例",
+                    "group": "Tutorials",
                     "pages": [
-                      "zh-Hans/prompt-to-design/use-cases/maintain-style-consistency",
-                      "zh-Hans/prompt-to-design/use-cases/recreate-design",
-                      "zh-Hans/prompt-to-design/use-cases/convert-mobile",
-                      "zh-Hans/prompt-to-design/use-cases/expand-multi",
-                      "zh-Hans/prompt-to-design/use-cases/meeting-note",
-                      "zh-Hans/prompt-to-design/use-cases/messy-redesign",
-                      "zh-Hans/prompt-to-design/use-cases/region-update",
-                      "zh-Hans/prompt-to-design/use-cases/speed-up",
-                      "zh-Hans/prompt-to-design/use-cases/update-frame",
-                      "zh-Hans/prompt-to-design/use-cases/wireframe"
+                      "prompt-to-design/use-cases/maintain-style-consistency",
+                      "prompt-to-design/use-cases/recreate-design",
+                      "prompt-to-design/use-cases/convert-mobile",
+                      "prompt-to-design/use-cases/expand-multi",
+                      "prompt-to-design/use-cases/meeting-note",
+                      "prompt-to-design/use-cases/messy-redesign",
+                      "prompt-to-design/use-cases/region-update",
+                      "prompt-to-design/use-cases/speed-up",
+                      "prompt-to-design/use-cases/update-frame",
+                      "prompt-to-design/use-cases/wireframe"
                     ]
                   }
                 ]
               },
               {
-                "group": "价格",
+                "group": "Pricing",
                 "pages": [
-                  "zh-Hans/prompt-to-design/pricing/index"
+                  "prompt-to-design/pricing/index"
                 ]
               },
               {
-                "group": "更新",
+                "group": "Updates",
                 "pages": [
-                  "zh-Hans/prompt-to-design/changelog"
+                  "prompt-to-design/changelog"
                 ]
               }
             ]
