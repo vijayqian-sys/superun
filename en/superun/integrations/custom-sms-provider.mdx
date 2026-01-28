@@ -43,7 +43,7 @@ async function sendSMS(
   code: string,
   countryCode?: string,
 ) {
-  const response = await fetch("https://gateway.superun.ai/sms/send-code", {
+  const response = await fetch("https://gateway.superun.com/sms/send-code", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

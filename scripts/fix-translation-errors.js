@@ -217,7 +217,7 @@ const PATH_FIXES = [
 
 // ==================== URL 大小写修复 ====================
 const URL_FIXES = [
-  { from: /https:\/\/superun\.ai/gi, to: 'https://superun.ai' },
+  { from: /https:\/\/superun\.ai/gi, to: 'https://superun.com' },
   { from: /https:\/\/Supabase\.com/gi, to: 'https://supabase.com' },
   { from: /https:\/\/Stripe\.com/gi, to: 'https://stripe.com' },
   { from: /https:\/\/Resend\.com/gi, to: 'https://resend.com' },

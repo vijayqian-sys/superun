@@ -14,15 +14,15 @@
     "<link rel=\"stylesheet\" href=\"/style.css\" />",
     "<link rel=\"apple-touch-icon\" href=\"/favicon.svg\" />",
     "<link rel=\"icon\" type=\"image/svg+xml\" href=\"/favicon.svg\" />",
-    "<script type=\"application/ld+json\">{ \"@context\": \"https://schema.org\", \"@type\": \"Organization\", \"name\": \"superun\", \"url\": \"https://superun.ai/\", \"logo\": \"https://b.ux-cdn.com/uxarts/files/t20251118164706/akbopu2e.png\", \"sameAs\": [ \"https://superun.ai/\" ], \"description\": \"AI-powered app builder platform for creating web applications with natural language, visual editing, and code mode.\" }</script>",
-    "<script type=\"application/ld+json\">{ \"@context\": \"https://schema.org\", \"@type\": \"WebSite\", \"name\": \"superun Documentation\", \"url\": \"https://docs.superun.ai\", \"description\": \"Official documentation for superun and Prompt.to.design. Complete guides for AI-powered app building, visual editing, integrations, and best practices.\", \"publisher\": { \"@type\": \"Organization\", \"name\": \"superun\", \"logo\": { \"@type\": \"ImageObject\", \"url\": \"https://b.ux-cdn.com/uxarts/files/t20251118164706/akbopu2e.png\" } }, \"potentialAction\": { \"@type\": \"SearchAction\", \"target\": { \"@type\": \"EntryPoint\", \"urlTemplate\": \"https://docs.superun.ai/?q={search_term_string}\" }, \"query-input\": \"required name=search_term_string\" } }</script>"
+    "<script type=\"application/ld+json\">{ \"@context\": \"https://schema.org\", \"@type\": \"Organization\", \"name\": \"superun\", \"url\": \"https://superun.com/\", \"logo\": \"https://b.ux-cdn.com/uxarts/files/t20251118164706/akbopu2e.png\", \"sameAs\": [ \"https://superun.com/\" ], \"description\": \"AI-powered app builder platform for creating web applications with natural language, visual editing, and code mode.\" }</script>",
+    "<script type=\"application/ld+json\">{ \"@context\": \"https://schema.org\", \"@type\": \"WebSite\", \"name\": \"superun Documentation\", \"url\": \"https://docs.superun.com\", \"description\": \"Official documentation for superun and Prompt.to.design. Complete guides for AI-powered app building, visual editing, integrations, and best practices.\", \"publisher\": { \"@type\": \"Organization\", \"name\": \"superun\", \"logo\": { \"@type\": \"ImageObject\", \"url\": \"https://b.ux-cdn.com/uxarts/files/t20251118164706/akbopu2e.png\" } }, \"potentialAction\": { \"@type\": \"SearchAction\", \"target\": { \"@type\": \"EntryPoint\", \"urlTemplate\": \"https://docs.superun.com/?q={search_term_string}\" }, \"query-input\": \"required name=search_term_string\" } }</script>"
   ],
   "seo": {
     "metatags": {
       "charset": "UTF-8",
       "viewport": "width=device-width, initial-scale=1.0",
       "description": "superun and Prompt.to.design Documentation: Official guides for AI-powered app building platform. Learn how to build apps with natural language, visual editing, code mode, Supabase integration, and Figma plugin.",
-      "keywords": "superun, Prompt.to.design, AI app builder, documentation, Supabase integration, Stripe payment, Resend email, visual editor, Figma plugin, web development, no-code, low-code, AI development platform, website builder, app builder, docs.superun.ai, superun documentation, Prompt.to.design documentation",
+      "keywords": "superun, Prompt.to.design, AI app builder, documentation, Supabase integration, Stripe payment, Resend email, visual editor, Figma plugin, web development, no-code, low-code, AI development platform, website builder, app builder, docs.superun.com, superun documentation, Prompt.to.design documentation",
       "author": "superun Team",
       "robots": "index, follow, max-image-preview:large",
       "googlebot": "index, follow",
@@ -30,10 +30,10 @@
       "baidu-site-verification": "codeva-SgtZSfNoqV",
       "theme-color": "#16A34A",
       "color-scheme": "light dark",
-      "canonical": "https://docs.superun.ai",
+      "canonical": "https://docs.superun.com",
       "og:title": "superun & Prompt.to.design Documentation",
       "og:type": "website",
-      "og:url": "https://docs.superun.ai",
+      "og:url": "https://docs.superun.com",
       "og:image": "https://b.ux-cdn.com/uxarts/files/t20251118164706/akbopu2e.png",
       "og:image:width": "1200",
       "og:image:height": "630",
@@ -59,7 +59,7 @@
     "primary": {
       "type": "button",
       "label": "Visit superun",
-      "href": "https://superun.ai/"
+      "href": "https://superun.com/"
     }
   },
   "navigation": {
@@ -715,6 +715,6 @@
   "logo": {
     "light": "/logo/superun-light.png",
     "dark": "/logo/superun-dark.png",
-    "href": "https://superun.ai/"
+    "href": "https://superun.com/"
   }
 }

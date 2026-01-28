@@ -23,7 +23,7 @@ const EXCLUDE_DIRS = ['node_modules', '.git', 'zh-Hant', 'scripts', 'public', 'i
 const PRODUCT_NAMES = [
   'superun Cloud',
   'superun AI',
-  'superun.ai',
+  'superun.com',
   'superun',
   'Prompt.to.design',
   'Supabase',

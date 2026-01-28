@@ -50,7 +50,7 @@ async function translateText(text, targetLang = 'zh-TW') {
  */
 function protectProductNames(text) {
   const productNames = [
-    'superun Cloud', 'superun AI', 'superun.ai', 'superun',
+    'superun Cloud', 'superun AI', 'superun.com', 'superun',
     'Prompt.to.design', 'prompt.to.design', 'Supabase', 'Stripe', 'Resend',
     'OpenAI', 'Anthropic', 'Claude', 'GPT-4', 'GPT-5', 'Gemini',
     'Figma', 'Vercel', 'Netlify', 'GitHub', 'GitLab'
@@ -356,7 +356,7 @@ async function translateFile(filePath) {
     content = content.replace(/__PRODUCT_\d+__/g, (match) => {
       const index = parseInt(match.match(/\d+/)[0]);
       const productMap = {
-        0: 'superun Cloud', 1: 'superun AI', 2: 'superun.ai', 3: 'superun',
+        0: 'superun Cloud', 1: 'superun AI', 2: 'superun.com', 3: 'superun',
         4: 'Prompt.to.design', 5: 'prompt.to.design', 6: 'Supabase', 7: 'Stripe', 8: 'Resend',
         9: 'OpenAI', 10: 'Anthropic', 11: 'Claude', 12: 'GPT-4', 13: 'GPT-5',
         14: 'Gemini', 15: 'Figma', 16: 'Vercel', 17: 'Netlify', 18: 'GitHub', 19: 'GitLab'

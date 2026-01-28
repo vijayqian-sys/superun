@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const DOCS_ROOT = path.join(__dirname, '..');
-const BASE_URL = 'https://docs.superun.ai';
+const BASE_URL = 'https://docs.superun.com';
 
 // 解析 frontmatter
 function parseFrontmatter(content) {
@@ -206,12 +206,12 @@ function generateLlmsTxt() {
   fs.writeFileSync(zhHansLlmsPath, BOM + zhHansContent, 'utf-8');
   
   console.log(`\n✅ 已生成区分语言的文档文件（符合 llms.txt 规范）`);
-  console.log(`   📍 llms.txt (根目录，英文版): ${llmsOutputPath}`);
-  console.log(`      访问地址: https://docs.superun.ai/llms.txt`);
+  console.log(`   📍 llms.txt (根目录，简体中文版): ${llmsOutputPath}`);
+  console.log(`      访问地址: https://docs.superun.com/llms.txt`);
   console.log(`   📍 llms.txt (zh-Hant目录，繁体中文版): ${zhHantLlmsPath}`);
-  console.log(`      访问地址: https://docs.superun.ai/zh-Hant/llms.txt`);
-  console.log(`   📍 llms.txt (zh-Hans目录，简体中文版): ${zhHansLlmsPath}`);
-  console.log(`      访问地址: https://docs.superun.ai/zh-Hans/llms.txt`);
+  console.log(`      访问地址: https://docs.superun.com/zh-Hant/llms.txt`);
+  console.log(`   📍 llms.txt (en目录，英文版): ${zhHansLlmsPath}`);
+  console.log(`      访问地址: https://docs.superun.com/en/llms.txt`);
   console.log(`      注意: 访问中文版时可能出现 CSP 警告，但文件内容应能正常显示`);
   console.log(`   📊 英文页面: ${enPages.length} 个`);
   console.log(`   📊 繁体中文页面: ${zhHantPages.length} 个`);

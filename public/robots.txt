@@ -13,8 +13,8 @@ Allow: /index
 Crawl-delay: 1
 
 # Sitemaps
-Sitemap: https://docs.superun.ai/sitemap.xml
+Sitemap: https://docs.superun.com/sitemap.xml
 
 # Additional directives for better indexing
-Host: https://docs.superun.ai
+Host: https://docs.superun.com
 

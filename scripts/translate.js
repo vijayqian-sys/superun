@@ -97,7 +97,7 @@ async function translateText(text, sourceLang = 'zh-TW', targetLang = 'zh-CN') {
  */
 function protectProductNames(text) {
   const productNames = [
-    'superun Cloud', 'superun AI', 'superun.ai', 'superun',
+    'superun Cloud', 'superun AI', 'superun.com', 'superun',
     'Prompt.to.design', 'Supabase', 'Stripe', 'Resend',
     'OpenAI', 'Anthropic', 'Claude', 'GPT-4', 'GPT-5', 'Gemini',
     'Figma', 'Vercel', 'Netlify', 'GitHub', 'GitLab', 'Credits',
