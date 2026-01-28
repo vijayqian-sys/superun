@@ -1,6 +1,6 @@
 ---
-title: "Documentation"
-description: "Product documentation for superun and Prompt.to.design."
+title: "superun 文档"
+description: "superun 完整产品文档：AI 驱动的应用构建平台，从自然语言到发布，支持可视化编辑和代码模式。"
 hideTableOfContents: true
 mode: custom
 ---
@@ -10,151 +10,154 @@ mode: custom
 <div style={{
   maxWidth: '1200px',
   margin: '0px auto',
-  padding: '2rem',
+  padding: '3rem 2rem',
   minHeight: '100vh',
   display: 'flex',
   flexDirection: 'column',
-  justifyContent: 'center',
+  justifyContent: 'flex-start',
   alignItems: 'center'
 }}>
-  <div style={{ textAlign: 'center', marginBottom: '3rem', position: 'relative' }}>
+  {/* Hero Section */}
+  <div style={{ 
+    textAlign: 'center', 
+    marginBottom: '4rem', 
+    position: 'relative',
+    width: '100%',
+    maxWidth: '800px'
+  }}>
     <h1 
       className="whitespace-pre-wrap group font-semibold text-2xl sm:text-3xl mt-8 text-gray-900 dark:text-white"
       id="documentation" 
-      style={{ fontSize: '3rem', fontWeight: '700', marginBottom: '0.5rem', textAlign: 'center', position: 'relative', display: 'inline-block' }}
+      style={{ 
+        fontSize: '3.5rem', 
+        fontWeight: '700', 
+        marginBottom: '1rem', 
+        textAlign: 'center', 
+        position: 'relative', 
+        display: 'block',
+        width: '100%',
+        background: 'linear-gradient(135deg, #16A34A 0%, #07C983 100%)',
+        WebkitBackgroundClip: 'text',
+        WebkitTextFillColor: 'transparent',
+        backgroundClip: 'text',
+        wordBreak: 'keep-all',
+        overflowWrap: 'break-word',
+        lineHeight: '1.2'
+      }}
     >
       <a 
         href="#documentation" 
         className="absolute -left-12 top-1/2 -translate-y-1/2 flex items-center opacity-0 border-0 group-hover:opacity-100 transition-opacity" 
-        aria-label="Navigate to header"
+        aria-label="导航到标题"
         style={{ left: '-3rem' }}
       >
         <div className="w-6 h-6 rounded-md flex items-center justify-center shadow-sm text-gray-400 dark:text-white/50 dark:bg-background-dark dark:brightness-[1.35] dark:ring-1 dark:hover:brightness-150 bg-white ring-1 ring-gray-400/30 dark:ring-gray-700/25 hover:ring-gray-400/60 dark:hover:ring-white/20">
           <svg xmlns="http://www.w3.org/2000/svg" fill="gray" height="12px" viewBox="0 0 576 512"><path d="M0 256C0 167.6 71.6 96 160 96h72c13.3 0 24 10.7 24 24s-10.7 24-24 24H160C98.1 144 48 194.1 48 256s50.1 112 112 112h72c13.3 0 24 10.7 24 24s-10.7 24-24 24H160C71.6 416 0 344.4 0 256zm576 0c0 88.4-71.6 160-160 160H344c-13.3 0-24-10.7-24-24s10.7-24 24-24h72c61.9 0 112-50.1 112-112s-50.1-112-112-112H344c-13.3 0-24-10.7-24-24s10.7-24 24-24h72c88.4 0 160 71.6 160 160zM184 232H392c13.3 0 24 10.7 24 24s10.7-24 24-24H184c-13.3 0-24-10.7-24-24s10.7-24 24-24z"></path></svg>
         </div>
       </a>
-      <span className="cursor-pointer">Documentation</span>
+      <span className="cursor-pointer" style={{ display: 'inline-block' }}>superun 文档</span>
     </h1>
-    <p className="text-gray-600 dark:text-gray-400" style={{ fontSize: '1.25rem', marginTop: '2.5rem', marginBottom: '2rem' }}>
-      Product docs for superun and Prompt.to.design.
+    <p className="text-gray-600 dark:text-gray-400" style={{ 
+      fontSize: '1.375rem', 
+      marginTop: '1.5rem', 
+      marginBottom: '2rem',
+      lineHeight: '1.7',
+      maxWidth: '600px',
+      margin: '1.5rem auto 2rem'
+    }}>
+      AI 驱动的应用构建平台，通过自然语言快速创建和发布应用，支持可视化编辑和代码模式。
     </p>
+    <div style={{ 
+      display: 'flex', 
+      gap: '1rem', 
+      justifyContent: 'center',
+      flexWrap: 'wrap',
+      marginTop: '2rem'
+    }}>
+      <a 
+        href="/superun/introduction/welcome"
+        className="inline-flex items-center px-6 py-3 rounded-lg font-medium text-white bg-primary hover:bg-primary-dark transition-colors shadow-sm hover:shadow-md"
+        style={{ textDecoration: 'none' }}
+      >
+        开始使用
+      </a>
+      <a 
+        href="https://superun.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center px-6 py-3 rounded-lg font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+        style={{ textDecoration: 'none' }}
+      >
+        访问 superun.com
+      </a>
+    </div>
   </div>
 
-  {/* superun section */}
-  <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 self-start">
-    <a href="https://superun.com/" target="_blank" rel="noopener noreferrer" className="hover:text-primary dark:hover:text-primary-light transition-colors">
-      superun.com
-    </a>
-  </h2>
-  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', width: '100%', maxWidth: '920px', marginBottom: '3rem' }}>
-    <a className="card block font-normal group relative my-2 ring-2 ring-transparent rounded-2xl bg-white dark:bg-background-dark border border-gray-950/10 dark:border-white/10 overflow-hidden w-full cursor-pointer hover:!border-primary dark:hover:!border-primary-light" href="/superun/introduction/welcome">
-      <div className="px-6 py-5 relative">
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
-          <div className="h-6 w-6 bg-primary dark:bg-primary-light" style={{maskImage:"url('https://d3gk2c5xim1je2.cloudfront.net/v6.6.0/regular/wand-magic.svg')",maskRepeat:"no-repeat",maskPosition:"center center"}}></div>
-          <h3 className="not-prose font-semibold text-base text-gray-800 dark:text-white">Getting Started</h3>
+  {/* Main Content Grid */}
+  <div style={{ 
+    display: 'grid', 
+    gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', 
+    gap: '1.5rem', 
+    width: '100%', 
+    maxWidth: '1100px'
+  }}>
+    <a className="card block font-normal group relative my-2 ring-2 ring-transparent rounded-2xl bg-white dark:bg-background-dark border border-gray-950/10 dark:border-white/10 overflow-hidden w-full cursor-pointer hover:!border-primary dark:hover:!border-primary-light transition-all hover:shadow-lg" href="/superun/introduction/welcome">
+      <div className="px-6 py-6 relative">
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
+          <div className="h-8 w-8 bg-primary dark:bg-primary-light rounded-lg flex items-center justify-center" style={{maskImage:"url('https://d3gk2c5xim1je2.cloudfront.net/v6.6.0/regular/wand-magic.svg')",maskRepeat:"no-repeat",maskPosition:"center center"}}></div>
+          <h3 className="not-prose font-semibold text-lg text-gray-800 dark:text-white">入门指南</h3>
         </div>
-        <div className="prose mt-1 text-sm leading-6 text-gray-600 dark:text-gray-400">Learn how to create your first project, understand the core features, and start building with superun.</div>
+        <div className="prose mt-1 text-sm leading-6 text-gray-600 dark:text-gray-400">了解如何创建您的第一个项目，理解核心功能，并开始使用 superun 进行构建。</div>
       </div>
     </a>
 
-    <a className="card block font-normal group relative my-2 ring-2 ring-transparent rounded-2xl bg-white dark:bg-background-dark border border-gray-950/10 dark:border-white/10 overflow-hidden w-full cursor-pointer hover:!border-primary dark:hover:!border-primary-light" href="/superun/features/modes">
-      <div className="px-6 py-5 relative">
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
-          <div className="h-6 w-6 bg-primary dark:bg-primary-light" style={{maskImage:"url('https://d3gk2c5xim1je2.cloudfront.net/v6.6.0/regular/sparkles.svg')",maskRepeat:"no-repeat",maskPosition:"center center"}}></div>
-          <h3 className="not-prose font-semibold text-base text-gray-800 dark:text-white">Features</h3>
+    <a className="card block font-normal group relative my-2 ring-2 ring-transparent rounded-2xl bg-white dark:bg-background-dark border border-gray-950/10 dark:border-white/10 overflow-hidden w-full cursor-pointer hover:!border-primary dark:hover:!border-primary-light transition-all hover:shadow-lg" href="/superun/features/modes">
+      <div className="px-6 py-6 relative">
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
+          <div className="h-8 w-8 bg-primary dark:bg-primary-light rounded-lg flex items-center justify-center" style={{maskImage:"url('https://d3gk2c5xim1je2.cloudfront.net/v6.6.0/regular/sparkles.svg')",maskRepeat:"no-repeat",maskPosition:"center center"}}></div>
+          <h3 className="not-prose font-semibold text-lg text-gray-800 dark:text-white">功能特性</h3>
         </div>
-        <div className="prose mt-1 text-sm leading-6 text-gray-600 dark:text-gray-400">Explore AI-powered features, visual editing, code mode, cloud integration, and more capabilities.</div>
+        <div className="prose mt-1 text-sm leading-6 text-gray-600 dark:text-gray-400">探索 AI 驱动的功能，可视化编辑，代码模式，云集成以及更多能力。</div>
       </div>
     </a>
 
-    <a className="card block font-normal group relative my-2 ring-2 ring-transparent rounded-2xl bg-white dark:bg-background-dark border border-gray-950/10 dark:border-white/10 overflow-hidden w-full cursor-pointer hover:!border-primary dark:hover:!border-primary-light" href="/superun/integrations/introduction">
-      <div className="px-6 py-5 relative">
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
-          <div className="h-6 w-6 bg-primary dark:bg-primary-light" style={{maskImage:"url('https://d3gk2c5xim1je2.cloudfront.net/v6.6.0/regular/plug.svg')",maskRepeat:"no-repeat",maskPosition:"center center"}}></div>
-          <h3 className="not-prose font-semibold text-base text-gray-800 dark:text-white">Integrations</h3>
+    <a className="card block font-normal group relative my-2 ring-2 ring-transparent rounded-2xl bg-white dark:bg-background-dark border border-gray-950/10 dark:border-white/10 overflow-hidden w-full cursor-pointer hover:!border-primary dark:hover:!border-primary-light transition-all hover:shadow-lg" href="/superun/integrations/introduction">
+      <div className="px-6 py-6 relative">
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
+          <div className="h-8 w-8 bg-primary dark:bg-primary-light rounded-lg flex items-center justify-center" style={{maskImage:"url('https://d3gk2c5xim1je2.cloudfront.net/v6.6.0/regular/plug.svg')",maskRepeat:"no-repeat",maskPosition:"center center"}}></div>
+          <h3 className="not-prose font-semibold text-lg text-gray-800 dark:text-white">集成服务</h3>
         </div>
-        <div className="prose mt-1 text-sm leading-6 text-gray-600 dark:text-gray-400">Connect with Supabase, Resend, AI models, Stripe, and other services to extend your app's capabilities.</div>
+        <div className="prose mt-1 text-sm leading-6 text-gray-600 dark:text-gray-400">与 Supabase、Resend、AI 模型、Stripe 等服务连接，扩展您的应用功能。</div>
       </div>
     </a>
 
-    <a className="card block font-normal group relative my-2 ring-2 ring-transparent rounded-2xl bg-white dark:bg-background-dark border border-gray-950/10 dark:border-white/10 overflow-hidden w-full cursor-pointer hover:!border-primary dark:hover:!border-primary-light" href="/superun/tips-tricks/best-practice">
-      <div className="px-6 py-5 relative">
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
-          <div className="h-6 w-6 bg-primary dark:bg-primary-light" style={{maskImage:"url('https://d3gk2c5xim1je2.cloudfront.net/v6.6.0/regular/lightbulb.svg')",maskRepeat:"no-repeat",maskPosition:"center center"}}></div>
-          <h3 className="not-prose font-semibold text-base text-gray-800 dark:text-white">Tips & Tricks</h3>
+    <a className="card block font-normal group relative my-2 ring-2 ring-transparent rounded-2xl bg-white dark:bg-background-dark border border-gray-950/10 dark:border-white/10 overflow-hidden w-full cursor-pointer hover:!border-primary dark:hover:!border-primary-light transition-all hover:shadow-lg" href="/superun/tips-tricks/best-practice">
+      <div className="px-6 py-6 relative">
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
+          <div className="h-8 w-8 bg-primary dark:bg-primary-light rounded-lg flex items-center justify-center" style={{maskImage:"url('https://d3gk2c5xim1je2.cloudfront.net/v6.6.0/regular/lightbulb.svg')",maskRepeat:"no-repeat",maskPosition:"center center"}}></div>
+          <h3 className="not-prose font-semibold text-lg text-gray-800 dark:text-white">技巧与提示</h3>
         </div>
-        <div className="prose mt-1 text-sm leading-6 text-gray-600 dark:text-gray-400">Learn best practices, tips for using images, building from idea to app, and avoiding security pitfalls.</div>
+        <div className="prose mt-1 text-sm leading-6 text-gray-600 dark:text-gray-400">学习最佳实践，使用图片的技巧，从想法到应用的构建，以及避免安全隐患。</div>
       </div>
     </a>
 
-    <a className="card block font-normal group relative my-2 ring-2 ring-transparent rounded-2xl bg-white dark:bg-background-dark border border-gray-950/10 dark:border-white/10 overflow-hidden w-full cursor-pointer hover:!border-primary dark:hover:!border-primary-light" href="/superun/use-case/inspiration-time">
-      <div className="px-6 py-5 relative">
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
-          <div className="h-6 w-6 bg-primary dark:bg-primary-light" style={{maskImage:"url('https://d3gk2c5xim1je2.cloudfront.net/v6.6.0/regular/rocket.svg')",maskRepeat:"no-repeat",maskPosition:"center center"}}></div>
-          <h3 className="not-prose font-semibold text-base text-gray-800 dark:text-white">Use Cases</h3>
+    <a className="card block font-normal group relative my-2 ring-2 ring-transparent rounded-2xl bg-white dark:bg-background-dark border border-gray-950/10 dark:border-white/10 overflow-hidden w-full cursor-pointer hover:!border-primary dark:hover:!border-primary-light transition-all hover:shadow-lg" href="/superun/use-case/inspiration-showcase">
+      <div className="px-6 py-6 relative">
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
+          <div className="h-8 w-8 bg-primary dark:bg-primary-light rounded-lg flex items-center justify-center" style={{maskImage:"url('https://d3gk2c5xim1je2.cloudfront.net/v6.6.0/regular/rocket.svg')",maskRepeat:"no-repeat",maskPosition:"center center"}}></div>
+          <h3 className="not-prose font-semibold text-lg text-gray-800 dark:text-white">使用案例</h3>
         </div>
-        <div className="prose mt-1 text-sm leading-6 text-gray-600 dark:text-gray-400">Explore real-world examples including landing pages, prototypes, SaaS applications, and inspiration projects.</div>
+        <div className="prose mt-1 text-sm leading-6 text-gray-600 dark:text-gray-400">探索真实世界的示例，包括落地页、原型、SaaS 应用程序和灵感项目。</div>
       </div>
     </a>
 
-    <a className="card block font-normal group relative my-2 ring-2 ring-transparent rounded-2xl bg-white dark:bg-background-dark border border-gray-950/10 dark:border-white/10 overflow-hidden w-full cursor-pointer hover:!border-primary dark:hover:!border-primary-light" href="/superun/changelog">
-      <div className="px-6 py-5 relative">
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
-          <div className="h-6 w-6 bg-primary dark:bg-primary-light" style={{maskImage:"url('https://d3gk2c5xim1je2.cloudfront.net/v6.6.0/regular/clock.svg')",maskRepeat:"no-repeat",maskPosition:"center center"}}></div>
-          <h3 className="not-prose font-semibold text-base text-gray-800 dark:text-white">Changelog</h3>
+    <a className="card block font-normal group relative my-2 ring-2 ring-transparent rounded-2xl bg-white dark:bg-background-dark border border-gray-950/10 dark:border-white/10 overflow-hidden w-full cursor-pointer hover:!border-primary dark:hover:!border-primary-light transition-all hover:shadow-lg" href="/superun/changelog">
+      <div className="px-6 py-6 relative">
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
+          <div className="h-8 w-8 bg-primary dark:bg-primary-light rounded-lg flex items-center justify-center" style={{maskImage:"url('https://d3gk2c5xim1je2.cloudfront.net/v6.6.0/regular/clock.svg')",maskRepeat:"no-repeat",maskPosition:"center center"}}></div>
+          <h3 className="not-prose font-semibold text-lg text-gray-800 dark:text-white">更新日志</h3>
         </div>
-        <div className="prose mt-1 text-sm leading-6 text-gray-600 dark:text-gray-400">Stay updated with the latest features, improvements, and changes in superun releases.</div>
-      </div>
-    </a>
-  </div>
-
-  {/* Prompt.to.design section */}
-  <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 self-start">
-    <a href="https://www.figma.com/community/plugin/1528325292196938261" target="_blank" rel="noopener noreferrer" className="hover:text-primary dark:hover:text-primary-light transition-colors">
-      Prompt.to.design
-    </a>
-  </h2>
-  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', width: '100%', maxWidth: '920px' }}>
-    <a className="card block font-normal group relative my-2 ring-2 ring-transparent rounded-2xl bg-white dark:bg-background-dark border border-gray-950/10 dark:border-white/10 overflow-hidden w-full cursor-pointer hover:!border-primary dark:hover:!border-primary-light" href="/prompt-to-design/guide/welcome">
-      <div className="px-6 py-5 relative">
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
-          <div className="h-6 w-6 bg-primary dark:bg-primary-light" style={{maskImage:"url('https://d3gk2c5xim1je2.cloudfront.net/v6.6.0/regular/wand-magic.svg')",maskRepeat:"no-repeat",maskPosition:"center center"}}></div>
-          <h3 className="not-prose font-semibold text-base text-gray-800 dark:text-white">Welcome</h3>
-        </div>
-        <div className="prose mt-1 text-sm leading-6 text-gray-600 dark:text-gray-400">Introduction to the AI-powered Figma plugin and how it fits into your design workflow.</div>
-      </div>
-    </a>
-
-    <a className="card block font-normal group relative my-2 ring-2 ring-transparent rounded-2xl bg-white dark:bg-background-dark border border-gray-950/10 dark:border-white/10 overflow-hidden w-full cursor-pointer hover:!border-primary dark:hover:!border-primary-light" href="/prompt-to-design/features/kick-start">
-      <div className="px-6 py-5 relative">
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
-          <div className="h-6 w-6 bg-primary dark:bg-primary-light" style={{maskImage:"url('https://d3gk2c5xim1je2.cloudfront.net/v6.6.0/regular/sparkles.svg')",maskRepeat:"no-repeat",maskPosition:"center center"}}></div>
-          <h3 className="not-prose font-semibold text-base text-gray-800 dark:text-white">Features</h3>
-        </div>
-        <div className="prose mt-1 text-sm leading-6 text-gray-600 dark:text-gray-400">Explore Kick Start, Style Transfer, Region Design, Smart Fill, and Modify Elements.</div>
-      </div>
-    </a>
-
-    {/* ← 这一块是更新后的第三个卡片 */}
-    <a className="card block font-normal group relative my-2 ring-2 ring-transparent rounded-2xl bg-white dark:bg-background-dark border border-gray-950/10 dark:border-white/10 overflow-hidden w-full cursor-pointer hover:!border-primary dark:hover:!border-primary-light" href="/prompt-to-design/templates/index">
-      <div className="px-6 py-5 relative">
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
-          <div className="h-6 w-6 bg-primary dark:bg-primary-light" style={{maskImage:"url('https://d3gk2c5xim1je2.cloudfront.net/v6.6.0/regular/rocket.svg')",maskRepeat:"no-repeat",maskPosition:"center center"}}></div>
-          <h3 className="not-prose font-semibold text-base text-gray-800 dark:text-white">Use Cases</h3>
-        </div>
-        <div className="prose mt-1 text-sm leading-6 text-gray-600 dark:text-gray-400">
-          Explore templates and tutorial prompts, from dashboards and SaaS apps to landing pages. All editable.
-        </div>
-      </div>
-    </a>
-
-    <a className="card block font-normal group relative my-2 ring-2 ring-transparent rounded-2xl bg-white dark:bg-background-dark border border-gray-950/10 dark:border-white/10 overflow-hidden w-full cursor-pointer hover:!border-primary dark:hover:!border-primary-light" href="/prompt-to-design/changelog">
-      <div className="px-6 py-5 relative">
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
-          <div className="h-6 w-6 bg-primary dark:bg-primary-light" style={{maskImage:"url('https://d3gk2c5xim1je2.cloudfront.net/v6.6.0/regular/clock.svg')",maskRepeat:"no-repeat",maskPosition:"center center"}}></div>
-          <h3 className="not-prose font-semibold text-base text-gray-800 dark:text-white">Changelog</h3>
-        </div>
-        <div className="prose mt-1 text-sm leading-6 text-gray-600 dark:text-gray-400">Version history and update notes for Prompt.to.design.</div>
+        <div className="prose mt-1 text-sm leading-6 text-gray-600 dark:text-gray-400">随时了解 superun 发布的最新功能、改进和更改。</div>
       </div>
     </a>
   </div>

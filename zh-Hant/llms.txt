@@ -24,13 +24,13 @@
 - [臨時聊天](https://docs.superun.com/zh-Hant/superun/features/temporary-chat): 在等待樣式生成完成時,與 superun AI 顧問進行免費臨時聊天.
 - [版本歷史回滾](https://docs.superun.com/zh-Hant/superun/features/version-history): 管理並還原專案的先前版本——查看版本歷史,使用版本歷史回滾功能一鍵還原任何先前的狀態.
 - [superun AI](https://docs.superun.com/zh-Hant/superun/integrations/ai): superun AI 讓你輕鬆將 GPT-4,Claude,Gemini 等強大 AI 模型整合到 Web 應用中,支援智慧聊天機器人,內容生成,表單處理,多語言翻譯等能力,並透過統一的 Credits 代幣系統計費.
-- [superun Cloud](https://docs.superun.com/zh-Hant/superun/integrations/cloud): 無需構建複雜的應用程序
+- [superun 雲服務](https://docs.superun.com/zh-Hant/superun/integrations/cloud): 無需構建複雜的應用程序
 - [介紹](https://docs.superun.com/zh-Hant/superun/integrations/introduction): 使用集成和外部 API 擴展您的 superun 應用程序功能
-- [Nano Banana](https://docs.superun.com/zh-Hant/superun/integrations/nano-banana): 在 superun 中使用 Nano Banana 影像模型,完成進階的圖片生成,編輯與影像工作流程.
+- [superun 生圖](https://docs.superun.com/zh-Hant/superun/integrations/nano-banana): 在 superun 中使用 superun 生圖 影像模型,完成進階的圖片生成,編輯與影像工作流程.
 - [Resend 集成](https://docs.superun.com/zh-Hant/superun/integrations/resend): 使用 Resend 將電子郵件功能添加到您的 superun 應用程序.Resend 是一個現代化的電子郵件 API.
-- [superun Storage](https://docs.superun.com/zh-Hant/superun/integrations/storage): 將儲存功能整合到您的產品中.安全地儲存和檢索數據.
+- [superun 雲儲存](https://docs.superun.com/zh-Hant/superun/integrations/storage): 將儲存功能整合到您的產品中.安全地儲存和檢索數據.
 - [Stripe 集成](https://docs.superun.com/zh-Hant/superun/integrations/stripe): 使用 Stripe 將支付處理功能添加到您的 superun 應用程序
-- [superun SMS Provider](https://docs.superun.com/zh-Hant/superun/integrations/superun-sms-provider): 使用 superun Cloud 整合 SMS 手機驗證 - 自動配置並可直接使用
+- [superun SMS Provider](https://docs.superun.com/zh-Hant/superun/integrations/superun-sms-provider): 使用 superun 雲服務 整合 SMS 手機驗證 - 自動配置並可直接使用
 - [常見問題解答](https://docs.superun.com/zh-Hant/superun/introduction/faq): 有關 superun 功能,工作流程,數據,安全性和策略的常見問題的解答.
 - [入門](https://docs.superun.com/zh-Hant/superun/introduction/getting-started): superun 入門:從第一次提示到發布 — 設置,工作流程和集成.
 - [歡迎來到superun](https://docs.superun.com/zh-Hant/superun/introduction/welcome): 探索 superun.com,這是一款由 AI 驅動的應用與網站建置平台.透過自然語言即可建立並發佈應用,結合代碼模式與可視化編輯,適合各種技能層級的使用者快速上手.

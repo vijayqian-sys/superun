@@ -11,7 +11,7 @@ Stripe 是一个支付处理平台,可让您在线接受付款.通过 superun �
 superun 现在允许您完全通过 **聊天** 设置 Stripe.
 
 **聊天驱动的自动设置（推荐）**
-连接 **superun Cloud**（或 Supabase）,并在 **研发 → 服务 → Stripe** 中设定好 Stripe 凭证（如下文的设定步骤）,然后只需在聊天中描述你的需求:
+连接 **superun 云服务**（或 Supabase）,并在 **研发 → 服务 → Stripe** 中设定好 Stripe 凭证（如下文的设定步骤）,然后只需在聊天中描述你的需求:
 
 *“添加三个订阅级别:基本版为 9 美元/月,专业版为 29 美元/月,企业版为 99 美元/月”
 *“为我的电子书创建一次性结账,价格为 29 美元”
@@ -21,7 +21,7 @@ superun 生成结账组件,数据库表和支付逻辑,除非您要求,否则无
 
 <Note>
 - 对于**一次性销售**,请确保您的购物车或产品页面已正常运行.
-  - 对于 **订阅**,请确认 superun Cloud（或 Supabase）身份验证已到位,以便 superun 可以将 Stripe 客户链接到每个用户的 **id**
+  - 对于 **订阅**,请确认 superun 云服务（或 Supabase）身份验证已到位,以便 superun 可以将 Stripe 客户链接到每个用户的 **id**
 </Note>
 
 ### 要点
@@ -29,7 +29,7 @@ superun 生成结账组件,数据库表和支付逻辑,除非您要求,否则无
 * 使用**聊天驱动流程**进行订阅和一次性付款.
 * **切勿在聊天中粘贴您的 Stripe 密钥.** 请在 **研发 → 服务 → Stripe** 中通过 **STRIPE_API_KEY** 栏位进行设定.
 * **Webhook 是可选择加入的.** 如果需要使用 Webhook,请在 **STRIPE_WEBHOOK_SECRET** 栏位填入 Stripe 的 Webhook 签名密钥,让 superun 可以验证事件.
-* 在 **浏览器控制台 → 网络/错误**,**superun Cloud → 日志** 和 **Stripe 仪表板 → 日志** 中进行调试.
+* 在 **浏览器控制台 → 网络/错误**,**superun 云服务 → 日志** 和 **Stripe 仪表板 → 日志** 中进行调试.
 * 始终在 **Stripe 测试模式**下进行测试,然后进行部署.
 
 ## 什么是 Stripe
@@ -55,7 +55,7 @@ Stripe 提供一整套支付 API 和工具:
 
 在集成 Stripe 之前,请确保满足以下先决条件:
 
-* 项目**必须**连接到 **superun Cloud**（或 Supabase）. [详细了解 superun Cloud](/superun/integrations/cloud) 或 [Supabase 集成](/superun/integrations/supabase)
+* 项目**必须**连接到 **superun 云服务**（或 Supabase）. [详细了解 superun 云服务](/superun/integrations/cloud) 或 [Supabase 集成](/superun/integrations/supabase)
 * 具有正确配置产品的 **Stripe 帐户**（用于订阅）
 * 一个工作的**前端**:
 * 对于单个产品销售,请确保购物车和结帐页面正常运行.
@@ -68,11 +68,11 @@ Stripe 提供一整套支付 API 和工具:
 
 ## Stripe 支付设置（无代码聊天流程）
 
-superun 现在为您生成所有 Stripe 逻辑.当你通过 **研发 → 服务 → Stripe** 设定好 **STRIPE_API_KEY**（以及可选的 **STRIPE_WEBHOOK_SECRET**）并且项目已**连接到 superun Cloud**（或 Supabase）后,只需在聊天中告诉 superun 你需要什么,无需手动编码.
+superun 现在为您生成所有 Stripe 逻辑.当你通过 **研发 → 服务 → Stripe** 设定好 **STRIPE_API_KEY**（以及可选的 **STRIPE_WEBHOOK_SECRET**）并且项目已**连接到 superun 云服务**（或 Supabase）后,只需在聊天中告诉 superun 你需要什么,无需手动编码.
 
 <Steps>
   <Step title="第 1 步:准备您的项目">
-    * **superun Cloud** （或 Supabase）已连接
+    * **superun 云服务** （或 Supabase）已连接
     * **Stripe 密钥** 通过 **研发 → 服务 → Stripe** 进行设定
     *（可选）价格或产品 ID 可从 Stripe 仪表板获取
   </Step>
@@ -87,12 +87,12 @@ superun 现在为您生成所有 Stripe 逻辑.当你通过 **研发 → 服务 
   </Step>
 
   <Step title="第 3 步:审核併申请">
-    superun 自动搭建支付组件,数据库表（如果使用 superun Cloud）和 UI 元素（全部与用户 ID 相关联）的支架.检查预览,然后单击**应用**进行部署.
+    superun 自动搭建支付组件,数据库表（如果使用 superun 云服务）和 UI 元素（全部与用户 ID 相关联）的支架.检查预览,然后单击**应用**进行部署.
   </Step>
   </Steps>
 
 <Note>
-  * 订阅应始终链接到 superun Cloud（或 Supabase）中经过身份验证的用户的“id”,以实现安全,基于角色的访问.
+  * 订阅应始终链接到 superun 云服务（或 Supabase）中经过身份验证的用户的“id”,以实现安全,基于角色的访问.
 </Note>
 
 ## 入门
@@ -375,9 +375,9 @@ const handleManageSubscription = async () => {
 };
 ```
 
-## 高级集成:Webhooks 和 superun Cloud
+## 高级集成:Webhooks 和 superun 云服务
 
-对于复杂的支付结构,例如**订阅和基于角色的访问**,superun 建议使用 **superun Cloud**（或 Supabase）来安全地处理 Stripe 集成.这允许正确的 Webhook 处理,订阅管理和基于支付级别的基于角色的访问控制.
+对于复杂的支付结构,例如**订阅和基于角色的访问**,superun 建议使用 **superun 云服务**（或 Supabase）来安全地处理 Stripe 集成.这允许正确的 Webhook 处理,订阅管理和基于支付级别的基于角色的访问控制.
 
 <Note>
   对于基本支付流程,Webhook 是**可选**. superun 可以在没有 Webhooks 的情况下处理付款,但设置它们可以实现实时更新和更好的订阅管理.
@@ -386,18 +386,18 @@ const handleManageSubscription = async () => {
 ### 设置 Webhooks
 
 <Steps>
-  <Step title="第 1 步:连接 superun Cloud">
-    入门很简单. superun 使连接 superun Cloud 变得毫不费力:
+  <Step title="第 1 步:连接 superun 云服务">
+    入门很简单. superun 使连接 superun 云服务 变得毫不费力:
 
 1. 转到 **研发 → 服务**
-    2. 找到 **superun Cloud** 并点击 **启用**
+    2. 找到 **superun 云服务** 并点击 **启用**
     3. 按照说明设置您的云项目
-    4. 连接后,superun Cloud 可实现安全支付处理,订阅管理,Webhook 处理,客户数据存储和错误处理.
+    4. 连接后,superun 云服务 可实现安全支付处理,订阅管理,Webhook 处理,客户数据存储和错误处理.
   </Step>
 
   <Step title="第 2 步:检索 Webhook 端点 URL">
     superun 生成 Webhook 处理程序后,从以下位置检索端点 URL:
-    * **superun Cloud** → **函数** → 您的 webhook 函数
+    * **superun 云服务** → **函数** → 您的 webhook 函数
     * 或者在聊天中询问 superun:"我的 Stripe webhook 端点 URL 是什么?"
   </Step>
 
@@ -414,7 +414,7 @@ const handleManageSubscription = async () => {
   </Step>
 
   <Step title="第 4 步:安全存储 Webhook 密钥">
-    将 Webhook 签名密钥存储在您的 superun Cloud 环境变量中,或者在聊天中询问 superun 以帮助您安全地配置它.
+    将 Webhook 签名密钥存储在您的 superun 云服务 环境变量中,或者在聊天中询问 superun 以帮助您安全地配置它.
 
     <Info>
     如果不确定如何命名秘密,请在 **免费咨询** 中向 superun 寻求指导.
@@ -785,10 +785,10 @@ const SubscriptionStatus = ({ customerId }) => {
     </Steps>
   </Accordion>
 
-<Accordion title="查看 superun Cloud 日志">
+<Accordion title="查看 superun 云服务 日志">
     <Steps>
         <Step title="第 1 步">
-        转到 **研发 → 服务 → superun Cloud**
+        转到 **研发 → 服务 → superun 云服务**
       </Step>
 
   <Step title="第 2 步">
@@ -872,7 +872,7 @@ const SubscriptionStatus = ({ customerId }) => {
 - 订阅创建成功
 - 为订阅事件选择Webhook事件
 - Webhook 端点正在正确处理事件
-- Webhook 机密正确存储在 superun Cloud 中
+- Webhook 机密正确存储在 superun 云服务 中
 
 <Card title="需要帮助吗?" icon="help-circle" href="/superun/introduction/faq">
   查看我们的常见问题解答,了解常见的 Stripe 集成问题和故障排除提示.

@@ -24,13 +24,13 @@
 - [临时聊天](https://docs.superun.com/superun/features/temporary-chat): 在等待样式生成完成时,与 superun AI 顾问进行免费临时聊天.
 - [版本历史回滚](https://docs.superun.com/superun/features/version-history): 管理并还原项目的先前版本——查看版本历史,使用版本历史回滚功能一键还原任何先前的状态.
 - [superun AI](https://docs.superun.com/superun/integrations/ai): superun AI 让你轻松将 GPT-4,Claude,Gemini 等强大 AI 模型整合到 Web 应用中,支持智慧聊天机器人,内容生成,表单处理,多语言翻译等能力,并通过统一的 Credits 代币系统计费.
-- [superun Cloud](https://docs.superun.com/superun/integrations/cloud): 无需构建复杂的应用程序
+- [superun 云服务](https://docs.superun.com/superun/integrations/cloud): 无需构建复杂的应用程序
 - [介绍](https://docs.superun.com/superun/integrations/introduction): 使用集成和外部 API 扩展您的 superun 应用程序功能
-- [Nano Banana](https://docs.superun.com/superun/integrations/nano-banana): 在 superun 中使用 Nano Banana 影像模型,完成进阶的图片生成,编辑与影像工作流程.
+- [superun 生图](https://docs.superun.com/superun/integrations/nano-banana): 在 superun 中使用 superun 生图 影像模型,完成进阶的图片生成,编辑与影像工作流程.
 - [Resend 集成](https://docs.superun.com/superun/integrations/resend): 使用 Resend 将电子邮件功能添加到您的 superun 应用程序.Resend 是一个现代化的电子邮件 API.
-- [superun Storage](https://docs.superun.com/superun/integrations/storage): 将储存功能整合到您的产品中.安全地储存和检索数据.
+- [superun 云存储](https://docs.superun.com/superun/integrations/storage): 将储存功能整合到您的产品中.安全地储存和检索数据.
 - [Stripe 集成](https://docs.superun.com/superun/integrations/stripe): 使用 Stripe 将支付处理功能添加到您的 superun 应用程序
-- [superun SMS Provider](https://docs.superun.com/superun/integrations/superun-sms-provider): 使用 superun Cloud 整合 SMS 手机验证 - 自动配置并可直接使用
+- [superun SMS Provider](https://docs.superun.com/superun/integrations/superun-sms-provider): 使用 superun 云服务 整合 SMS 手机验证 - 自动配置并可直接使用
 - [常见问题解答](https://docs.superun.com/superun/introduction/faq): 有关 superun 功能,工作流程,数据,安全性和策略的常见问题的解答.
 - [入门](https://docs.superun.com/superun/introduction/getting-started): superun 入门:从第一次提示到发布 — 设置,工作流程和集成.
 - [欢迎来到superun](https://docs.superun.com/superun/introduction/welcome): 探索 superun.com,这是一款由 AI 驱动的应用与网站建置平台.通过自然语言即可建立并发布应用,结合代码模式与可视化编辑,适合各种技能层级的用户快速上手.
